@@ -2,12 +2,12 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://tclh123.github.com
+title: Tclh123's 3rd Blog
+subtitle: I never quit, I never forgot my dreams.
+author: tclh123
 simple_search: http://google.com/search
-description:
+description: Tclh123's 3rd Blog
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -58,8 +58,8 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 # ----------------------- #
 
 # Github repositories
-github_user:
-github_repo_count: 0
+github_user: tclh123
+github_repo_count: 5
 github_show_profile_link: true
 github_skip_forks: true
 
@@ -89,7 +89,7 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
+disqus_short_name: tclh123github
 disqus_show_comment_count: false
 
 # Google Analytics
