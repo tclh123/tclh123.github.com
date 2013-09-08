@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sublime | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/sublime/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-08T18:34:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[sublime text 2 build system for OSX]]></title>
+    <link href="http://tclh123.github.com/blog/2013/05/12/sublime-text-2-build-system-for-osx/"/>
+    <updated>2013-05-12T23:15:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/05/12/sublime-text-2-build-system-for-osx</id>
+    <content type="html"><![CDATA[<h2>Cpp</h2>
+
+<p>``` json
+{</p>
+
+<pre><code>"cmd": ["bash", "-c", "g++ '${file}' -o '${file_path}/${file_base_name}' &amp;&amp; open '${file_path}/${file_base_name}'"],
+"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+"working_dir": "${file_path}",
+"selector": "source.c, source.c++",
+
+"variants":
+[
+    {
+        "name": "Run",
+        "cmd": ["bash", "-c", "g++ '${file}' -o '${file_path}/${file_base_name}' &amp;&amp; '${file_path}/${file_base_name}'&lt;'${file_path}/${file_base_name}.in'&gt;'${file_path}/${file_base_name}.out'"]
+    }
+]
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>Python</h2>
+
+<p>``` json
+{</p>
+
+<pre><code>"cmd": ["bash", "-c", "python -u '${file}' &amp;&amp; chmod a+x '${file}' &amp;&amp; open -a terminal '${file}'"],
+"selector": "source.python",
+
+"variants":
+[
+    {
+        "name": "Run",
+        "cmd": ["bash", "-c", "python -u '${file}' &amp;&amp; chmod a+x '${file}' &amp;&amp; '${file}'&lt;'${file_path}/${file_base_name}.in'&gt;'${file_path}/${file_base_name}.out'"]
+    }
+]
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>Java</h2>
+
+<p>``` json
+{</p>
+
+<pre><code>"cmd": ["bash", "-c", "javac '${file}' &amp;&amp; java '${file_base_name}'"],
+"file_regex": "^(...*?):([0-9]*):?([0-9]*)",
+"selector": "source.java, source.java"
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>Conclusion</h2>
+
+<p>For cpp &amp; python, the build-system can open a new terminal window, so I can interact(ep. input) with my program easily.</p>
+
+<p>For java, I don't know how to do that, only can show the outputs yet.</p>
+]]></content>
+  </entry>
+  
+</feed>

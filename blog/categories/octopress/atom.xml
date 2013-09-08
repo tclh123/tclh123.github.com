@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-08T18:34:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[use octpress]]></title>
+    <link href="http://tclh123.github.com/blog/2012/11/28/use-octpress/"/>
+    <updated>2012-11-28T18:44:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2012/11/28/use-octpress</id>
+    <content type="html"><![CDATA[<p>繁杂的生活中让人更加萌生追求极简的欲望，心血来潮就打算那拿octopress再搭个博客（希望这个博客能够让我心宁静）。</p>
+
+<p><em>以下皆为回忆，可能由于某种原因记错，仅供参考...</em></p>
+
+<!--more-->
+
+
+<p>但是这东西还真是超出我预期的让我折腾了很久，我的OSX默认是ruby是1.8的，octopress需要1.9.3，于是去安装rvm。</p>
+
+<p><code>bash 安装rvm
+curl -L https://get.rvm.io | sudo bash -s stable
+</code></p>
+
+<p>装完还挺快的，接着就去装ruby 1.9.3，</p>
+
+<p><code>bash
+rvm install 1.9.3
+</code></p>
+
+<p>然后直接跳出一个说明(vim)，说我gcc是lvvm-based的...不支持...要重装(= =!)，它提供了两个途径，然后我用brew装了gcc-4.2</p>
+
+<p><code>bash 貌似是这样
+brew install gcc-4.2
+</code></p>
+
+<p>再去装ruby貌似就正常了，
+等了半小时没反应...就根据<a href="http://ruby-china.org/wiki/install_ruby_guide">这篇</a>用了<a href="http://ruby.taobao.org">淘宝的镜像</a>，不过要注意OSX的<a href="http://blog.tclh123.com/165001">rvm路径不一样</a>。然后速度就很快了...但是装到rubygem的时候，停在94%不动了...于是待机睡觉...
+第二天看看还是停在94%...强制结束掉，然后重启reinstall，这次ok了。</p>
+
+<p>然后，设置默认ruby版本为1.9.3</p>
+
+<p><code>bash
+rvm 1.9.3 --default
+</code></p>
+
+<p>之后又折腾了几次octopress，主要是参考了以下几篇经验，</p>
+
+<ul>
+<li>http://voodeng.com/blog/2012/09/02/octopress-on-github/</li>
+<li>http://mrzhang.me/blog/blog-equals-github-plus-octopress.html</li>
+</ul>
+
+
+<p>搞了几次，rake generate 有报错，参考<a href="http://blog.visioncan.com/2012/octopress-rake-generate-error/">这篇</a>后，发现是我博文名字的问题，我取得是"Hello Octopress!"...然后把<code>\!</code>删了就好了。
+之后把博客绑定到了<a href="http://oct.tclh123.com">oct.tclh123.com</a>上，</p>
+
+<p><code>bash
+echo 'oct.tclh123.com' &gt;&gt; source/CNAME
+</code></p>
+
+<p>然后去DNS那加个oct到tclh123.github.com的CNAME。
+至此，基本搞定。</p>
+]]></content>
+  </entry>
+  
+</feed>

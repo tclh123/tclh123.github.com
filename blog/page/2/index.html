@@ -1,0 +1,1166 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Core Java 2 读书笔记（一） May 13th, 2013 我不会说我是因为明天考Java才开始看的。 鉴于记性实在太差，觉得以后每系统地学一个新的东西都要做一点笔记。。留给以后回忆用。。（“青春就是用来回忆的&#8230;” 从第三章开始看的，看到第六章。 数据类型 基本类型，八种， &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/" class="current">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/05/13/core-java-2-du-shu-bi-ji-%28%5B%3F%5D-%29/">Core Java 2 读书笔记（一）</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-13T22:51:00+08:00" pubdate data-updated="true">May 13<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>我不会说我是因为明天考Java才开始看的。</p>
+
+<p>鉴于记性实在太差，觉得以后每系统地学一个新的东西都要做一点笔记。。留给以后回忆用。。（“青春就是用来回忆的&#8230;”</p>
+
+<p>从第三章开始看的，看到第六章。</p>
+
+<h2>数据类型</h2>
+
+<ul>
+<li>基本类型，八种，int/short/long/byte，float/double，char，boolean</li>
+<li>对象，都集成于Object类</li>
+</ul>
+
+
+<p>ps. 没有unsigned类型，于是我就想&#8230;表示pixel的话，只能用-128~127的byte了&#8230;</p>
+
+<h2>赋值与初始化</h2>
+
+<p>Java中只有声明（没有类似C/C++的定义一说，声明的同时可以初始化变量）。</p>
+
+<h2>常量</h2>
+
+<p>用final修饰（const虽然为保留字，但目前还未定义）</p>
+
+<h2>操作符</h2>
+
+<p>有一种<code>&gt;&gt;&gt;</code>操作符，表示逻辑右移，<code>&gt;&gt;</code>是算术右移。</p>
+
+<h2>字符串equals</h2>
+
+<p>要使用<code>equals</code>来进行String的比较（覆盖了Object的equals），<code>==</code>只能判断两个串是否储存在同一位置。</p>
+
+<h2>格式化输出</h2>
+
+<p>可以用<code>System.out.printf()</code>，类似C的printf。</p>
+
+<p><em>ps.不知道为什么书上介绍的是Format.printf()</em></p>
+
+<h2>循环、分支</h2>
+
+<p><code>switch</code>语句的<code>case</code>标签必须是整数。</p>
+
+<p><code>break</code>还有一种带标签的break语句，用于跳出多层循环。</p>
+
+<h2>大数字</h2>
+
+<p>BigInterger、BigDecimal，有add、subtract、multiply、divide、mod等方法。
+用valueOf静态方法来转成大数字。</p>
+
+<p>Java跟C++不同，程序员无法重载操作符。</p>
+
+<h2>数组</h2>
+
+<p><code>int[] a;</code>跟<code>int a[];</code>都可以用来声明数组。</p>
+
+<p><code>System.arraycopy(from, fromIndex, to, toIndex, count)</code>可以用来拷贝数组中的元素。</p>
+
+<p><code>Arrays.sort(a)</code>可以对数组排序。
+<em>ps.开始我奇怪怎么没有类似的cmp函数，原来是在Comparable接口中定义了</em></p>
+
+<h2>Conclusion</h2>
+
+<p>四五六章后面几篇再写。。</p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/05/12/sublime-text-2-build-system-for-osx/">Sublime Text 2 Build System for OSX</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-12T23:15:00+08:00" pubdate data-updated="true">May 12<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><h2>Cpp</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;g++ &#39;${file}&#39; -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; open &#39;${file_path}/${file_base_name}&#39;&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;working_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;${file_path}&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.c, source.c++&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&quot;variants&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Run&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;g++ &#39;${file}&#39; -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; &#39;${file_path}/${file_base_name}&#39;&lt;&#39;${file_path}/${file_base_name}.in&#39;&gt;&#39;${file_path}/${file_base_name}.out&#39;&quot;</span><span class="p">]</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Python</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;python -u &#39;${file}&#39; &amp;&amp; chmod a+x &#39;${file}&#39; &amp;&amp; open -a terminal &#39;${file}&#39;&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.python&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&quot;variants&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Run&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;python -u &#39;${file}&#39; &amp;&amp; chmod a+x &#39;${file}&#39; &amp;&amp; &#39;${file}&#39;&lt;&#39;${file_path}/${file_base_name}.in&#39;&gt;&#39;${file_path}/${file_base_name}.out&#39;&quot;</span><span class="p">]</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Java</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;javac &#39;${file}&#39; &amp;&amp; java &#39;${file_base_name}&#39;&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(...*?):([0-9]*):?([0-9]*)&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.java, source.java&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>For cpp &amp; python, the build-system can open a new terminal window, so I can interact(ep. input) with my program easily.</p>
+
+<p>For java, I don&#8217;t know how to do that, only can show the outputs yet.</p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/05/12/xiang-zuo-de-dong-xi/">想做的东西</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-12T19:53:00+08:00" pubdate data-updated="true">May 12<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><ul>
+<li>一个TODO</li>
+<li>个人网站</li>
+</ul>
+
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/05/12/javac-terminal-utf-8-encoding/">Javac Terminal Utf-8 Encoding</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-12T19:38:00+08:00" pubdate data-updated="true">May 12<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>OS X 的terminal输出信息是utf-8编码的，</p>
+
+<p>但是javac默认输出GBK，会导致乱码。</p>
+
+<p>可以用<code>javac -J-Dfile.encoding=UTF-8</code>来使其输出utf-8编码的信息。</p>
+
+<p>解决方案:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo "alias javac='javac -J-Dfile.encoding=UTF-8 '"&gt;&gt;~/.bash_profile</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Reference</h3>
+
+<p><a href="https://www.surfchen.org/archives/710">解决javac和java命令在Mac OSX终端里的乱码问题</a></p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/05/08/sublime-text-2-shi-yong-zhong-wen-lu-jing/">Sublime Text 2 使用中文路径</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-08T17:07:00+08:00" pubdate data-updated="true">May 8<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>文件是中文路径的话，使用build system不能正常工作。</p>
+
+<p>解决方法：</p>
+
+<p>在OS X上，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>subl /Applications/Sublime\ Text\ 2.app/Contents/MacOS/sublime_plugin.py</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在文件末尾添加两行代码，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>reload(sys) 
+</span><span class='line'>sys.setdefaultencoding('utf-8')</span></code></pre></td></tr></table></div></figure>
+
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/05/04/ge-chong-pai-xu-suan-fa/">各种排序算法</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-04T15:31:00+08:00" pubdate data-updated="true">May 4<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>这篇东西其实是当时为了找实习而复习排序弄的，面试官无聊就喜欢问你个排序，如果你连插入排序跟选择排序都分不清楚的话还是别去找虐了。</p>
+
+<h2>几种排序</h2>
+
+<p>大致按算法难度、类型从上到下排。</p>
+
+<p><em>算法描述都按升序排序，复杂度都指平均复杂度。</em></p>
+
+<ul>
+<li><p>冒泡排序</p>
+
+<p>  模拟<strong>气泡</strong>浮上来的过程，n-1趟float，时间复杂度O( n<sup>2</sup> )</p></li>
+<li><p>选择排序，一般指简单选择排序</p>
+
+<p>  每次在无序区中<strong>选择</strong>出最大的元素，然后放到有序区跟无序区间，n-1趟，时间复杂度O( n<sup>2</sup> )</p></li>
+<li><p>插入排序，一般指直接插入排序，还有折半插入排序、2-路插入排序、表插入排序等</p>
+
+<p>  本质：元素插入到有序列。</p>
+
+<p>  左边有序区，右边无序区（待排），每次将无序区最左边的元素<strong>插入</strong>到有序区中合适的位置（故涉及到元素的右移），n-1次，时间复杂度O( n<sup>2</sup> )</p></li>
+<li><p>希尔排序，对直接插入排序的改进</p>
+
+<p>  简单来说，就是取不同步长，进行多次插入排序，最后步长为1，就是以此直接插入排序。重点在于步长的选择，原始版本步长为n/( 2<sup>i</sup> )，最坏复杂度O( n<sup>2</sup> )。现在最好的步长可以达到O( n(logn)<sup>2</sup> )，仅次于O(nlogn)的排序。</p>
+
+<p>  <a href="http://zh.wikipedia.org/wiki/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F">可以想象成取不同的行宽，按列进行插入排序。</a></p>
+
+<p>  当刚开始元素很无序的时候，步长最大，所以插入排序的元素个数很少，速度很快；当元素基本有序了，步长很小，插入排序对于有序的序列效率很高。</p></li>
+<li><p>基数排序</p>
+
+<p>  这篇文章的唯一一个非比较型排序算法。基数（Radix），即数的进制。之所以能够不进行比较，是因为它按数位将数分配到Radix个桶中，再顺序进行收集。</p>
+
+<p>  有LSD（Least significant digital）、MSD（Most significant digital）两种方式。需要进行k(数据中最大位数)趟，每趟分配要O(n)，收集要O(radix)，所以总复杂度O(k(n+radix))。</p></li>
+<li><p>归并排序，一般指2-路归并排序，还有非递归归并排序、自然归并排序等。</p>
+
+<p>  本质：分治，有序列合并。</p>
+
+<p>  二分需要O(logn)，合并需要O(n)，总时间复杂度O(nlogn)。需要O(n)的额外空间，用于存放合并有序列的临时结果。</p></li>
+<li><p>快速排序</p>
+
+<p>  本质：分治，Patition。</p>
+
+<p>  难点在于Patition，要做到O(n)的时间复杂度。简单来说，就是选最左边的作为pivot，并维护值，然后两个指针，从右往左扫，从左往右扫，遇到不合适的，则换到另一边。直到两个指针相遇。</p>
+
+<p>  总平均时间复杂度O(nlogn)。</p></li>
+<li><p>堆排序</p>
+
+<p>  本质：堆（分治）</p>
+
+<p>  升序排列的话需要借助大顶堆，涉及max_heapify、sift_down两个子操作。其中sift_down类似直接插入排序中的数组右移。</p>
+
+<p>  其实说白了就是二叉堆上的插入排序。</p></li>
+</ul>
+
+
+<h3>归类</h3>
+
+<p>冒泡、选择、插入，都可以认为是将元素划分为有序区、无序区，都要n-1趟处理（无序区拓展到有序区），时间复杂度都是O( n<sup>2</sup> )。</p>
+
+<p>希尔，实现起来很简单，采用最佳步长的话，复杂度可以达到O( n(logn)<sup>2</sup> )，仅次于O(nlogn)的排序。而且插入排序在元素基本有序的情况下时间复杂度接近O(n)。在一些情况下还是很有优势的。</p>
+
+<p>基数，非比较型排序算法，类似的还有桶排序等。在数据有一定限制（比如都在0~1000间），数据量很大（比较型算法最快也要O(nlogn)）的情况下，可以考虑非比较型算法，可以O(n)完成。</p>
+
+<p>归并、快速、堆排，都应用了分治思想，平均复杂度都是O(nlogn)。这也是基于比较的排序算法的极限了。</p>
+
+<h2>具体实现</h2>
+
+<p>我希望用最简洁的代码实现算法。</p>
+
+<p>因为面试一般不让写伪代码，而且是在纸上写，所以我就不用宏定义写得标准一点了。</p>
+
+<p><em>Ps. 我原来写swap是这样写，<code>inline int swap(int &amp;x, int &amp;y) { x^=y; y^=x; x^=y; }</code>，结果被坑了，why？试想x、y地址一样的话&#8230;</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#include &lt;cstdio&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;cstring&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;iostream&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;list&gt;</span>
+</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class='line'><span class="kr">inline</span> <span class="kt">int</span> <span class="n">swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="kr">inline</span> <span class="kt">int</span> <span class="n">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="n">y</span><span class="p">)</span><span class="o">?</span> <span class="nl">x:</span> <span class="n">y</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="kr">inline</span> <span class="kt">int</span> <span class="n">min</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="n">y</span><span class="p">)</span><span class="o">?</span> <span class="nl">x:</span> <span class="n">y</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="cp">#define bug(s) cout&lt;&lt;#s&lt;&lt;&quot;=&quot;&lt;&lt;s&lt;&lt;&quot; &quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 冒泡，O(n^2)</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">bubble_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+</span><span class='line'>                <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 简单选择，O(n^2)</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">selection_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">maxi</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">maxi</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span><span class='line'>                <span class="n">maxi</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">maxi</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">k</span><span class="p">]);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 直接插入，O(n^2)</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">insert_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&gt;</span><span class="n">t</span><span class="p">;</span> <span class="n">j</span><span class="o">--</span><span class="p">)</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span><span class='line'>        <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 希尔，O(n^2)</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">shell_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">gap</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> <span class="n">gap</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span> <span class="n">gap</span><span class="o">/=</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">gap</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>            <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">-</span><span class="n">gap</span><span class="p">;</span> <span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&gt;</span><span class="n">t</span><span class="p">;</span> <span class="n">j</span><span class="o">-=</span><span class="n">gap</span><span class="p">)</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="n">gap</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span><span class='line'>            <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="n">gap</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 基数，O(k*(n+r))，假设radix=10, k=5</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">radix_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">l</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">e</span><span class="o">*=</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="n">l</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">e</span><span class="o">%</span><span class="mi">10</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">r</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span><span class='line'>                <span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">front</span><span class="p">();</span>
+</span><span class='line'>                <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">pop_front</span><span class="p">();</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 归并，O(nlog(n))</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mid</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">l</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">mid</span> <span class="o">&amp;&amp;</span> <span class="n">j</span><span class="o">&lt;=</span><span class="n">r</span><span class="p">;)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="n">t</span><span class="p">[</span><span class="n">c</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+</span><span class='line'>        <span class="k">else</span> <span class="n">t</span><span class="p">[</span><span class="n">c</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">mid</span><span class="p">)</span> <span class="n">t</span><span class="p">[</span><span class="n">c</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">r</span><span class="p">)</span> <span class="n">t</span><span class="p">[</span><span class="n">c</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">c</span><span class="o">&lt;</span><span class="n">r</span><span class="o">-</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="o">+</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">c</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">m_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">m_sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">m_sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">merge_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="o">*</span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">);</span>   <span class="c1">// 统一用一个临时空间</span>
+</span><span class='line'>    <span class="n">m_sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">free</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 快速排序，O(nlogn)</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">patition</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>   <span class="c1">//pivot</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">t</span><span class="p">)</span> <span class="n">r</span><span class="o">--</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="p">];</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">t</span><span class="p">)</span> <span class="n">l</span><span class="o">++</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">q_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="n">patition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">q_sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">q_sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">quick_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">q_sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// 堆排序，O(nlogn)</span>
+</span><span class='line'><span class="cp">#define lson(e) (e)&lt;&lt;1|1</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">sift_down</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// 类似直接插入排序的sift</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">lson</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">=</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="n">lson</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span>   <span class="c1">// 取较大的节点</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">t</span><span class="o">&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">max_heapify</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">sift_down</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">heap_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">max_heapify</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span class='line'>        <span class="n">sift_down</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">15</span><span class="p">};</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span><span class='line'>    <span class="c1">// bubble_sort(a, n);</span>
+</span><span class='line'>    <span class="c1">// selection_sort(a, n);</span>
+</span><span class='line'>    <span class="c1">// insert_sort(a, n);</span>
+</span><span class='line'>    <span class="c1">// shell_sort(a, n);</span>
+</span><span class='line'>    <span class="c1">// radix_sort(a, n);</span>
+</span><span class='line'>    <span class="c1">// merge_sort(a, n);</span>
+</span><span class='line'>    <span class="c1">// quick_sort(a, n);</span>
+</span><span class='line'>    <span class="n">heap_sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="c1">// 1 3 4 5 6 8 9 15 16</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/05/02/prologyu-yan/">Prolog语言</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-02T17:11:00+08:00" pubdate data-updated="true">May 2<span>nd</span>, 2013</time>
+</div>
+
+<div class="post-content"><p><em>Not Finished yet</em></p>
+
+<p>选了个人工智能的选修，教的是prolog（为啥不教lisp..）</p>
+
+<p>prolog好老了，看了下介绍，貌似是种描述型语言，不带流程控制，依靠数据间的关系（逻辑），自动进行推理（所谓智能）。</p>
+
+<h2>语言基本内容</h2>
+
+<h3>项</h3>
+
+<p><img src="MyImage/prolog_1.png" alt="" /></p>
+
+<h3>语句</h3>
+
+<p>只有三种语句，事实、规则、问题（目标）。
+语句都要用点(.)结束。</p>
+
+<p>基本就是离散数学里的数理逻辑部分那个意思，前提、产生式、结论。</p>
+
+<blockquote><p>Prolog语言是一种以一阶谓词为基础的逻辑性语言（Programming in logic）。</p></blockquote>
+
+<p>从命题逻辑，到谓词逻辑（加入谓词、量词）形成一阶逻辑系统。回想了下，数理逻辑好像很厉害的样子，不过学完了也记不得多少理论的东西了&#8230;</p>
+
+<h4>事实</h4>
+
+<p>格式：P. （P表示一个谓词公式，即&lt;谓词名>(&lt;项表>)）
+含义：无条件成立，恒为真
+eg. like(monkey, banana)</p>
+
+<h4>规则</h4>
+
+<p>格式：P :- P1, P2, &#8230;, Pn. （:- 表示 蕴含，即->，,表示 合取/与，及<sup>）</sup>
+含义：若P1, &#8230;,Pn均为真，P为真</p>
+
+<h4>问题（目标）</h4>
+
+<p>格式：Q1,Q2,&#8230;Qm.
+含义：待回答的问题，即Q1,&#8230;Qm同时为真吗？</p>
+
+<h3>表</h3>
+
+<h3>谓词</h3>
+
+<h2>后续</h2>
+
+<p>Ps.由于课没去过几次，今天看ppt发现课上讲的是Turbo Prolog（呵呵..我说咋差这么大呢），<a href="http://en.wikipedia.org/wiki/Prolog#Related_languages">Wiki</a>上说</p>
+
+<blockquote><p>Visual Prolog, formerly known as PDC Prolog and Turbo Prolog, is a strongly typed object-oriented dialect of Prolog, which is very different from standard Prolog. As Turbo Prolog it was marketed by Borland, but it is now developed and marketed by the Danish firm PDC (Prolog Development Center) that originally produced it.</p></blockquote>
+
+<p>Prolog好几种方言啊，咱还是用GNU吧（找到个<a href="http://sourceforge.net/projects/xgp/">for OS X的IDE</a>）。</p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/03/03/hey-man/">你在为自己战斗</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-03T00:56:00+08:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2013</time>
+</div>
+
+<div class="post-content"><pre>
+你懂么？
+没什么好愧疚的，你只是在为自己战斗而已。
+总会受伤。
+你会继续前进，
+因为你是在为自己战斗。
+
+唯心主义，
+你只相信你所感受到的。
+所以你的心情能决定一切。
+这种人是能无敌，
+还是走向毁灭，
+一念之间而已。
+
+你真是个奇葩。
+哦，这我已经习惯了。
+
+没事，
+你只要学会控制你的情绪就可以了。
+而关键在于，
+你要放下压力。
+压力源于何处？
+绝对不是来自本身，而是别人。
+所以你应该放下你所承担的，
+别人要求的，或是自己认为的。
+
+没有压力，没有畏惧，你便无敌。
+
+也许这是对的。
+你只需在心中默念，
+输也是我，
+赢也是我，
+我有什么好怕的。
+我是我，
+里外保持一致的我，
+各种维度一致的我。
+
+人应当这样纯粹。
+
+. . .
+
+你不懂我在说什么？
+其实我也不懂。。。
+
+</pre>
+
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/02/28/2012wei-ruan-bian-cheng-zhi-mei-quan-guo-tiao-zhan-sai-hui-gu/">2012微软编程之美全国挑战赛回顾</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-28T10:15:00+08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>今天MSTC的人突然说要采访往届参赛选手，囧，都过去快一年了，回忆下。。</p>
+
+<p>2012编程之美是MSRA举办的，分为初赛跟决赛。
+初赛比的是AI对战，北航的MSTC做的海战游戏并提供了3种不同语言的SDK，海选，网上提交代码。
+决赛取64名，地点在北京海淀的微软大厦，比的是工程类题目，解决问题，Topic是“大数据可视化”，形式是结对编程，2天时间。当时是3个题目任选，我选的是“字云”。决赛没比好，时间不够，没入围10强。</p>
+
+<p>要说比赛让我收获了什么：</p>
+
+<ul>
+<li>初赛是写AI，以前完全没接触过的东西。涉及到一些状态机理论，计算几何，数学建模（根据各种伤害公式等），以求得到一个最优化的AI策略。还是非常有意思的。</li>
+<li>决赛是“大数据可视化”，当时我们是用C#/WPF写（其实当时真是各种不会，现在再考虑这个问题脑中蹦出的解决方案就多很多了），本来是想用Siverlight（我当时技术特征纯MS&#8230;）因为什么东西卡住又换到WPF了。除去通过工程技术方面的摸索得到的收获，还有两点是我比较重视的。一个是“结对编程”，引入了Team Work的因素，锻炼了与人交流、项目分工等等的能力。那种背靠背相互依赖的感觉真的让人很享受。另一个就是“马拉松式”的编程，只给我们2天时间（其实除去吃饭睡觉时间远远不到，大概就2x8小时），那种紧张感，抓到一个想法就拼命coding，很迷人。。（其实我喜欢ACM也有这部分原因，可以高频率敲击键盘。。）</li>
+</ul>
+
+
+<p>。。。就这样吧，最后放上一张图，在那个什么Sky Garden拍的，话说微软的楼确实不错。。
+<img src="MyImage/bianchengzhimei.jpeg" alt="编程之美北京" /></p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/01/30/vimxue-xi-bi-ji-%28si-%29-cha-jian-pian/">Vim学习笔记（四）- 插件篇</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-30T01:02:00+08:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>主要是根据前辈的一篇博文，<a href="http://www.cnblogs.com/chijianqiang/archive/2012/11/06/vim-3.html">谁说Vim不是IDE？（三）</a>写的，自己实践整理的一个记录。</p>
+
+<p>下一步计划是消化这两篇：</p>
+
+<p>1.<a href="http://www.cnblogs.com/chijianqiang/archive/2012/12/17/vim-4.html">谁说Vim不是IDE？（四）</a></p>
+
+<p>2.<a href="https://github.com/humiaozuzu/dot-vimrc">Maple&#8217;s Vim config</a></p>
+
+<p>先是熟悉ctags，然后把vim搞成IDE，完善自己的.vimrc。</p>
+
+<h2>pathogen</h2>
+
+<hr />
+
+<p>通过管理<code>runtimepath</code>来简化插件安装、运行时的文件，使其能位于自己自定义目录（默认为 bundle）下。</p>
+
+<p>项目位于<a href="https://github.com/tpope/vim-pathogen">github</a></p>
+
+<h3>插件安装</h3>
+
+<h4>1、执行</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir -p ~/.vim/autoload ~/.vim/bundle; <span class="se">\</span>
+</span><span class='line'>curl -Sso ~/.vim/autoload/pathogen.vim <span class="se">\</span>
+</span><span class='line'>    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>2、在 .vimrc 中增加代码</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">call</span> pathogen#infect<span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Command-T</h2>
+
+<hr />
+
+<p>用于在一个给定目录下快速定位文件，Go To File的功能。</p>
+
+<h3>插件安装</h3>
+
+<h4>1、下载</h4>
+
+<p><a href="http://www.vim.org/scripts/download_script.php?src_id=18167">command-t-1.4.vba</a></p>
+
+<h4>2、安装至bundle目录下</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir ~/.vim/bundle/command-t
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vim <span class="nb">command</span>-t-1.4.vba
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行 <code>:UseVimball ~/.vim/bundle/command-t</code></p>
+
+<h4>3、编译C扩展</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.vim/bundle/command-t/ruby/command-t
+</span><span class='line'>ruby extconf.rb
+</span><span class='line'>make
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Powerline</h2>
+
+<hr />
+
+<p>一个增强的窗口状态栏。</p>
+
+<h3>插件安装</h3>
+
+<h4>1、安装到bundle</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.vim/bundle
+</span><span class='line'>git clone git://github.com/Lokaltog/vim-powerline.git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>2、安装字体</h4>
+
+<p>安装一些 <a href="https://gist.github.com/1595572">vim-powerline patched fonts</a>，我用的是Menlo，然后安装到系统</p>
+
+<h4>3、在.vimrc中设置状态栏主题</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot;powerline{</span>
+</span><span class='line'><span class="c">&quot;set guifont=PowerlineSymbols\ for\ Powerline</span>
+</span><span class='line'><span class="k">set</span> <span class="nb">guifont</span><span class="p">=</span>Menlo\ <span class="k">for</span>\ Powerline
+</span><span class='line'><span class="k">set</span> <span class="nb">nocompatible</span>
+</span><span class='line'><span class="k">set</span> <span class="nb">t_Co</span><span class="p">=</span><span class="m">256</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:Powerline_symbols <span class="p">=</span> <span class="s1">&#39;fancy&#39;</span>
+</span><span class='line'><span class="c">&quot;}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+ </div>
+
+
+<div id="pagination">
+  
+    <a class="prev" href="/blog/page/3/">&laquo;Previous</a>
+  
+  
+    <a class="next" href="/">Next&raquo;</a>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Sublime Text 2 Build System for OSX May 12th, 2013 Cpp 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+{ &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot; &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/2013/05/12/sublime-text-2-build-system-for-osx">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> <div class="post-header">
+  
+    <h1 class="post-title">Sublime Text 2 Build System for OSX</h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-12T23:15:00+08:00" pubdate data-updated="true">May 12<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><h2>Cpp</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;g++ &#39;${file}&#39; -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; open &#39;${file_path}/${file_base_name}&#39;&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;working_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;${file_path}&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.c, source.c++&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&quot;variants&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Run&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;g++ &#39;${file}&#39; -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; &#39;${file_path}/${file_base_name}&#39;&lt;&#39;${file_path}/${file_base_name}.in&#39;&gt;&#39;${file_path}/${file_base_name}.out&#39;&quot;</span><span class="p">]</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Python</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;python -u &#39;${file}&#39; &amp;&amp; chmod a+x &#39;${file}&#39; &amp;&amp; open -a terminal &#39;${file}&#39;&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.python&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&quot;variants&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Run&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;python -u &#39;${file}&#39; &amp;&amp; chmod a+x &#39;${file}&#39; &amp;&amp; &#39;${file}&#39;&lt;&#39;${file_path}/${file_base_name}.in&#39;&gt;&#39;${file_path}/${file_base_name}.out&#39;&quot;</span><span class="p">]</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Java</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;javac &#39;${file}&#39; &amp;&amp; java &#39;${file_base_name}&#39;&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(...*?):([0-9]*):?([0-9]*)&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.java, source.java&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>For cpp &amp; python, the build-system can open a new terminal window, so I can interact(ep. input) with my program easily.</p>
+
+<p>For java, I don&#8217;t know how to do that, only can show the outputs yet.</p>
+</div>
+
+
+<div class="post-single">
+  <div class="post-meta">
+    
+
+<span class="categories">
+  Categories:
+  
+    <a class='category' href='/blog/categories/2/'>2</a>, <a class='category' href='/blog/categories/sublime/'>sublime</a>, <a class='category' href='/blog/categories/text/'>text</a>
+  
+</span>
+
+
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tclh123.github.com/blog/2013/05/12/sublime-text-2-build-system-for-osx/" data-via="tclh123" data-counturl="http://tclh123.github.com/blog/2013/05/12/sublime-text-2-build-system-for-osx/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+  </div>
+  <div class="clear"></div>
+
+  
+    <div id="comments">
+      <h2>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"></div>
+    </div>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tclh123.github.com/blog/2013/05/12/sublime-text-2-build-system-for-osx/';
+        var disqus_url = 'http://tclh123.github.com/blog/2013/05/12/sublime-text-2-build-system-for-osx/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

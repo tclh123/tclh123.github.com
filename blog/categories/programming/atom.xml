@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Programming | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/programming/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-08T18:34:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Prolog语言]]></title>
+    <link href="http://tclh123.github.com/blog/2013/05/02/prologyu-yan/"/>
+    <updated>2013-05-02T17:11:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/05/02/prologyu-yan</id>
+    <content type="html"><![CDATA[<p><em>Not Finished yet</em></p>
+
+<p>选了个人工智能的选修，教的是prolog（为啥不教lisp..）</p>
+
+<p>prolog好老了，看了下介绍，貌似是种描述型语言，不带流程控制，依靠数据间的关系（逻辑），自动进行推理（所谓智能）。</p>
+
+<h2>语言基本内容</h2>
+
+<h3>项</h3>
+
+<p><img src="MyImage/prolog_1.png" alt="" /></p>
+
+<h3>语句</h3>
+
+<p>只有三种语句，事实、规则、问题（目标）。
+语句都要用点(.)结束。</p>
+
+<p>基本就是离散数学里的数理逻辑部分那个意思，前提、产生式、结论。</p>
+
+<blockquote><p>Prolog语言是一种以一阶谓词为基础的逻辑性语言（Programming in logic）。</p></blockquote>
+
+<p>从命题逻辑，到谓词逻辑（加入谓词、量词）形成一阶逻辑系统。回想了下，数理逻辑好像很厉害的样子，不过学完了也记不得多少理论的东西了...</p>
+
+<h4>事实</h4>
+
+<p>格式：P. （P表示一个谓词公式，即&lt;谓词名>(&lt;项表>)）
+含义：无条件成立，恒为真
+eg. like(monkey, banana)</p>
+
+<h4>规则</h4>
+
+<p>格式：P :- P1, P2, ..., Pn. （:- 表示 蕴含，即->，,表示 合取/与，及<sup>）</sup>
+含义：若P1, ...,Pn均为真，P为真</p>
+
+<h4>问题（目标）</h4>
+
+<p>格式：Q1,Q2,...Qm.
+含义：待回答的问题，即Q1,...Qm同时为真吗？</p>
+
+<h3>表</h3>
+
+<h3>谓词</h3>
+
+<h2>后续</h2>
+
+<p>Ps.由于课没去过几次，今天看ppt发现课上讲的是Turbo Prolog（呵呵..我说咋差这么大呢），<a href="http://en.wikipedia.org/wiki/Prolog#Related_languages">Wiki</a>上说</p>
+
+<blockquote><p>Visual Prolog, formerly known as PDC Prolog and Turbo Prolog, is a strongly typed object-oriented dialect of Prolog, which is very different from standard Prolog. As Turbo Prolog it was marketed by Borland, but it is now developed and marketed by the Danish firm PDC (Prolog Development Center) that originally produced it.</p></blockquote>
+
+<p>Prolog好几种方言啊，咱还是用GNU吧（找到个<a href="http://sourceforge.net/projects/xgp/">for OS X的IDE</a>）。</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,217 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Chrome Extension Manifest V2 Jun 18th, 2013 今天兴起想写个 Chrome Extension，研究了一番，稍有点头绪。
+想到天天用的 Fawave，去找了下它源码（原项目名叫falang&#8230;好名字！）。 不看不知道，一看发现它逻辑这么复杂。。 &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/2013/06/18/chrome-extension-manifest-v2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> <div class="post-header">
+  
+    <h1 class="post-title">Chrome Extension Manifest V2</h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-18T01:28:00+08:00" pubdate data-updated="true">Jun 18<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>今天兴起想写个 Chrome Extension，研究了一番，稍有点头绪。
+想到天天用的 Fawave，去找了下它<a href="http://code.google.com/p/falang/source/checkout">源码</a>（原项目名叫falang&#8230;好名字！）。</p>
+
+<p>不看不知道，一看发现它逻辑这么复杂。。而且光看popup.html我就头大了。。
+那个神一样模版语言（<code>&lt;?js ... ?&gt;...#{...}...</code>）。。见都没见过。</p>
+
+<p>搞半天弄清楚他用的是<a href="http://www.kuwata-lab.com/tenjin/jstenjin-users-guide.html">shotenjin.js</a>，是tenjin.js的子集，用于client-side。略小众啊，都搜不到什么相关信息。不过超轻量，整个就100多行代码，用法也真心简单。</p>
+
+<p>又看了半天源码，似乎摸清楚几个困惑的点，</p>
+
+<ul>
+<li>chrome extension 的 popup.html 不支持持久化，每次点一下相当于要重新载入</li>
+<li>像我这种比较小的需求，应该就是每次载入都从localStorage里拿数据出来更新DOM</li>
+<li>fawave那些timeline用localStorage肯定放不下的，貌似是利用 background.html 来做本地缓存（cache。写得好像很吊，就看了一点）。</li>
+</ul>
+
+
+<p>总结一下，其实上面几个点就是纠结 popup.html 里的数据的持久化。</p>
+
+<p>墨迹完了~~</p>
+
+<h2>真正跟标题相关的内容</h2>
+
+<p>fawave用的是manifest V1，我用的V2。于是我用shotenjin.js来解析模版就出现了问题。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Uncaught Error: Code generation from strings disallowed for this context</span></code></pre></td></tr></table></div></figure>
+
+
+<p>经过一番搜索。。。发现是V2不再支持eval()，而shotenjin.js里必须用了eval()啊。。。</p>
+
+<p>具体解决方法参照，</p>
+
+<p><a href="http://www.360marks.com/?p=375">Chrome extension 升级到 manifest version 2 的问题</a></p>
+
+<p><a href="http://developer.chrome.com/trunk/extensions/sandboxingEval.html">Using eval in Chrome Extensions. Safely.</a></p>
+
+<p>因为不想换模版引擎，我用的是官方给的方法，用一个sandbox 的iframe，来代替进行eval()。。</p>
+
+<p>但是。。仍然有问题（好吧这个问题证明是我是小白），简单说就是我想在popup.html load的时候就进行模版渲染，但是那个时候iframe里的script还没执行，message事件还没注册。。</p>
+
+<p>解决方法是，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('sandbox').onload = function() {
+</span><span class='line'>    init();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样保证 init（给iframe发消息让它渲染模版）时， iframe 已经 load，就行了。</p>
+</div>
+
+
+<div class="post-single">
+  <div class="post-meta">
+    
+
+<span class="categories">
+  Categories:
+  
+    <a class='category' href='/blog/categories/chrome/'>Chrome</a>, <a class='category' href='/blog/categories/extension/'>Extension</a>
+  
+</span>
+
+
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tclh123.github.com/blog/2013/06/18/chrome-extension-manifest-v2/" data-via="tclh123" data-counturl="http://tclh123.github.com/blog/2013/06/18/chrome-extension-manifest-v2/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+  </div>
+  <div class="clear"></div>
+
+  
+    <div id="comments">
+      <h2>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"></div>
+    </div>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tclh123.github.com/blog/2013/06/18/chrome-extension-manifest-v2/';
+        var disqus_url = 'http://tclh123.github.com/blog/2013/06/18/chrome-extension-manifest-v2/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: myself | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/myself/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-08T18:34:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[就是这样]]></title>
+    <link href="http://tclh123.github.com/blog/2013/01/30/jiu-shi-zhe-yang/"/>
+    <updated>2013-01-30T00:26:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/01/30/jiu-shi-zhe-yang</id>
+    <content type="html"><![CDATA[<p><em>其实这些话是前段时间写的，但是...我有拖延症嘛...</em></p>
+
+<pre>
+就是这样
+觉得什么都能做
+却什么都不做
+其实事实上你不做你怎么知道自己能做
+不做是因为没有激情
+没有激情是因为不知道自己到底想要什么
+觉得自己什么都能做，而做什么都好像没有意义
+哎
+我是如此地了解自己，又如此地不了解自己
+</pre>
+
+]]></content>
+  </entry>
+  
+</feed>

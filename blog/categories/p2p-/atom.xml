@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: P2P, | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/p2p-/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-08T18:34:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[关于无中心网络及本地分享、社交？]]></title>
+    <link href="http://tclh123.github.com/blog/2013/07/05/guan-yu-wu-zhong-xin-wang-luo/"/>
+    <updated>2013-07-05T22:11:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/07/05/guan-yu-wu-zhong-xin-wang-luo</id>
+    <content type="html"><![CDATA[<p>今天在听歌的时候，突然有点想法，如果几个朋友出去（地铁里，噪杂的酒吧，或者旅行），可以一起听一首歌（用各自的移动设备，or Glass??），就像几个人呆在一个自己的私密空间里，是不是还蛮酷？</p>
+
+<p>自然得想到如何实现。如果是有个人充当server的方式，显然不太优美。自然地想到一个挺像的东西，AirDrop，它貌似就是个去中心的点对点网络，这种东西用来做本地的分享、社交很合适。</p>
+
+<p>但是AirDrop现在貌似还只能用于传文件（据说是因为WiFi耗电问题没法取代蓝牙？）。这个暂不论了。</p>
+
+<p>于是我又想到，bit网络（bit coin什么的不是很火吗）。私密社交？+移动。</p>
+
+<p>嗯。。我觉得这方面将来肯定会产生点有意思的东西。</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Compiler | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/compiler/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-08T18:34:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[LEX、YACC初识]]></title>
+    <link href="http://tclh123.github.com/blog/2013/06/22/lex/"/>
+    <updated>2013-06-22T01:50:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/06/22/lex</id>
+    <content type="html"><![CDATA[<p>以前只用下降子程序的方法手写过一个解释器，<a href="http://iplot.tclh123.com/">iplot</a>。</p>
+
+<p>现在学院又开一门课，叫程序分析...讲的还是编译原理...只不过是让借助工具...两个实验，一个是LEX+YACC，一个是ANTLR。</p>
+
+<p>那咱就学下LEX+YACC....</p>
+
+<h2>START</h2>
+
+<p>Lex 代表 Lexical Analyzar。Yacc 代表 Yet Another Compiler Compiler。</p>
+
+<p>Unix或Linux都自带Lex跟YACC，我用的OS X，跟GNU/Linux下面的一样，Lex是flex，而Yacc则是bison。</p>
+
+<h2>Lex</h2>
+
+<p>lex和flex都是解析Lex文件的工具，用法相近，flex意为fast lexical analyzer generator。可以看成lex的升级版本。</p>
+
+<p><strong>挖坑未填完，先把实验做掉。。</strong></p>
+
+<h2>Reference</h2>
+
+<p>http://blog.csdn.net/liwei_cmg/article/details/1530999</p>
+
+<p>http://www.ibm.com/developerworks/cn/linux/sdk/lex/</p>
+]]></content>
+  </entry>
+  
+</feed>

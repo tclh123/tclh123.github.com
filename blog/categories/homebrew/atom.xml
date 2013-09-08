@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: homebrew | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/homebrew/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-08T18:34:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[homebrew symlink error]]></title>
+    <link href="http://tclh123.github.com/blog/2013/01/11/homebrew-symlink-error/"/>
+    <updated>2013-01-11T12:55:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/01/11/homebrew-symlink-error</id>
+    <content type="html"><![CDATA[<p>用homebrew的时候经常遇到symlinks出错，</p>
+
+<p>``` bash
+Linking /usr/local/Cellar/libpng/1.5.13... Warning: Could not link libpng. Unlinking...</p>
+
+<p>Error: Could not symlink file: /usr/local/Cellar/libpng/1.5.13/share/man/man5/png.5
+/usr/local/share/man/man5 is not writable. You should change its permissions.
+```</p>
+
+<p>需要修改目录拥有者，</p>
+
+<p><code>bash
+sudo chown -R `whoami` /usr/local/share/man/man5
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

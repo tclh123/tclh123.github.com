@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: iTerm2 | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/iterm2/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-08T18:34:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Open Terminal(iTerm2) in Current Folder]]></title>
+    <link href="http://tclh123.github.com/blog/2013/06/14/open-terminal-iterm2-in-current-folder/"/>
+    <updated>2013-06-14T15:58:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/06/14/open-terminal-iterm2-in-current-folder</id>
+    <content type="html"><![CDATA[<p>原来Terminal一直用自带的，现在改成iTerm2。
+google到一些<a href="http://www.dbform.com/html/2011/1559.html">用AppleScript解决的方案</a>，经测试不可用，估计是OS X 10.8改了什么东西。
+没空研究AppleScript...</p>
+
+<p>然后意识到也许可以把Go2Shell的默认Terminal改一下，然后确实google到了方法。。</p>
+
+<h2>Solution</h2>
+
+<ol>
+<li>Download Go2Shell.</li>
+<li>Change your default Go2Shell terminal to iTerm2.</li>
+</ol>
+
+
+<p><code>bash
+open -a Go2Shell --args config
+</code></p>
+
+<p>That will open the configuration screen.</p>
+]]></content>
+  </entry>
+  
+</feed>

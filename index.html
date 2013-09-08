@@ -1,1 +1,891 @@
-My Octopress Page is coming soon &hellip;
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Python Plugin/MixIn/Monkey-patching Aug 26th, 2013 自从到豆瓣实习后，基本就博客就没更了，在github上的活动也都转到了code上&#8230; Reference CPyUG
+python插件方式mixin和monkey-patching &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/" class="current">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/08/26/python-plugin-slash-mixin-slash-monkey-patching/">Python Plugin/MixIn/Monkey-patching</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-26T15:50:00+08:00" pubdate data-updated="true">Aug 26<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p><em>自从到豆瓣实习后，基本就博客就没更了，在github上的活动也都转到了code上&#8230;</em></p>
+
+<h2>Reference</h2>
+
+<ul>
+<li><a href="http://markmail.org/message/y2znkmysqjlofswb#query:+page:1+mid:b52kpikcanonjva6+state:results">CPyUG</a></li>
+<li><a href="http://abloz.com/2012/03/31/python-plug-ins-mixin-and-monkey-patching.html">python插件方式mixin和monkey-patching</a></li>
+<li><a href="http://scg.unibe.ch/archive/papers/Duca06bTOPLASTraits.pdf">Traits: A Mechanism for Fine-grained Reuse</a></li>
+<li><a href="http://guangboo.org/2013/01/28/python-mixin-programming">Python Mixin编程机制</a></li>
+<li><a href="http://www.linuxjournal.com/node/4540/print">Using Mix-ins with Python</a></li>
+<li><a href="http://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful">stackoverflow - What is a mixin, and why are they useful?</a></li>
+</ul>
+
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/07/10/zhe-teng-chrome-secure-shell/">折腾Chrome Secure Shell</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-10T01:23:00+08:00" pubdate data-updated="true">Jul 10<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><blockquote><p>最近的觉悟是自己写代码太慢，对IDE的依赖是累积的，各种恶性循环（不足够了解语言，不熟悉项目结构）。半天憋不出几行代码，这种状态让人厌恶&#8230;以前对此持观望态度，各种纵容自己，现在发现这已经成为自己的一大瓶颈&#8230;</p></blockquote>
+
+<p>这东西上次hack day的时候看<a href="https://github.com/atupal">
+atupal</a>用过，印象蛮深。今天挖出来玩玩。</p>
+
+<p>去<a href="https://chrome.google.com/webstore/detail/secure-shell/pnhechapfaindjhompbnflcldabbghjo?utm_source=chrome-ntp-icon">商店</a>安装的时候，提示<code>This application is not supported on this computer. Installation has been disabled.</code>，安装按钮直接变灰了。Google无果，看了下自己的Chrome版本，22&#8230;（mbp买来到现在没更过的节奏&#8230;），然后用&#8221;关于&#8221;里的自动更新报Error 12（以前也是这样所以一直没更吧..）。</p>
+
+<h2>OS X下更新Chrome遇到Error 12</h2>
+
+<p>试了<a href="https://support.google.com/chrome/answer/1367288?hl=en">官方</a>提供的方法，木有用。。Google出来的也大致都是删掉SoftwareUpdate然后再装一遍的意思，以及<a href="http://www.v2ex.com/t/52249">各种偏方</a>，无果。</p>
+
+<p>然后想是不是因为现在版本太低（22->28）的缘故，最后直接把最新的<a href="https://www.google.com/intl/en/chrome/browser/">下来</a>覆盖了。后来发现完全无痛啊，因为现有的东西包括Extensions的localStorage都是放在<code>Application Support/</code>里的么。。</p>
+
+<h2>配置Secure Shell</h2>
+
+<p>然后很舒服地用着最新版，顺利地把Secure Shell装上了。</p>
+
+<p>然后其实也不用什么配置是吧，输个<code>&lt;username&gt;@localhost</code>就好了。。结果报Connection refused。。用iTerm试了下<code>ssh localhost</code>同样是Connection refused（sshd服务没开的节奏&#8230;）</p>
+
+<figure class='code'><figcaption><span>启动sshd服务</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist <span class="c"># unload是停止服务</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>查看是否启动</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo launchctl list | grep ssh
+</span><span class='line'>...
+</span><span class='line'>-   0   com.openssh.sshd <span class="c"># 看到这个说明成功启动了</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ok，现在已经可以顺利ssh到本地了。</p>
+
+<p>另外，还可以直接授权publickey，这样就不用每次都输密码了（但是还是要输一次id_rsa私钥的密码，后面貌似shell会记住）。</p>
+
+<figure class='code'><figcaption><span>直接把id_rsa.pub写入authorized_keys文件就行了</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>配置SSH root用户登陆</h2>
+
+<p>用自己的账户登陆是ok了，但是尝试用root登陆时提示<code>Permission denied (publickey,keyboard-interactive)</code>错误。</p>
+
+<p>先是加了/etc/sshd_config里的<code>PermitRootLogin yes</code>（开始把ssh_config跟sshd_config搞错了。。图样）。还是不行。</p>
+
+<p>后来发现是OS X默认没有开启root用户，我输入的密码也只是<code>a valid sudoer password</code>，根本不是root的密码。</p>
+
+<figure class='code'><figcaption><span>设置root的密码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo passwd
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>之后就可以用root账户登陆了。</p>
+
+<h2>其他</h2>
+
+<p>Chrome Secure Shell 用起来很方便也很爽。但是我发现<code>ls</code>的时候中文目录名会乱码，中文文件内容可以正常显示。</p>
+
+<p>还有就是不能输入中文（输入法无效。。）。</p>
+
+<p><a href="http://git.chromium.org/gitweb/?p=chromiumos/platform/assets.git;a=tree;f=chromeapps/hterm">http://git.chromium.org/gitweb/?p=chromiumos/platform/assets.git;a=tree;f=chromeapps/hterm</a>，这个据说是前端的源码，可以拿来研究下（<a href="https://github.com/tclh123/kido">kido</a>参考）。但是clone了半天搞不下来。。= =（噗。。现在看了一下貌似死在3%了..）</p>
+
+<h2>Reference</h2>
+
+<ul>
+<li>https://discussions.apple.com/thread/1141223?start=0&amp;tstart=0</li>
+<li>http://blog.smitec.net/posts/setting-up-a-git-server-on-osx/</li>
+<li>http://superuser.com/questions/555810/how-do-i-ssh-login-into-my-mac-as-root</li>
+</ul>
+
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/07/07/importerror-using-flask/">ImportError Using Flask</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-07T15:38:00+08:00" pubdate data-updated="true">Jul 7<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>巨二。</p>
+
+<p>以后别把包名取做site，import的时候会跟python标准库里的site.py冲突。。</p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/07/06/os-x-jin-zhi-adobekai-ji-zi-dong-jian-cha-geng-xin/">Prevent &#8216;Adobe Reader Updater Helper&#8217; Automatic Run With System on OS X</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-06T03:19:00+08:00" pubdate data-updated="true">Jul 6<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>今天开机的时候发现Adobe Reader检查更新的进程自启动而且高CPU占用，不一会儿就弹出个更新提示窗口。</p>
+
+<p>不爽之。</p>
+
+<p>遂在 ~/Library/LaunchAgents 目录下发现 <code>com.adobe.ARM.202f4087f2bbde52e3ac2df389f53a4f123223c9cc56a8fd83a6f7ae.plist</code> 文件一枚，改后缀。。</p>
+
+<p>文件内容是下面这样的。。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</span><span class='line'>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+</span><span class='line'>&lt;plist version="1.0"&gt;
+</span><span class='line'>&lt;dict&gt;
+</span><span class='line'>    &lt;key&gt;Label&lt;/key&gt;
+</span><span class='line'>    &lt;string&gt;com.adobe.ARM.202f4087f2bbde52e3ac2df389f53a4f123223c9cc56a8fd83a6f7ae&lt;/string&gt;
+</span><span class='line'>    &lt;key&gt;ProgramArguments&lt;/key&gt;
+</span><span class='line'>    &lt;array&gt;
+</span><span class='line'>        &lt;string&gt;/Applications/Adobe Reader.app/Contents/MacOS/Updater/Adobe Reader Updater Helper.app/Contents/MacOS/Adobe Reader Updater Helper&lt;/string&gt;
+</span><span class='line'>        &lt;string&gt;semi-auto&lt;/string&gt;
+</span><span class='line'>    &lt;/array&gt;
+</span><span class='line'>    &lt;key&gt;RunAtLoad&lt;/key&gt;
+</span><span class='line'>    &lt;true/&gt;
+</span><span class='line'>    &lt;key&gt;StartInterval&lt;/key&gt;
+</span><span class='line'>    &lt;integer&gt;12600&lt;/integer&gt;
+</span><span class='line'>&lt;/dict&gt;
+</span><span class='line'>&lt;/plist&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在Adobe Reader程序<a href="http://helpx.adobe.com/acrobat/kb/disable-automatic-updates-acrobat-reader.html">首选项里改</a>，也许也可以不弹出更新提示，但是不知道是否依然会有自启动的进程。</p>
+
+<p>反正两边都弄了应该没事了~&#8230;.</p>
+
+<h2>Update</h2>
+
+<p>总结几个OS X潜在的自启动的地方。</p>
+
+<ul>
+<li>/Library/LaunchDaemons/</li>
+<li>/Library/LaunchAgents/</li>
+<li>~/Library/LaunchAgents/</li>
+<li>/System/Library/StartupItems</li>
+<li>/Library/StartupItems</li>
+<li>GUI 的 Login Items（系统偏好，用户群组，登陆项），<em>找不到对应的文件？</em></li>
+</ul>
+
+
+<p>另外这两个是系统级的，</p>
+
+<ul>
+<li>/System/Library/LaunchDaemons/</li>
+<li>/System/Library/LaunchAgents/</li>
+</ul>
+
+
+<p>Ps. 加载顺序应该是 Daemons->Agents->StartupItems（在/System/Library/LaunchDaemons/里可以找到com.apple.SystemStarter.plist，由com.apple.SystemStarter进程负责加载StartupItems）。</p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/07/05/about-css-preprocessor/">About Css Preprocessor</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-05T23:58:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>在Bootstrap那里看过less，在Octopress那里看过sass。还几次搞混了。了解一下。</p>
+
+<h2>Reference</h2>
+
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html">SASS用法指南</a></li>
+<li><a href="http://www.qianduan.net/an-introduction-to-less-and-comparison-to-sass.html">LESS介绍及其与Sass的差异</a></li>
+<li><a href="http://www.bootcss.com/lesscss.html">LESS - 一种 动态 样式 语言.</a></li>
+</ul>
+
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/07/05/guan-yu-wu-zhong-xin-wang-luo/">关于无中心网络及本地分享、社交？</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-05T22:11:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>今天在听歌的时候，突然有点想法，如果几个朋友出去（地铁里，噪杂的酒吧，或者旅行），可以一起听一首歌（用各自的移动设备，or Glass??），就像几个人呆在一个自己的私密空间里，是不是还蛮酷？</p>
+
+<p>自然得想到如何实现。如果是有个人充当server的方式，显然不太优美。自然地想到一个挺像的东西，AirDrop，它貌似就是个去中心的点对点网络，这种东西用来做本地的分享、社交很合适。</p>
+
+<p>但是AirDrop现在貌似还只能用于传文件（据说是因为WiFi耗电问题没法取代蓝牙？）。这个暂不论了。</p>
+
+<p>于是我又想到，bit网络（bit coin什么的不是很火吗）。私密社交？+移动。</p>
+
+<p>嗯。。我觉得这方面将来肯定会产生点有意思的东西。</p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/06/22/lex/">LEX、YACC初识</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-22T01:50:00+08:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>以前只用下降子程序的方法手写过一个解释器，<a href="http://iplot.tclh123.com/">iplot</a>。</p>
+
+<p>现在学院又开一门课，叫程序分析&#8230;讲的还是编译原理&#8230;只不过是让借助工具&#8230;两个实验，一个是LEX+YACC，一个是ANTLR。</p>
+
+<p>那咱就学下LEX+YACC&#8230;.</p>
+
+<h2>START</h2>
+
+<p>Lex 代表 Lexical Analyzar。Yacc 代表 Yet Another Compiler Compiler。</p>
+
+<p>Unix或Linux都自带Lex跟YACC，我用的OS X，跟GNU/Linux下面的一样，Lex是flex，而Yacc则是bison。</p>
+
+<h2>Lex</h2>
+
+<p>lex和flex都是解析Lex文件的工具，用法相近，flex意为fast lexical analyzer generator。可以看成lex的升级版本。</p>
+
+<p><strong>挖坑未填完，先把实验做掉。。</strong></p>
+
+<h2>Reference</h2>
+
+<p>http://blog.csdn.net/liwei_cmg/article/details/1530999</p>
+
+<p>http://www.ibm.com/developerworks/cn/linux/sdk/lex/</p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/06/22/sadao-di-shi-shi-yao/">SA到底是什么</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-22T01:47:00+08:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2013</time>
+</div>
+
+<div class="post-content"><p><em>原谅我又拿考试复习的东西丢上来了 - -，而且这坑没填干净..</em></p>
+
+<p><em>笔记而已，都是根据教材剖析出来的，加上一些自己的理解。</em></p>
+
+<h2>概念</h2>
+
+<ul>
+<li>软件</li>
+<li>体系结构(Architecture)= 架构</li>
+<li>设计元素 = 组件 or 连接件</li>
+<li>SA 包括 设计元素的描述、交互、组合的模式、模式中的约束。</li>
+<li>SA = 组件+连接件+约束</li>
+<li>组件，连接件应该都是集合</li>
+</ul>
+
+
+<h2>风格</h2>
+
+<h3>概念</h3>
+
+<ul>
+<li>SA风格，是描述特定系统组织模式的惯用范例，强调<strong>组织模式</strong>跟<strong>惯用范例</strong></li>
+</ul>
+
+
+<h3>分类</h3>
+
+<ol>
+<li>数据流系统(Data Flow)，就是数据顺序流过多个组件，如 批处理序列(batch sequential)，管道和过滤器(Pipes &amp; Fliters)</li>
+<li>调用返回系统(Call/Return)，这个不用解释了吧~ 如 主/子程序(main program &amp; subroutine)，面向对象系统(Object Oriented)，分层系统(layered)<em>这里把C/S归为分层，两层或三层(应用服务器)，B/S归为C/S的特例</em></li>
+<li>数据中心系统(知识库，data-centered)，就是数据都放在中心节点，如 仓库(repository)，黑板(blackboard)</li>
+<li>虚拟机(Virtual Machine)，可以理解成一个模拟器，如 解释器(interpreter)，基于规则系统(rule-based system)</li>
+<li>独立构件(independent components)，<strong>不知道在说什么..</strong>，如 通信过程(communicating processes)，事件系统(event systems，分显式、隐式调用<strong>？</strong>)</li>
+</ol>
+
+
+<p>这5种风格具体就先不介绍了。。<em>感觉书上的都是老的东西，以我在这个时代的认知读起来感觉很扯。。咱尽量不八股。。</em></p>
+
+<p>下面简单挑几个说一点，</p>
+
+<h3>PS</h3>
+
+<p>黑板模式，就好像多位不同的专家在同一黑板上交流思想，每个专家都可以获得别的专家写在黑板上的信息，同时也可以用自己的分析去更新黑板上的信息，从而影响其它专家。</p>
+
+<p>解释器，用来执行其他程序的程序，不单单指通常的编程语言解释器，也可以按大的理解，如浏览器（HTML、CSS、JS），通信协议（TCP/IP，socket），甚至是处理用户输入的一些Parser也可以算（parse了之后赋予语义）。</p>
+
+<p>管道过滤器，这个挺好理解的，而且感觉挺有意思的，以后有机会可以找个项目实现一下。记得以前搞MVC.NET的时候看过那种Fliter。</p>
+
+<h2>建模（Modeling）</h2>
+
+<h3>什么决定你的建模</h3>
+
+<p>架构师跟利益相关者，进行cost/benefit权衡。</p>
+
+<p>简单说就是客户给基本需求，架构师进行分析，做权衡。</p>
+
+<h3>建模什么</h3>
+
+<p>基本的架构元素(architectural elements)，</p>
+
+<ul>
+<li>Components（组件or构件）</li>
+<li>Connectors（连接件）</li>
+<li>Interfaces（接口）</li>
+<li>Configurations（配置？结构？）</li>
+<li>Rationale - reasoning behind decisions</li>
+</ul>
+
+
+<h3>模型的要点</h3>
+
+<ul>
+<li>无歧义</li>
+<li>准确且精确
+<em>PS.准确指正确，接近目标；精确指不矛盾、无歧义，击中一个地方，但不一定正确</em></li>
+</ul>
+
+
+<h3>视图</h3>
+
+<p>View（视图）是一个subset-model(模型子集)，viewpoint（视点）是指关注点、标准(concern,criteria)。</p>
+
+<p>这个学过数据库应该都知道，就是东西都放在一个模型里太复杂了，就分开放到多个视图里，每个视图只用说清楚一类事情，视图的划分由视点(viewpoint)来决定。</p>
+
+<p>常用的viewpoints，</p>
+
+<ul>
+<li>Logical Viewpoints</li>
+<li>Physical Viewpoints</li>
+<li>Deployment Viewpoints</li>
+<li>Concurrency Viewpoints</li>
+<li>Behavioral Viewpoints</li>
+</ul>
+
+
+<p>比方说，用deployment做视点，那可能整个model就被分为server、client两个视图。</p>
+
+<h3>建模方法</h3>
+
+<h4>通常方法</h4>
+
+<ul>
+<li>自然语言</li>
+<li>PowerPoint-style modeling</li>
+<li>UML(the Unified Modeling Language)</li>
+</ul>
+
+
+<h4>其他</h4>
+
+<ul>
+<li>早期的ADL(architecture description languages)</li>
+<li>Domain- and style-specific languages</li>
+<li>Extensible architecture description languages</li>
+</ul>
+
+
+<h2>文档描述（Documenting）</h2>
+
+<h3>用途</h3>
+
+<p>正规的软件开发过程有很多角色参与，需要一个交流设计思想的媒介。</p>
+
+<h2>架构设计（architecture design）</h2>
+
+<h3>架构模式</h3>
+
+<p><em>没提到？感觉就是架构风格（Pattern = Style）</em></p>
+
+<h3>质量属性(Quality Attributes)</h3>
+
+<p>系统不仅需要满足功能特性(functionality)，还需要满足其他一些质量属性(QA)。功能特性跟质量属性是正交的，功能不会决定质量。</p>
+
+<p>达到特定质量属性，需要考虑设计、实现、部署三方面。</p>
+
+<p>质量属性本身是没有多大用的，需要在<strong>明确</strong>质量属性（specifying QA）的过程中来帮助架构设计。</p>
+
+<p>常见的质量属性有6种（USTAMP），</p>
+
+<ul>
+<li>Usability（易用性），方便使用</li>
+<li>Security（安全性），入侵检测、入侵容忍、多机备份</li>
+<li>Testability（可测试性），单元测试、错误可复现、语句覆盖度(Path Coverage?)</li>
+<li>Availability（可用性），系统在任一时刻正常工作的概率</li>
+<li>Modifiability（可修改性），修改指采用新的算法、数据结构、UI等</li>
+<li>Performance（性能），系统响应时间，硬件资源的占用率</li>
+</ul>
+
+
+<p>其他，</p>
+
+<ul>
+<li>Scalability（可伸缩性）</li>
+<li>Portability（可移植性）</li>
+<li>etc.</li>
+</ul>
+
+
+<h4>质量属性场景(QAS)</h4>
+
+<p>所以，我们就需要 质量属性场景(QA Scenarios)。在特定场景中去明确质量属性。</p>
+
+<p>一个场景分为6部分，</p>
+
+<ul>
+<li>source</li>
+<li>stimulus</li>
+<li>artifact</li>
+<li>environment</li>
+<li>response</li>
+<li>response measure</li>
+</ul>
+
+
+<p>一句话说，就是 刺激源，在特定环境(条件、系统模式)下，用特定刺激(n.)去刺激(v.)制品(指系统或code)，然后获得反应，最后测量（度量）反应。</p>
+
+<p><strong>来说明系统达到这个质量属性的程度。</strong></p>
+
+<h3>战术(Tactics)</h3>
+
+<p>目前架构师主要工作是复用以前架构的方法（即很少凭空创造），这些方法（解决方案）大部分指 Patterns &amp; Styles，小部分指 Tactics。</p>
+
+<p><strong>疑问，架构模式(architectural patterns)跟架构风格(styles)基本是一个意思，那架构模式跟设计模式(design patterns)又有什么区别？</strong></p>
+
+<p>而战术（Tactics），是用来实现质量属性反应（quality attribute response）的。它是影响控制质量属性反应的设计决策。我们又称一个战术集合为一个架构策略(architectural strategy)。</p>
+
+<p>对6个常见的质量属性（USTAMP），相应地有6个战术，</p>
+
+<ul>
+<li>Usability Tactics（易用性战术），运行时战术(runtime tactics)、设计时战术(design-time tactics，包括MVC、PAC等)<strong>?</strong></li>
+<li>Security Tactics（安全性战术），抵抗攻击(resisting attacks)，检测攻击(detecting attacks)，从攻击中恢复(recovering from attacks)</li>
+<li>Testability Tactics（可测试性战术），提供输入捕获输出(providing input &amp; capturing output)，内部监控(internal monitoring)</li>
+<li>Availability Tactics（可用性战术），错误检测(fault detection)、错误恢复(fault recovery)、错误预防（错误阻止，fault prevention）</li>
+<li>Modifiability Tactics（可修改性战术），局部修改(Localize Modifications)，防止连锁反应(Prevent Ripple Effects)，推迟绑定时间(Defer Binding Time)</li>
+<li>Performance Tactics（性能战术），控制资源需求(Resource Demand)，资源管理(Resource Management)，资源仲裁(Resource Arbitration)</li>
+</ul>
+
+
+<h3>设计操作（Design Operators）</h3>
+
+<p>设计操作是创建一个体系结构设计的重要设计工具。包括以下5个操作，</p>
+
+<ul>
+<li>Decomposition（分解）</li>
+<li>Replication（复制，冗余）</li>
+<li>compression（压缩）</li>
+<li>abstraction（抽象）</li>
+<li>resource sharing（资源共享）</li>
+</ul>
+
+
+<p><strong>？没细看</strong></p>
+
+<h3>质量属性驱动的设计(ADD, Attribute-driven design)</h3>
+
+<p>ADD是一步一步地系统地生成初步的体系结构设计的方法。</p>
+
+<p>ADD的结果：全部的结构决策、内部连接和协调机制、应用模式和策略制定各部分的机制、显式达到质量属性的要求、不能详细到接口！</p>
+
+<p>ADD输入：质量属性需求、功能需求、约束。</p>
+
+<p>ADD步骤：
+1. 确定足够的需求信息
+2. 选择系统的一部分分解
+3. 优先部分需求以及标识架构驱动
+4. 选择满足与所选择的系统分解向关联的那部分系统的架构驱动的设计概念：模式(patterns)、风格(styles)、策略(tactics)
+5. 实例化(instantiated)架构元素，分配功能性需求
+6. 归并(merge)设计完成
+7. 分配剩下的功能性需求
+8. 定义戒口给实例化元素
+9. 检查和提炼需求，使他们能约束实例化元素
+10. 对于系统的下一个分解部分，重复步骤2到9</p>
+
+<h3>架构评估</h3>
+
+<ul>
+<li>SAAM: Scenario-based Architecture Analysis Method</li>
+<li>ATAM: Architecture Trade-off Analysis Method</li>
+</ul>
+
+
+<p>这里主要介绍 ATAM（框架权衡分析法）。</p>
+
+<p>&#8230;</p>
+
+<h4>效用树</h4>
+
+<p>&#8230;</p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/06/18/chrome-extension-manifest-v2/">Chrome Extension Manifest V2</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-18T01:28:00+08:00" pubdate data-updated="true">Jun 18<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>今天兴起想写个 Chrome Extension，研究了一番，稍有点头绪。
+想到天天用的 Fawave，去找了下它<a href="http://code.google.com/p/falang/source/checkout">源码</a>（原项目名叫falang&#8230;好名字！）。</p>
+
+<p>不看不知道，一看发现它逻辑这么复杂。。而且光看popup.html我就头大了。。
+那个神一样模版语言（<code>&lt;?js ... ?&gt;...#{...}...</code>）。。见都没见过。</p>
+
+<p>搞半天弄清楚他用的是<a href="http://www.kuwata-lab.com/tenjin/jstenjin-users-guide.html">shotenjin.js</a>，是tenjin.js的子集，用于client-side。略小众啊，都搜不到什么相关信息。不过超轻量，整个就100多行代码，用法也真心简单。</p>
+
+<p>又看了半天源码，似乎摸清楚几个困惑的点，</p>
+
+<ul>
+<li>chrome extension 的 popup.html 不支持持久化，每次点一下相当于要重新载入</li>
+<li>像我这种比较小的需求，应该就是每次载入都从localStorage里拿数据出来更新DOM</li>
+<li>fawave那些timeline用localStorage肯定放不下的，貌似是利用 background.html 来做本地缓存（cache。写得好像很吊，就看了一点）。</li>
+</ul>
+
+
+<p>总结一下，其实上面几个点就是纠结 popup.html 里的数据的持久化。</p>
+
+<p>墨迹完了~~</p>
+
+<h2>真正跟标题相关的内容</h2>
+
+<p>fawave用的是manifest V1，我用的V2。于是我用shotenjin.js来解析模版就出现了问题。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Uncaught Error: Code generation from strings disallowed for this context</span></code></pre></td></tr></table></div></figure>
+
+
+<p>经过一番搜索。。。发现是V2不再支持eval()，而shotenjin.js里必须用了eval()啊。。。</p>
+
+<p>具体解决方法参照，</p>
+
+<p><a href="http://www.360marks.com/?p=375">Chrome extension 升级到 manifest version 2 的问题</a></p>
+
+<p><a href="http://developer.chrome.com/trunk/extensions/sandboxingEval.html">Using eval in Chrome Extensions. Safely.</a></p>
+
+<p>因为不想换模版引擎，我用的是官方给的方法，用一个sandbox 的iframe，来代替进行eval()。。</p>
+
+<p>但是。。仍然有问题（好吧这个问题证明是我是小白），简单说就是我想在popup.html load的时候就进行模版渲染，但是那个时候iframe里的script还没执行，message事件还没注册。。</p>
+
+<p>解决方法是，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('sandbox').onload = function() {
+</span><span class='line'>    init();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样保证 init（给iframe发消息让它渲染模版）时， iframe 已经 load，就行了。</p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/06/14/open-terminal-iterm2-in-current-folder/">Open Terminal(iTerm2) in Current Folder</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-14T15:58:00+08:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>原来Terminal一直用自带的，现在改成iTerm2。
+google到一些<a href="http://www.dbform.com/html/2011/1559.html">用AppleScript解决的方案</a>，经测试不可用，估计是OS X 10.8改了什么东西。
+没空研究AppleScript&#8230;</p>
+
+<p>然后意识到也许可以把Go2Shell的默认Terminal改一下，然后确实google到了方法。。</p>
+
+<h2>Solution</h2>
+
+<ol>
+<li>Download Go2Shell.</li>
+<li>Change your default Go2Shell terminal to iTerm2.</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a Go2Shell --args config
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That will open the configuration screen.</p>
+</div>
+ </div>
+
+
+<div id="pagination">
+  
+    <a class="prev" href="/blog/page/2/">&laquo;Previous</a>
+  
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

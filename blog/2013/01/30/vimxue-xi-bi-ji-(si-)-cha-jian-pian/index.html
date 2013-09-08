@@ -1,0 +1,280 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Vim学习笔记（四）- 插件篇 Jan 30th, 2013 主要是根据前辈的一篇博文，谁说Vim不是IDE？（三）写的，自己实践整理的一个记录。 下一步计划是消化这两篇： 1.谁说Vim不是IDE？（四） 2.Maple&#8217;s Vim config 先是熟悉ctags， &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/2013/01/30/vimxue-xi-bi-ji-%28si-%29-cha-jian-pian">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> <div class="post-header">
+  
+    <h1 class="post-title">Vim学习笔记（四）- 插件篇</h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-30T01:02:00+08:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>主要是根据前辈的一篇博文，<a href="http://www.cnblogs.com/chijianqiang/archive/2012/11/06/vim-3.html">谁说Vim不是IDE？（三）</a>写的，自己实践整理的一个记录。</p>
+
+<p>下一步计划是消化这两篇：</p>
+
+<p>1.<a href="http://www.cnblogs.com/chijianqiang/archive/2012/12/17/vim-4.html">谁说Vim不是IDE？（四）</a></p>
+
+<p>2.<a href="https://github.com/humiaozuzu/dot-vimrc">Maple&#8217;s Vim config</a></p>
+
+<p>先是熟悉ctags，然后把vim搞成IDE，完善自己的.vimrc。</p>
+
+<h2>pathogen</h2>
+
+<hr />
+
+<p>通过管理<code>runtimepath</code>来简化插件安装、运行时的文件，使其能位于自己自定义目录（默认为 bundle）下。</p>
+
+<p>项目位于<a href="https://github.com/tpope/vim-pathogen">github</a></p>
+
+<h3>插件安装</h3>
+
+<h4>1、执行</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir -p ~/.vim/autoload ~/.vim/bundle; <span class="se">\</span>
+</span><span class='line'>curl -Sso ~/.vim/autoload/pathogen.vim <span class="se">\</span>
+</span><span class='line'>    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>2、在 .vimrc 中增加代码</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">call</span> pathogen#infect<span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Command-T</h2>
+
+<hr />
+
+<p>用于在一个给定目录下快速定位文件，Go To File的功能。</p>
+
+<h3>插件安装</h3>
+
+<h4>1、下载</h4>
+
+<p><a href="http://www.vim.org/scripts/download_script.php?src_id=18167">command-t-1.4.vba</a></p>
+
+<h4>2、安装至bundle目录下</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir ~/.vim/bundle/command-t
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vim <span class="nb">command</span>-t-1.4.vba
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行 <code>:UseVimball ~/.vim/bundle/command-t</code></p>
+
+<h4>3、编译C扩展</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.vim/bundle/command-t/ruby/command-t
+</span><span class='line'>ruby extconf.rb
+</span><span class='line'>make
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Powerline</h2>
+
+<hr />
+
+<p>一个增强的窗口状态栏。</p>
+
+<h3>插件安装</h3>
+
+<h4>1、安装到bundle</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.vim/bundle
+</span><span class='line'>git clone git://github.com/Lokaltog/vim-powerline.git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>2、安装字体</h4>
+
+<p>安装一些 <a href="https://gist.github.com/1595572">vim-powerline patched fonts</a>，我用的是Menlo，然后安装到系统</p>
+
+<h4>3、在.vimrc中设置状态栏主题</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot;powerline{</span>
+</span><span class='line'><span class="c">&quot;set guifont=PowerlineSymbols\ for\ Powerline</span>
+</span><span class='line'><span class="k">set</span> <span class="nb">guifont</span><span class="p">=</span>Menlo\ <span class="k">for</span>\ Powerline
+</span><span class='line'><span class="k">set</span> <span class="nb">nocompatible</span>
+</span><span class='line'><span class="k">set</span> <span class="nb">t_Co</span><span class="p">=</span><span class="m">256</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:Powerline_symbols <span class="p">=</span> <span class="s1">&#39;fancy&#39;</span>
+</span><span class='line'><span class="c">&quot;}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+<div class="post-single">
+  <div class="post-meta">
+    
+
+<span class="categories">
+  Categories:
+  
+    <a class='category' href='/blog/categories/vim/'>Vim</a>
+  
+</span>
+
+
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tclh123.github.com/blog/2013/01/30/vimxue-xi-bi-ji-%28si-%29-cha-jian-pian/" data-via="tclh123" data-counturl="http://tclh123.github.com/blog/2013/01/30/vimxue-xi-bi-ji-%28si-%29-cha-jian-pian/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+  </div>
+  <div class="clear"></div>
+
+  
+    <div id="comments">
+      <h2>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"></div>
+    </div>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tclh123.github.com/blog/2013/01/30/vimxue-xi-bi-ji-%28si-%29-cha-jian-pian/';
+        var disqus_url = 'http://tclh123.github.com/blog/2013/01/30/vimxue-xi-bi-ji-%28si-%29-cha-jian-pian/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Vim | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-08T18:34:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Vim学习笔记（四）- 插件篇]]></title>
+    <link href="http://tclh123.github.com/blog/2013/01/30/vimxue-xi-bi-ji-%28si-%29-cha-jian-pian/"/>
+    <updated>2013-01-30T01:02:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/01/30/vimxue-xi-bi-ji-(si-)-cha-jian-pian</id>
+    <content type="html"><![CDATA[<p>主要是根据前辈的一篇博文，<a href="http://www.cnblogs.com/chijianqiang/archive/2012/11/06/vim-3.html">谁说Vim不是IDE？（三）</a>写的，自己实践整理的一个记录。</p>
+
+<p>下一步计划是消化这两篇：</p>
+
+<p>1.<a href="http://www.cnblogs.com/chijianqiang/archive/2012/12/17/vim-4.html">谁说Vim不是IDE？（四）</a></p>
+
+<p>2.<a href="https://github.com/humiaozuzu/dot-vimrc">Maple's Vim config</a></p>
+
+<p>先是熟悉ctags，然后把vim搞成IDE，完善自己的.vimrc。</p>
+
+<h2>pathogen</h2>
+
+<hr />
+
+<p>通过管理<code>runtimepath</code>来简化插件安装、运行时的文件，使其能位于自己自定义目录（默认为 bundle）下。</p>
+
+<p>项目位于<a href="https://github.com/tpope/vim-pathogen">github</a></p>
+
+<h3>插件安装</h3>
+
+<h4>1、执行</h4>
+
+<p>``` bash
+mkdir -p ~/.vim/autoload ~/.vim/bundle; \
+curl -Sso ~/.vim/autoload/pathogen.vim \</p>
+
+<pre><code>https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+</code></pre>
+
+<p>```</p>
+
+<h4>2、在 .vimrc 中增加代码</h4>
+
+<p><code>vim
+call pathogen#infect()
+</code></p>
+
+<h2>Command-T</h2>
+
+<hr />
+
+<p>用于在一个给定目录下快速定位文件，Go To File的功能。</p>
+
+<h3>插件安装</h3>
+
+<h4>1、下载</h4>
+
+<p><a href="http://www.vim.org/scripts/download_script.php?src_id=18167">command-t-1.4.vba</a></p>
+
+<h4>2、安装至bundle目录下</h4>
+
+<p><code>bash
+mkdir ~/.vim/bundle/command-t
+</code></p>
+
+<p><code>bash
+vim command-t-1.4.vba
+</code>
+执行 <code>:UseVimball ~/.vim/bundle/command-t</code></p>
+
+<h4>3、编译C扩展</h4>
+
+<p><code>bash
+cd ~/.vim/bundle/command-t/ruby/command-t
+ruby extconf.rb
+make
+</code></p>
+
+<h2>Powerline</h2>
+
+<hr />
+
+<p>一个增强的窗口状态栏。</p>
+
+<h3>插件安装</h3>
+
+<h4>1、安装到bundle</h4>
+
+<p><code>bash
+cd ~/.vim/bundle
+git clone git://github.com/Lokaltog/vim-powerline.git
+</code></p>
+
+<h4>2、安装字体</h4>
+
+<p>安装一些 <a href="https://gist.github.com/1595572">vim-powerline patched fonts</a>，我用的是Menlo，然后安装到系统</p>
+
+<h4>3、在.vimrc中设置状态栏主题</h4>
+
+<p><code>vim
+"powerline{
+"set guifont=PowerlineSymbols\ for\ Powerline
+set guifont=Menlo\ for\ Powerline
+set nocompatible
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+"}
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim学习笔记（三）]]></title>
+    <link href="http://tclh123.github.com/blog/2013/01/30/vimxue-xi-bi-ji-%28san-%29/"/>
+    <updated>2013-01-30T00:37:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/01/30/vimxue-xi-bi-ji-(san-)</id>
+    <content type="html"><![CDATA[<p>这次主要是一些跟窗口有关的操作。</p>
+
+<h2>Vim窗口操作</h2>
+
+<hr />
+
+<h3>分割窗口</h3>
+
+<h4>1.打开已有文件</h4>
+
+<p>:split - 水平分，可以简写成 sp</p>
+
+<p>:vsplit - 垂直分，可简写成 vs</p>
+
+<h4>2.新建文件</h4>
+
+<p>:new+{name} - 水平新建窗口，name为文件名</p>
+
+<p>:vnew+{name} - 垂直</p>
+
+<h3>选择窗口</h3>
+
+<p>ctil+w {h|j|k|l} 上下左右切换窗口</p>
+
+<h2>比较文件</h2>
+
+<hr />
+
+<p>:diffsplit {filename} - 对{filename}开一个新窗口，并比较。同vimdiff命令。</p>
+
+<p>:diffpatch {patchfile} - 给当前buffer打上{patchfile}补丁后显示。</p>
+
+<p>:diffthis - 使当前窗口加入diff。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim学习笔记（二）]]></title>
+    <link href="http://tclh123.github.com/blog/2013/01/08/vimxue-xi-bi-ji-%28er-%29/"/>
+    <updated>2013-01-08T20:10:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/01/08/vimxue-xi-bi-ji-(er-)</id>
+    <content type="html"><![CDATA[<h2>查找（Find）</h2>
+
+<hr />
+
+<h4>查找字符</h4>
+
+<p>f[char]查找光标后面的char，F[char]查找光标前面的char。</p>
+
+<h4>查找光标所在的词</h4>
+
+<p>* - 找下一个</p>
+
+<p># - 找上一个</p>
+
+<h2>跳转（GoTo）</h2>
+
+<hr />
+
+<h4>括号匹配</h4>
+
+<p>%</p>
+
+<h4>行首行末</h4>
+
+<p>0 - 行首</p>
+
+<p>$ - 行末</p>
+
+<h4>转到行</h4>
+
+<p>gg - 跳到整个文件首部</p>
+
+<p>G  - 跳到整个文件末尾</p>
+
+<p>[number]G - 跳到第number行首部</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim学习笔记（一）]]></title>
+    <link href="http://tclh123.github.com/blog/2013/01/06/vimxue-xi-bi-ji-%28%5B%3F%5D-%29/"/>
+    <updated>2013-01-06T19:40:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/01/06/vimxue-xi-bi-ji-([?]-)</id>
+    <content type="html"><![CDATA[<p>从今天开始再好好学下Vim吧，其实也没这么难上手，多用用就好了。
+先跟<a href="http://www.openvim.com/tutorial.html">这个tutorial</a>学下。</p>
+
+<h2>模式</h2>
+
+<hr />
+
+<p>Vim有Insert mode跟Command mode，按i进入insert mode，按ESC进入command mode。</p>
+
+<h2>光标移动（Movement）</h2>
+
+<hr />
+
+<h4>上下左右（Basic movement）</h4>
+
+<p>hjkl。</p>
+
+<h4>字移动（Word movement）</h4>
+
+<p>w - next word</p>
+
+<p>e - end of the word</p>
+
+<p>b - beginning of the word</p>
+
+<h4>重复移动（Number powered movement）</h4>
+
+<p>3w - same as w 3 times</p>
+
+<h2>重复插入</h2>
+
+<hr />
+
+<p>在command mode下先输入次数n，然后进入insert mode，正常插入一组字符，然后按ESC就会自动重复n-1组字符。</p>
+]]></content>
+  </entry>
+  
+</feed>

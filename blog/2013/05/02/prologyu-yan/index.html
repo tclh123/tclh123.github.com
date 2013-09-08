@@ -1,0 +1,214 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Prolog语言 May 2nd, 2013 Not Finished yet 选了个人工智能的选修，教的是prolog（为啥不教lisp..） prolog好老了，看了下介绍，貌似是种描述型语言，不带流程控制，依靠数据间的关系（逻辑），自动进行推理（所谓智能）。 语言基本内容 项 语句 &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/2013/05/02/prologyu-yan">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> <div class="post-header">
+  
+    <h1 class="post-title">Prolog语言</h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-02T17:11:00+08:00" pubdate data-updated="true">May 2<span>nd</span>, 2013</time>
+</div>
+
+<div class="post-content"><p><em>Not Finished yet</em></p>
+
+<p>选了个人工智能的选修，教的是prolog（为啥不教lisp..）</p>
+
+<p>prolog好老了，看了下介绍，貌似是种描述型语言，不带流程控制，依靠数据间的关系（逻辑），自动进行推理（所谓智能）。</p>
+
+<h2>语言基本内容</h2>
+
+<h3>项</h3>
+
+<p><img src="MyImage/prolog_1.png" alt="" /></p>
+
+<h3>语句</h3>
+
+<p>只有三种语句，事实、规则、问题（目标）。
+语句都要用点(.)结束。</p>
+
+<p>基本就是离散数学里的数理逻辑部分那个意思，前提、产生式、结论。</p>
+
+<blockquote><p>Prolog语言是一种以一阶谓词为基础的逻辑性语言（Programming in logic）。</p></blockquote>
+
+<p>从命题逻辑，到谓词逻辑（加入谓词、量词）形成一阶逻辑系统。回想了下，数理逻辑好像很厉害的样子，不过学完了也记不得多少理论的东西了&#8230;</p>
+
+<h4>事实</h4>
+
+<p>格式：P. （P表示一个谓词公式，即&lt;谓词名>(&lt;项表>)）
+含义：无条件成立，恒为真
+eg. like(monkey, banana)</p>
+
+<h4>规则</h4>
+
+<p>格式：P :- P1, P2, &#8230;, Pn. （:- 表示 蕴含，即->，,表示 合取/与，及<sup>）</sup>
+含义：若P1, &#8230;,Pn均为真，P为真</p>
+
+<h4>问题（目标）</h4>
+
+<p>格式：Q1,Q2,&#8230;Qm.
+含义：待回答的问题，即Q1,&#8230;Qm同时为真吗？</p>
+
+<h3>表</h3>
+
+<h3>谓词</h3>
+
+<h2>后续</h2>
+
+<p>Ps.由于课没去过几次，今天看ppt发现课上讲的是Turbo Prolog（呵呵..我说咋差这么大呢），<a href="http://en.wikipedia.org/wiki/Prolog#Related_languages">Wiki</a>上说</p>
+
+<blockquote><p>Visual Prolog, formerly known as PDC Prolog and Turbo Prolog, is a strongly typed object-oriented dialect of Prolog, which is very different from standard Prolog. As Turbo Prolog it was marketed by Borland, but it is now developed and marketed by the Danish firm PDC (Prolog Development Center) that originally produced it.</p></blockquote>
+
+<p>Prolog好几种方言啊，咱还是用GNU吧（找到个<a href="http://sourceforge.net/projects/xgp/">for OS X的IDE</a>）。</p>
+</div>
+
+
+<div class="post-single">
+  <div class="post-meta">
+    
+
+<span class="categories">
+  Categories:
+  
+    <a class='category' href='/blog/categories/programming/'>Programming</a>, <a class='category' href='/blog/categories/language/'>language</a>, <a class='category' href='/blog/categories/prolog-/'>prolog,</a>
+  
+</span>
+
+
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tclh123.github.com/blog/2013/05/02/prologyu-yan/" data-via="tclh123" data-counturl="http://tclh123.github.com/blog/2013/05/02/prologyu-yan/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+  </div>
+  <div class="clear"></div>
+
+  
+    <div id="comments">
+      <h2>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"></div>
+    </div>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tclh123.github.com/blog/2013/05/02/prologyu-yan/';
+        var disqus_url = 'http://tclh123.github.com/blog/2013/05/02/prologyu-yan/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

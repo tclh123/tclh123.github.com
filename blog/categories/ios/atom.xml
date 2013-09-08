@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ios | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-08T18:34:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[xcode 4.5.1 免iDP开发/部署/在线调试/生成ipa]]></title>
+    <link href="http://tclh123.github.com/blog/2013/01/11/xcode-4-dot-5-1-mian-idpkai-fa-slash-bu-shu-slash-zai-xian-diao-shi-slash-sheng-cheng-ipa/"/>
+    <updated>2013-01-11T14:45:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/01/11/xcode-4-dot-5-1-mian-idpkai-fa-slash-bu-shu-slash-zai-xian-diao-shi-slash-sheng-cheng-ipa</id>
+    <content type="html"><![CDATA[<p>本文是结合自己测试的情况，对 <a href="http://kqwd.blog.163.com/blog/static/4122344820117191351263/">这篇教程</a> 的整理，针对 xcode 4.5.1。</p>
+
+<h3>1. 修改 SDKSettings.plist</h3>
+
+<p>``` bash
+cd /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk</p>
+
+<p>sudo cp SDKSettings.plist SDKSettings.plist.orig</p>
+
+<p>sudo cp SDKSettings.plist /tmp/SDK.plist</p>
+
+<p>sudo chmod 777 /tmp/SDK.plist</p>
+
+<p>sudo /Applications/Xcode.app/Contents/MacOS/Xcode /tmp/SDK.plist
+```</p>
+
+<p>展开DefaultProperties分支，将下面的 CODE_SIGNING_REQUIRED、ENTITLEMENTS_REQUIRED 两个属性改为NO</p>
+
+<p><code>bash
+sudo cp /tmp/SDK.plist SDKSettings.plist
+</code></p>
+
+<h3>2. 修改 Info.plist</h3>
+
+<p>``` bash
+cd /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform</p>
+
+<p>sudo cp Info.plist Info.plist.orig</p>
+
+<p>sudo cp Info.plist /tmp/Info.plist</p>
+
+<p>sudo chmod 777 /tmp/Info.plist</p>
+
+<p>sudo /Applications/Xcode.app/Contents/MacOS/Xcode /tmp/Info.plist
+```</p>
+
+<p>将 DefaultProperties、RuntimeRequirements、OverrideProperties分支下 的 XCiPhoneOSCodeSignContext 修改成 XCCodeSignContext。</p>
+
+<p><code>bash
+sudo cp /tmp/Info.plist Info.plist
+</code></p>
+
+<h3>3. 执行脚本</h3>
+
+<p>``` bash</p>
+
+<h1>!/bin/bash</h1>
+
+<p>cd /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/PrivatePlugIns/iPhoneOS\ Build\ System\ Support.xcplugin/Contents/MacOS/
+dd if=iPhoneOS\ Build\ System\ Support of=working bs=500 count=255
+printf "xc3x26x00x00" >> working
+/bin/mv -n iPhoneOS\ Build\ System\ Support iPhoneOS\ Build\ System\ Support.original
+/bin/mv working iPhoneOS\ Build\ System\ Support
+chmod a+x iPhoneOS\ Build\ System\ Support
+```</p>
+
+<p>正常的话应该输出(具体的数字可能有差别)</p>
+
+<p><code>bash
+231+1 records in
+231+1 records out
+115904 bytes transferred in 0.001738 secs (66694555 bytes/sec)
+</code></p>
+
+<h3>4. 获取 gen_entitlements.py</h3>
+
+<p>需要连网执行</p>
+
+<p><code>bash
+mkdir /Applications/Xcode.app/Contents/Developer/iphoneentitlements
+cd /Applications/Xcode.app/Contents/Developer/iphoneentitlements
+curl -O http://www.alexwhittemore.com/iphone/gen_entitlements.txt
+mv gen_entitlements.txt gen_entitlements.py
+chmod 777 gen_entitlements.py
+</code></p>
+
+<h3>5. 禁用Xcode自动的签名操作</h3>
+
+<p><em>这个似乎不做也行</em></p>
+
+<p>将工程配置中所有的Code Signing选项全部设为Don't Code Sign，如图。可能需要先点击“All”让这个选项显示出来</p>
+
+<h3>6. 添加自定义的生成后脚本</h3>
+
+<p>在Build Phases中添加一个Phase，右下角的Add Build Phase，然后单击Add Run Script，输入以下脚本</p>
+
+<p><code>bash
+export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate
+if [ "${PLATFORM_NAME}" == "iphoneos" ] || [ "${PLATFORM_NAME}" == "ipados" ]; then
+/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py "my.company.${PROJECT_NAME}" "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent";
+codesign -f -s "iPhone Developer" --entitlements "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent" "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/"
+fi
+</code></p>
+
+<blockquote><h3>旁门左道生成IPA文件</h3>
+
+<p>如果我的程序调试好了，怎么才能发给别人用呢？正常情况下IPA文件是从Xcode的Organizer中输出的，但是我们没有证书，这样输出会产生错误。我们只能用个小trick来完成这个操作了。</p>
+
+<p>先将代码生成为Release目标，然后打开工程的输出文件夹，通常情况下这个目录是
+/Users/你的用户名/Library/Developer/Xcode/DerivedData/以工程名打头的文件夹/Build/Products/Release-iphoneos</p>
+
+<p>很纠结吧~这个目录下有个.app的文件，就是生成的程序了。把这个.app拖到iTunes中，它会出现在应用程序那个列表中，然后再把它从iTunes的那个列表中拖出来（比如拖到桌面），发生了什么？哈哈，它就这样变成.ipa了！</p></blockquote>
+
+<p>PS.</p>
+
+<p>我的 ipad 还是 ios5.1 的，好像运行有点错误。不知道是不是应该用5.1的SDK。</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/12523888/how-can-i-add-older-version-of-ios-sdk-in-xcode-4-5">How can I add older version of iOS SDK in Xcode 4.5</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

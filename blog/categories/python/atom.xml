@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Python | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-08T18:34:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Python Plugin/MixIn/Monkey-patching]]></title>
+    <link href="http://tclh123.github.com/blog/2013/08/26/python-plugin-slash-mixin-slash-monkey-patching/"/>
+    <updated>2013-08-26T15:50:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/08/26/python-plugin-slash-mixin-slash-monkey-patching</id>
+    <content type="html"><![CDATA[<p><em>自从到豆瓣实习后，基本就博客就没更了，在github上的活动也都转到了code上...</em></p>
+
+<h2>Reference</h2>
+
+<ul>
+<li><a href="http://markmail.org/message/y2znkmysqjlofswb#query:+page:1+mid:b52kpikcanonjva6+state:results">CPyUG</a></li>
+<li><a href="http://abloz.com/2012/03/31/python-plug-ins-mixin-and-monkey-patching.html">python插件方式mixin和monkey-patching</a></li>
+<li><a href="http://scg.unibe.ch/archive/papers/Duca06bTOPLASTraits.pdf">Traits: A Mechanism for Fine-grained Reuse</a></li>
+<li><a href="http://guangboo.org/2013/01/28/python-mixin-programming">Python Mixin编程机制</a></li>
+<li><a href="http://www.linuxjournal.com/node/4540/print">Using Mix-ins with Python</a></li>
+<li><a href="http://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful">stackoverflow - What is a mixin, and why are they useful?</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
