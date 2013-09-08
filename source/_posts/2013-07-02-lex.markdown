@@ -1,0 +1,30 @@
+---
+layout: post
+title: "LEX、YACC初识"
+date: 2013-06-22 01:50
+comments: true
+categories: Compiler Theory
+---
+
+以前只用下降子程序的方法手写过一个解释器，[iplot](http://iplot.tclh123.com/)。
+
+现在学院又开一门课，叫程序分析...讲的还是编译原理...只不过是让借助工具...两个实验，一个是LEX+YACC，一个是ANTLR。
+
+那咱就学下LEX+YACC....
+
+##START
+
+Lex 代表 Lexical Analyzar。Yacc 代表 Yet Another Compiler Compiler。
+
+Unix或Linux都自带Lex跟YACC，我用的OS X，跟GNU/Linux下面的一样，Lex是flex，而Yacc则是bison。
+
+##Lex
+lex和flex都是解析Lex文件的工具，用法相近，flex意为fast lexical analyzer generator。可以看成lex的升级版本。
+
+**挖坑未填完，先把实验做掉。。**
+
+##Reference
+
+http://blog.csdn.net/liwei_cmg/article/details/1530999
+
+http://www.ibm.com/developerworks/cn/linux/sdk/lex/

@@ -1,0 +1,91 @@
+---
+layout: post
+title: "微软与谷歌盈利模式对比分析"
+date: 2012-12-31 04:54
+comments: true
+categories: Microsoft Google Thinking
+---
+
+
+初看题目，觉得其实就盈利来说，Microsoft跟Google真的没有太大可比性。一个是围绕OS卖软件的，一个是靠搜索引擎卖广告的。Google卖广告，不是说他找不到合适的盈利模式才靠广告赚钱，恰恰相反，它是开创了“免费+广告”的盈利模式。所以说，Google最终能变现的途径确实只有广告，但是这靠的是它提供的一系列免费的网络服务。
+
+###Microsoft盈利模式
+
+先来说说Microsoft的盈利模式。
+
+<img src="http://www.bojdn.com/uploads/allimg/120224/1-1202241324011R.png" width=500 height=280></img>
+
+如上图所示，依据盈利能力的大小排序，Microsoft主要的盈利来源如下：
+
+1. 商业部门
+2. 服务器及工具
+3. Windows系统、Windows live系列服务
+4. 娱乐及娱乐设备
+5. 在线服务
+6. 未知收入
+
+数据是2012年初的，微软商业部的盈利主要来自于Office办公软件。由下图可以看出，自2010年第三季度起，Windows业务营收所占总运营收入的比例就开始下滑，而商业部门一段时间的迅速增长后又趋于平稳。
+
+<img src="http://y0.ifengimg.com/89f4c48e1f922239/2012/0217/rdn_4f3dada479638.jpg" width=500 height=280></img>
+
+微软商业部门，除了传统的Office Suite（Word、Excel、PowerPoint），还包括Exchange、Sharepoint、Lync、Office 365等，以及一些CRM、ERP软件。
+
+服务器及工具，包括Microsoft SQL Server、Visual Studio、Azure等。其中，一半的利润来自与其他企业公司达成的大量授权方案，其他的利润来自租赁服务、授权交易以及企业服务。
+
+Windows及Windows Live，在这个分类中，大约四分之三的利润来自Windows操作系统的销售。而另外四分之一的利润来自于一些硬件产品（鼠标、键盘）的销售以及在Windows Live服务上的广告收入。
+
+娱乐及娱乐设备（主管Xbox和Windows Phone的部门），这是Microsoft除了Windows操作系统之外另外一个针对消费者的服务。包括Xbox 游戏机、Xbox Live服务、Kinect、所有的Xbox游戏、Windows Phone手机操作系统以及花费85亿获得的Skype业务。
+
+在线服务，例如MSN和Bing，大部分盈利来自广告收入。
+
+###Google盈利模式
+
+正如文章开头所说的，Google绝大部分收入来自于广告，约占96%，这种情况已经持续了好几年。
+
+<img src="http://www.bojdn.com/uploads/allimg/120224/1-1202241332131T.png" width=500 height=280></img>
+
+当然Google不是一个广告公司，事实上，它免费为用户提供一系列网络服务，从而聚集起一个庞大的用户群。而广告商，就会为了享受这些用户资源而付费。
+
+#####免费网络服务
+
+那我们就先来细数下Google有哪些免费的网络服务。
+
+搜索引擎，世界最大，没有之一。围绕搜索引擎，它还提供一系列网站上的服务，如新闻、翻译、图片、博客搜索、学术搜索（Google Scholar）等。
+
+还有许多其他的网络服务，如文档（Google Docs）、网上论坛（邮件列表）、Google Maps、Gmail、Gtalk、Google Code、Google+、协作平台（Google Apps），以及收购来的Blogger、Youtube。
+
+在其他方面，Google以WebKit排版引擎开发的开源的Chrome浏览器，针对移动设备的操作系统Android，基于Linux的操作系统Chrome OS等。
+
+#####广告系统
+
+Google的广告系统由两个部分组成，通过第三方网站来放置。
+
+Google收购DoubleClick后获取技术，得以获取用户兴趣和确定广告目标，实现精准投放。Google Adwords为广告客户提供在网络中展示广告的服务，按点击或显示收费。AdWords的姊妹项目AdSense，允许网站站长在自己的网页中提供广告展示的位置，并参与分成。Google Analytics可以让网站站长们查看并追踪访问者在何时，以何种方式访问自己的网站，如检查某一页面上所有链接的点击等。
+
+#####其它
+
+其实据我了解Google还是有其他盈利途径的，主要是增值服务，如Google App Engine的Pro用户能够获得更高资源配额，类似的还有Google Apps。只不过这些收入相对广告来说只是目前还只是皮毛罢了。
+
+###两者盈利模式对比
+Google跟Microsoft从来都是死对头，就目前来看，体现在以下几个方面：
+
+1. 搜索
+	
+	看全球最有机会和实力挑战 Google 搜索的，目前还只有 Bing，况且 Bing 现在已经驱动 Yahoo! 搜索和 Facebook 搜索，Bing 也独家整合了 Facebook“赞”数据。Google 目前的感觉肯定是不好受的，搜索将直接影响广告收益。
+	
+2. 企业生产力
+	
+	Google Apps 和 微软 SharePoint、Exchange、Office 一系列的生产力产品始终是敌对，加上微软去年已经将这些产品的云服务版本打包成了 Office 365（清晰目标是 Google Apps），两家竞争关系更加明显。
+	
+	Google Apps已经迫使微软推出了免费的Office应用。目前，一些大企业已经放弃了微软Office，转投Google Apps。如果这种趋势持续下去，微软的这一大收入源将面临巨大压力。
+	
+3. 操作系统和移动终端
+	
+	根据未来云计算的趋势Google推出Chrome OS，顺应移动互联的趋势Google推出Android，以操作系统起家的Microsoft应该是受到极大威胁的。所以，微软推出Windows Phone、Windows 8积极应对。把Windows 8做成半个平板系统也是想在平板领域抢回点市场。
+	
+4. 其他
+	
+	还有许多处于竞争关系的产品，如Google Chrome 对 IE，App Engine 对 Azure，Gmail 对 Hotmail，Gtalk 对 MSN等。
+	
+总结来说，Microsoft主要盈利来自于Windows、Office Suite、Server产品，方式是卖软件或者卖服务。而Google主要盈利来自于提供搜索、办公等网络服务，方式是卖广告。
+
