@@ -4,7 +4,7 @@
   <title><![CDATA[Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/atom.xml" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2013-09-08T18:34:01+08:00</updated>
+  <updated>2013-09-09T03:50:01+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,107 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[use Pandoc and LaTeX on OS X]]></title>
+    <link href="http://tclh123.github.com/blog/2013/09/09/use-pandoc-and-latex-on-os-x/"/>
+    <updated>2013-09-09T02:11:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/09/09/use-pandoc-and-latex-on-os-x</id>
+    <content type="html"><![CDATA[<h2>Installing</h2>
+
+<ul>
+<li><a href="http://code.google.com/p/pandoc/downloads/">Pandoc</a></li>
+<li>MacTeX&#8217;s <a href="http://www.tug.org/mactex/morepackages.html">BasicTeX.pkg</a></li>
+</ul>
+
+
+<blockquote><p>For PDF output, you’ll also need LaTeX. We recommend installing BasicTeX (64M), and using the tlmgr tool to install additional packages as needed.</p></blockquote>
+
+<p>Just download and run the pkg files.</p>
+
+<p>Then add <code>/usr/texbin</code> to your $PATH(<code>export PATH=${PATH}:/usr/texbin;</code>).</p>
+
+<p>Now, you get them installed.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pandoc --version
+</span><span class='line'>
+</span><span class='line'>pdflatex -v
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Install tlmgr</h3>
+
+<p><a href="http://www.tug.org/texlive/tlmgr.html">tlmgr - TeX Live package manager</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl http://ftp.ctex.org/mirrors/CTAN/systems/texlive/tlnet/update-tlmgr-latest.sh -O
+</span><span class='line'>chmod a+x update-tlmgr-latest.sh
+</span><span class='line'>./update-tlmgr-latest.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>My Output</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Verifying archive integrity... All good.
+</span><span class='line'>Uncompressing TeX Live Manager Updater...........................................................................................................................................................................................
+</span><span class='line'>./runme.sh: updating in /usr/local/texlive/2013basic...
+</span><span class='line'>./runme.sh: tlmgr version says this is TeX Live 2013
+</span><span class='line'>./runme.sh: proceeding with tlmgr update.
+</span><span class='line'>D:tlmgr:main: ::tldownload_server defined
+</span><span class='line'>D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/wget/wget.x86_64-darwin <span class="k">for </span>wget <span class="o">(</span>tested<span class="o">)</span>.
+</span><span class='line'>D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/xz/xzdec.x86_64-darwin <span class="k">for </span>xzdec <span class="o">(</span>tested<span class="o">)</span>.
+</span><span class='line'>D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/xz/xz.x86_64-darwin <span class="k">for </span>xz <span class="o">(</span>not tested<span class="o">)</span>.
+</span><span class='line'>./runme.sh: <span class="k">done</span>.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and you can check the version by <code>tlmgr --version</code></p>
+
+<figure class='code'><figcaption><span>setting default package repository</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo tlmgr option location http://mirror.ctan.org/systems/texlive/tlnet/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Simple Usage</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pandoc test1.md -s -o test1.pdf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>TO be continued</strong></p>
+
+<h2>Reference</h2>
+
+<ul>
+<li>https://github.com/mwhite/resume</li>
+<li>http://tug.ctan.org/</li>
+<li>http://www.ctan.org/tex-archive/fonts/tex-gyre/</li>
+<li>http://www.ctan.org/tex-archive/macros/latex/contrib/titlesec</li>
+<li>http://tex.stackexchange.com/questions/10706/pdftex-error-font-expansion-auto-expansion-is-only-possible-with-scalable</li>
+<li>http://www.tug.org/mactex/morepackages.html</li>
+<li>http://www.tug.org/texlive/</li>
+<li>http://cmwelsh.com/beautiful-resumes-with-markdown-and-latex</li>
+<li>http://sysadvent.blogspot.jp/2011/12/day-14-write-your-resume-in-markdown.html</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Python Plugin/MixIn/Monkey-patching]]></title>
@@ -1368,130 +1469,6 @@ eg. like(monkey, banana)</p>
 
 <p>。。。就这样吧，最后放上一张图，在那个什么Sky Garden拍的，话说微软的楼确实不错。。
 <img src="MyImage/bianchengzhimei.jpeg" alt="编程之美北京" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vim学习笔记（四）- 插件篇]]></title>
-    <link href="http://tclh123.github.com/blog/2013/01/30/vimxue-xi-bi-ji-%28si-%29-cha-jian-pian/"/>
-    <updated>2013-01-30T01:02:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/01/30/vimxue-xi-bi-ji-(si-)-cha-jian-pian</id>
-    <content type="html"><![CDATA[<p>主要是根据前辈的一篇博文，<a href="http://www.cnblogs.com/chijianqiang/archive/2012/11/06/vim-3.html">谁说Vim不是IDE？（三）</a>写的，自己实践整理的一个记录。</p>
-
-<p>下一步计划是消化这两篇：</p>
-
-<p>1.<a href="http://www.cnblogs.com/chijianqiang/archive/2012/12/17/vim-4.html">谁说Vim不是IDE？（四）</a></p>
-
-<p>2.<a href="https://github.com/humiaozuzu/dot-vimrc">Maple&#8217;s Vim config</a></p>
-
-<p>先是熟悉ctags，然后把vim搞成IDE，完善自己的.vimrc。</p>
-
-<h2>pathogen</h2>
-
-<hr />
-
-<p>通过管理<code>runtimepath</code>来简化插件安装、运行时的文件，使其能位于自己自定义目录（默认为 bundle）下。</p>
-
-<p>项目位于<a href="https://github.com/tpope/vim-pathogen">github</a></p>
-
-<h3>插件安装</h3>
-
-<h4>1、执行</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir -p ~/.vim/autoload ~/.vim/bundle; <span class="se">\</span>
-</span><span class='line'>curl -Sso ~/.vim/autoload/pathogen.vim <span class="se">\</span>
-</span><span class='line'>    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>2、在 .vimrc 中增加代码</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">call</span> pathogen#infect<span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Command-T</h2>
-
-<hr />
-
-<p>用于在一个给定目录下快速定位文件，Go To File的功能。</p>
-
-<h3>插件安装</h3>
-
-<h4>1、下载</h4>
-
-<p><a href="http://www.vim.org/scripts/download_script.php?src_id=18167">command-t-1.4.vba</a></p>
-
-<h4>2、安装至bundle目录下</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir ~/.vim/bundle/command-t
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>vim <span class="nb">command</span>-t-1.4.vba
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>执行 <code>:UseVimball ~/.vim/bundle/command-t</code></p>
-
-<h4>3、编译C扩展</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.vim/bundle/command-t/ruby/command-t
-</span><span class='line'>ruby extconf.rb
-</span><span class='line'>make
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Powerline</h2>
-
-<hr />
-
-<p>一个增强的窗口状态栏。</p>
-
-<h3>插件安装</h3>
-
-<h4>1、安装到bundle</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.vim/bundle
-</span><span class='line'>git clone git://github.com/Lokaltog/vim-powerline.git
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>2、安装字体</h4>
-
-<p>安装一些 <a href="https://gist.github.com/1595572">vim-powerline patched fonts</a>，我用的是Menlo，然后安装到系统</p>
-
-<h4>3、在.vimrc中设置状态栏主题</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot;powerline{</span>
-</span><span class='line'><span class="c">&quot;set guifont=PowerlineSymbols\ for\ Powerline</span>
-</span><span class='line'><span class="k">set</span> <span class="nb">guifont</span><span class="p">=</span>Menlo\ <span class="k">for</span>\ Powerline
-</span><span class='line'><span class="k">set</span> <span class="nb">nocompatible</span>
-</span><span class='line'><span class="k">set</span> <span class="nb">t_Co</span><span class="p">=</span><span class="m">256</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:Powerline_symbols <span class="p">=</span> <span class="s1">&#39;fancy&#39;</span>
-</span><span class='line'><span class="c">&quot;}</span>
-</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   

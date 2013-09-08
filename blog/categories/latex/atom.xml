@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: LaTeX | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/latex/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-09T03:50:01+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[use Pandoc and LaTeX on OS X]]></title>
+    <link href="http://tclh123.github.com/blog/2013/09/09/use-pandoc-and-latex-on-os-x/"/>
+    <updated>2013-09-09T02:11:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/09/09/use-pandoc-and-latex-on-os-x</id>
+    <content type="html"><![CDATA[<h2>Installing</h2>
+
+<ul>
+<li><a href="http://code.google.com/p/pandoc/downloads/">Pandoc</a></li>
+<li>MacTeX's <a href="http://www.tug.org/mactex/morepackages.html">BasicTeX.pkg</a></li>
+</ul>
+
+
+<blockquote><p>For PDF output, you’ll also need LaTeX. We recommend installing BasicTeX (64M), and using the tlmgr tool to install additional packages as needed.</p></blockquote>
+
+<p>Just download and run the pkg files.</p>
+
+<p>Then add <code>/usr/texbin</code> to your $PATH(<code>export PATH=${PATH}:/usr/texbin;</code>).</p>
+
+<p>Now, you get them installed.</p>
+
+<p>``` bash
+pandoc --version</p>
+
+<p>pdflatex -v
+```</p>
+
+<h3>Install tlmgr</h3>
+
+<p><a href="http://www.tug.org/texlive/tlmgr.html">tlmgr - TeX Live package manager</a></p>
+
+<p><code>bash
+curl http://ftp.ctex.org/mirrors/CTAN/systems/texlive/tlnet/update-tlmgr-latest.sh -O
+chmod a+x update-tlmgr-latest.sh
+./update-tlmgr-latest.sh
+</code></p>
+
+<p><code>bash My Output
+Verifying archive integrity... All good.
+Uncompressing TeX Live Manager Updater...........................................................................................................................................................................................
+./runme.sh: updating in /usr/local/texlive/2013basic...
+./runme.sh: tlmgr version says this is TeX Live 2013
+./runme.sh: proceeding with tlmgr update.
+D:tlmgr:main: ::tldownload_server defined
+D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/wget/wget.x86_64-darwin for wget (tested).
+D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/xz/xzdec.x86_64-darwin for xzdec (tested).
+D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/xz/xz.x86_64-darwin for xz (not tested).
+./runme.sh: done.
+</code></p>
+
+<p>and you can check the version by <code>tlmgr --version</code></p>
+
+<p><code>bash setting default package repository
+sudo tlmgr option location http://mirror.ctan.org/systems/texlive/tlnet/
+</code></p>
+
+<h2>Simple Usage</h2>
+
+<p><code>bash
+pandoc test1.md -s -o test1.pdf
+</code></p>
+
+<p><strong>TO be continued</strong></p>
+
+<h2>Reference</h2>
+
+<ul>
+<li>https://github.com/mwhite/resume</li>
+<li>http://tug.ctan.org/</li>
+<li>http://www.ctan.org/tex-archive/fonts/tex-gyre/</li>
+<li>http://www.ctan.org/tex-archive/macros/latex/contrib/titlesec</li>
+<li>http://tex.stackexchange.com/questions/10706/pdftex-error-font-expansion-auto-expansion-is-only-possible-with-scalable</li>
+<li>http://www.tug.org/mactex/morepackages.html</li>
+<li>http://www.tug.org/texlive/</li>
+<li>http://cmwelsh.com/beautiful-resumes-with-markdown-and-latex</li>
+<li>http://sysadvent.blogspot.jp/2011/12/day-14-write-your-resume-in-markdown.html</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

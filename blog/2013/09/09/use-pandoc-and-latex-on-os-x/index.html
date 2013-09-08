@@ -1,0 +1,258 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Use Pandoc and LaTeX on OS X Sep 9th, 2013 Installing Pandoc
+MacTeX&#8217;s BasicTeX.pkg For PDF output, you’ll also need LaTeX. We recommend &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/2013/09/09/use-pandoc-and-latex-on-os-x">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> <div class="post-header">
+  
+    <h1 class="post-title">Use Pandoc and LaTeX on OS X</h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-09T02:11:00+08:00" pubdate data-updated="true">Sep 9<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><h2>Installing</h2>
+
+<ul>
+<li><a href="http://code.google.com/p/pandoc/downloads/">Pandoc</a></li>
+<li>MacTeX&#8217;s <a href="http://www.tug.org/mactex/morepackages.html">BasicTeX.pkg</a></li>
+</ul>
+
+
+<blockquote><p>For PDF output, you’ll also need LaTeX. We recommend installing BasicTeX (64M), and using the tlmgr tool to install additional packages as needed.</p></blockquote>
+
+<p>Just download and run the pkg files.</p>
+
+<p>Then add <code>/usr/texbin</code> to your $PATH(<code>export PATH=${PATH}:/usr/texbin;</code>).</p>
+
+<p>Now, you get them installed.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pandoc --version
+</span><span class='line'>
+</span><span class='line'>pdflatex -v
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Install tlmgr</h3>
+
+<p><a href="http://www.tug.org/texlive/tlmgr.html">tlmgr - TeX Live package manager</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl http://ftp.ctex.org/mirrors/CTAN/systems/texlive/tlnet/update-tlmgr-latest.sh -O
+</span><span class='line'>chmod a+x update-tlmgr-latest.sh
+</span><span class='line'>./update-tlmgr-latest.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>My Output</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Verifying archive integrity... All good.
+</span><span class='line'>Uncompressing TeX Live Manager Updater...........................................................................................................................................................................................
+</span><span class='line'>./runme.sh: updating in /usr/local/texlive/2013basic...
+</span><span class='line'>./runme.sh: tlmgr version says this is TeX Live 2013
+</span><span class='line'>./runme.sh: proceeding with tlmgr update.
+</span><span class='line'>D:tlmgr:main: ::tldownload_server defined
+</span><span class='line'>D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/wget/wget.x86_64-darwin <span class="k">for </span>wget <span class="o">(</span>tested<span class="o">)</span>.
+</span><span class='line'>D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/xz/xzdec.x86_64-darwin <span class="k">for </span>xzdec <span class="o">(</span>tested<span class="o">)</span>.
+</span><span class='line'>D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/xz/xz.x86_64-darwin <span class="k">for </span>xz <span class="o">(</span>not tested<span class="o">)</span>.
+</span><span class='line'>./runme.sh: <span class="k">done</span>.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and you can check the version by <code>tlmgr --version</code></p>
+
+<figure class='code'><figcaption><span>setting default package repository</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo tlmgr option location http://mirror.ctan.org/systems/texlive/tlnet/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Simple Usage</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pandoc test1.md -s -o test1.pdf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>TO be continued</strong></p>
+
+<h2>Reference</h2>
+
+<ul>
+<li>https://github.com/mwhite/resume</li>
+<li>http://tug.ctan.org/</li>
+<li>http://www.ctan.org/tex-archive/fonts/tex-gyre/</li>
+<li>http://www.ctan.org/tex-archive/macros/latex/contrib/titlesec</li>
+<li>http://tex.stackexchange.com/questions/10706/pdftex-error-font-expansion-auto-expansion-is-only-possible-with-scalable</li>
+<li>http://www.tug.org/mactex/morepackages.html</li>
+<li>http://www.tug.org/texlive/</li>
+<li>http://cmwelsh.com/beautiful-resumes-with-markdown-and-latex</li>
+<li>http://sysadvent.blogspot.jp/2011/12/day-14-write-your-resume-in-markdown.html</li>
+</ul>
+
+</div>
+
+
+<div class="post-single">
+  <div class="post-meta">
+    
+
+<span class="categories">
+  Categories:
+  
+    <a class='category' href='/blog/categories/latex/'>LaTeX</a>
+  
+</span>
+
+
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tclh123.github.com/blog/2013/09/09/use-pandoc-and-latex-on-os-x/" data-via="tclh123" data-counturl="http://tclh123.github.com/blog/2013/09/09/use-pandoc-and-latex-on-os-x/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+  </div>
+  <div class="clear"></div>
+
+  
+    <div id="comments">
+      <h2>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"></div>
+    </div>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tclh123.github.com/blog/2013/09/09/use-pandoc-and-latex-on-os-x/';
+        var disqus_url = 'http://tclh123.github.com/blog/2013/09/09/use-pandoc-and-latex-on-os-x/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

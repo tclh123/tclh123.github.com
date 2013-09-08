@@ -7,7 +7,8 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="Core Java 2 读书笔记（一） May 13th, 2013 我不会说我是因为明天考Java才开始看的。 鉴于记性实在太差，觉得以后每系统地学一个新的东西都要做一点笔记。。留给以后回忆用。。（“青春就是用来回忆的&#8230;” 从第三章开始看的，看到第六章。 数据类型 基本类型，八种， &hellip;">
+  <meta name="description" content="Open Terminal(iTerm2) in Current Folder Jun 14th, 2013 原来Terminal一直用自带的，现在改成iTerm2。
+google到一些用AppleScript解决的方案，经测试不可用，估计是OS X 10.8改了什么东西。 &hellip;">
   
   
 
@@ -48,6 +49,51 @@
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/06/14/open-terminal-iterm2-in-current-folder/">Open Terminal(iTerm2) in Current Folder</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-14T15:58:00+08:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>原来Terminal一直用自带的，现在改成iTerm2。
+google到一些<a href="http://www.dbform.com/html/2011/1559.html">用AppleScript解决的方案</a>，经测试不可用，估计是OS X 10.8改了什么东西。
+没空研究AppleScript&#8230;</p>
+
+<p>然后意识到也许可以把Go2Shell的默认Terminal改一下，然后确实google到了方法。。</p>
+
+<h2>Solution</h2>
+
+<ol>
+<li>Download Go2Shell.</li>
+<li>Change your default Go2Shell terminal to iTerm2.</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a Go2Shell --args config
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That will open the configuration screen.</p>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -953,147 +999,6 @@ eg. like(monkey, banana)</p>
 
 <p>。。。就这样吧，最后放上一张图，在那个什么Sky Garden拍的，话说微软的楼确实不错。。
 <img src="MyImage/bianchengzhimei.jpeg" alt="编程之美北京" /></p>
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/01/30/vimxue-xi-bi-ji-%28si-%29-cha-jian-pian/">Vim学习笔记（四）- 插件篇</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-30T01:02:00+08:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>主要是根据前辈的一篇博文，<a href="http://www.cnblogs.com/chijianqiang/archive/2012/11/06/vim-3.html">谁说Vim不是IDE？（三）</a>写的，自己实践整理的一个记录。</p>
-
-<p>下一步计划是消化这两篇：</p>
-
-<p>1.<a href="http://www.cnblogs.com/chijianqiang/archive/2012/12/17/vim-4.html">谁说Vim不是IDE？（四）</a></p>
-
-<p>2.<a href="https://github.com/humiaozuzu/dot-vimrc">Maple&#8217;s Vim config</a></p>
-
-<p>先是熟悉ctags，然后把vim搞成IDE，完善自己的.vimrc。</p>
-
-<h2>pathogen</h2>
-
-<hr />
-
-<p>通过管理<code>runtimepath</code>来简化插件安装、运行时的文件，使其能位于自己自定义目录（默认为 bundle）下。</p>
-
-<p>项目位于<a href="https://github.com/tpope/vim-pathogen">github</a></p>
-
-<h3>插件安装</h3>
-
-<h4>1、执行</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir -p ~/.vim/autoload ~/.vim/bundle; <span class="se">\</span>
-</span><span class='line'>curl -Sso ~/.vim/autoload/pathogen.vim <span class="se">\</span>
-</span><span class='line'>    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>2、在 .vimrc 中增加代码</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">call</span> pathogen#infect<span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Command-T</h2>
-
-<hr />
-
-<p>用于在一个给定目录下快速定位文件，Go To File的功能。</p>
-
-<h3>插件安装</h3>
-
-<h4>1、下载</h4>
-
-<p><a href="http://www.vim.org/scripts/download_script.php?src_id=18167">command-t-1.4.vba</a></p>
-
-<h4>2、安装至bundle目录下</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir ~/.vim/bundle/command-t
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>vim <span class="nb">command</span>-t-1.4.vba
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>执行 <code>:UseVimball ~/.vim/bundle/command-t</code></p>
-
-<h4>3、编译C扩展</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.vim/bundle/command-t/ruby/command-t
-</span><span class='line'>ruby extconf.rb
-</span><span class='line'>make
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Powerline</h2>
-
-<hr />
-
-<p>一个增强的窗口状态栏。</p>
-
-<h3>插件安装</h3>
-
-<h4>1、安装到bundle</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ~/.vim/bundle
-</span><span class='line'>git clone git://github.com/Lokaltog/vim-powerline.git
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>2、安装字体</h4>
-
-<p>安装一些 <a href="https://gist.github.com/1595572">vim-powerline patched fonts</a>，我用的是Menlo，然后安装到系统</p>
-
-<h4>3、在.vimrc中设置状态栏主题</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot;powerline{</span>
-</span><span class='line'><span class="c">&quot;set guifont=PowerlineSymbols\ for\ Powerline</span>
-</span><span class='line'><span class="k">set</span> <span class="nb">guifont</span><span class="p">=</span>Menlo\ <span class="k">for</span>\ Powerline
-</span><span class='line'><span class="k">set</span> <span class="nb">nocompatible</span>
-</span><span class='line'><span class="k">set</span> <span class="nb">t_Co</span><span class="p">=</span><span class="m">256</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:Powerline_symbols <span class="p">=</span> <span class="s1">&#39;fancy&#39;</span>
-</span><span class='line'><span class="c">&quot;}</span>
-</span></code></pre></td></tr></table></div></figure>
-
 </div>
  </div>
 
