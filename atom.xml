@@ -4,7 +4,7 @@
   <title><![CDATA[Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/atom.xml" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2013-09-09T03:50:01+08:00</updated>
+  <updated>2013-09-25T02:30:34+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Solve A+B Problem in python &amp; one line]]></title>
+    <link href="http://tclh123.github.com/blog/2013/09/25/solve-a-plus-b-problem-in-python-and-one-line/"/>
+    <updated>2013-09-25T02:23:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/09/25/solve-a-plus-b-problem-in-python-and-one-line</id>
+    <content type="html"><![CDATA[<p>Classical ACM/ICPC Problem</p>
+
+<p>one test case is easy, how to support multi- test cases?</p>
+
+<p>ex.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># Input</span>
+</span><span class='line'><span class="mi">1</span> <span class="mi">2</span>
+</span><span class='line'><span class="mi">2</span> <span class="mi">4</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Output</span>
+</span><span class='line'><span class="mi">3</span>
+</span><span class='line'><span class="mi">6</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>in python 2.x</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span><span class="p">;</span> <span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="p">[</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can test it on the Online Judge. :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[use Pandoc and LaTeX on OS X]]></title>
@@ -1445,30 +1484,6 @@ eg. like(monkey, banana)</p>
 
 </pre>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2012微软编程之美全国挑战赛回顾]]></title>
-    <link href="http://tclh123.github.com/blog/2013/02/28/2012wei-ruan-bian-cheng-zhi-mei-quan-guo-tiao-zhan-sai-hui-gu/"/>
-    <updated>2013-02-28T10:15:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/02/28/2012wei-ruan-bian-cheng-zhi-mei-quan-guo-tiao-zhan-sai-hui-gu</id>
-    <content type="html"><![CDATA[<p>今天MSTC的人突然说要采访往届参赛选手，囧，都过去快一年了，回忆下。。</p>
-
-<p>2012编程之美是MSRA举办的，分为初赛跟决赛。
-初赛比的是AI对战，北航的MSTC做的海战游戏并提供了3种不同语言的SDK，海选，网上提交代码。
-决赛取64名，地点在北京海淀的微软大厦，比的是工程类题目，解决问题，Topic是“大数据可视化”，形式是结对编程，2天时间。当时是3个题目任选，我选的是“字云”。决赛没比好，时间不够，没入围10强。</p>
-
-<p>要说比赛让我收获了什么：</p>
-
-<ul>
-<li>初赛是写AI，以前完全没接触过的东西。涉及到一些状态机理论，计算几何，数学建模（根据各种伤害公式等），以求得到一个最优化的AI策略。还是非常有意思的。</li>
-<li>决赛是“大数据可视化”，当时我们是用C#/WPF写（其实当时真是各种不会，现在再考虑这个问题脑中蹦出的解决方案就多很多了），本来是想用Siverlight（我当时技术特征纯MS&#8230;）因为什么东西卡住又换到WPF了。除去通过工程技术方面的摸索得到的收获，还有两点是我比较重视的。一个是“结对编程”，引入了Team Work的因素，锻炼了与人交流、项目分工等等的能力。那种背靠背相互依赖的感觉真的让人很享受。另一个就是“马拉松式”的编程，只给我们2天时间（其实除去吃饭睡觉时间远远不到，大概就2x8小时），那种紧张感，抓到一个想法就拼命coding，很迷人。。（其实我喜欢ACM也有这部分原因，可以高频率敲击键盘。。）</li>
-</ul>
-
-
-<p>。。。就这样吧，最后放上一张图，在那个什么Sky Garden拍的，话说微软的楼确实不错。。
-<img src="MyImage/bianchengzhimei.jpeg" alt="编程之美北京" /></p>
 ]]></content>
   </entry>
   

@@ -143,8 +143,14 @@
         <lastmod>2013-09-09T03:46:54+08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://tclh123.github.com/blog/2013/09/25/solve-a-plus-b-problem-in-python-and-one-line/
+        </loc>
+        <lastmod>2013-09-25T02:30:21+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://tclh123.github.com/blog/archives/</loc>
-        <lastmod>2013-09-09T03:46:54+08:00</lastmod>
+        <lastmod>2013-09-25T02:30:21+08:00</lastmod>
     </url>
     <url>
         <loc>http://tclh123.github.com/feed/index.xml</loc>
@@ -152,6 +158,6 @@
     </url>
     <url>
         <loc>http://tclh123.github.com/</loc>
-        <lastmod>2013-09-09T03:46:54+08:00</lastmod>
+        <lastmod>2013-09-25T02:30:21+08:00</lastmod>
     </url>
 </urlset>

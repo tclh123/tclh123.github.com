@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ACM | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/acm/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-09-25T02:30:34+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Solve A+B Problem in python &amp; one line]]></title>
+    <link href="http://tclh123.github.com/blog/2013/09/25/solve-a-plus-b-problem-in-python-and-one-line/"/>
+    <updated>2013-09-25T02:23:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/09/25/solve-a-plus-b-problem-in-python-and-one-line</id>
+    <content type="html"><![CDATA[<p>Classical ACM/ICPC Problem</p>
+
+<p>one test case is easy, how to support multi- test cases?</p>
+
+<p>ex.
+``` python</p>
+
+<h1>Input</h1>
+
+<p>1 2
+2 4</p>
+
+<h1>Output</h1>
+
+<p>3
+6</p>
+
+<p>```</p>
+
+<p>in python 2.x</p>
+
+<p><code>python
+from __future__ import print_function; import sys; map(lambda x: print(sum(x)), [map(int, line.split()) for line in sys.stdin]);
+</code></p>
+
+<p>You can test it on the Online Judge. :)</p>
+]]></content>
+  </entry>
+  
+</feed>

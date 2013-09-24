@@ -7,8 +7,8 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="Open Terminal(iTerm2) in Current Folder Jun 14th, 2013 原来Terminal一直用自带的，现在改成iTerm2。
-google到一些用AppleScript解决的方案，经测试不可用，估计是OS X 10.8改了什么东西。 &hellip;">
+  <meta name="description" content="Chrome Extension Manifest V2 Jun 18th, 2013 今天兴起想写个 Chrome Extension，研究了一番，稍有点头绪。
+想到天天用的 Fawave，去找了下它源码（原项目名叫falang&#8230;好名字！）。 不看不知道，一看发现它逻辑这么复杂。。 &hellip;">
   
   
 
@@ -49,6 +49,83 @@ google到一些用AppleScript解决的方案，经测试不可用，估计是OS 
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/06/18/chrome-extension-manifest-v2/">Chrome Extension Manifest V2</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-18T01:28:00+08:00" pubdate data-updated="true">Jun 18<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>今天兴起想写个 Chrome Extension，研究了一番，稍有点头绪。
+想到天天用的 Fawave，去找了下它<a href="http://code.google.com/p/falang/source/checkout">源码</a>（原项目名叫falang&#8230;好名字！）。</p>
+
+<p>不看不知道，一看发现它逻辑这么复杂。。而且光看popup.html我就头大了。。
+那个神一样模版语言（<code>&lt;?js ... ?&gt;...#{...}...</code>）。。见都没见过。</p>
+
+<p>搞半天弄清楚他用的是<a href="http://www.kuwata-lab.com/tenjin/jstenjin-users-guide.html">shotenjin.js</a>，是tenjin.js的子集，用于client-side。略小众啊，都搜不到什么相关信息。不过超轻量，整个就100多行代码，用法也真心简单。</p>
+
+<p>又看了半天源码，似乎摸清楚几个困惑的点，</p>
+
+<ul>
+<li>chrome extension 的 popup.html 不支持持久化，每次点一下相当于要重新载入</li>
+<li>像我这种比较小的需求，应该就是每次载入都从localStorage里拿数据出来更新DOM</li>
+<li>fawave那些timeline用localStorage肯定放不下的，貌似是利用 background.html 来做本地缓存（cache。写得好像很吊，就看了一点）。</li>
+</ul>
+
+
+<p>总结一下，其实上面几个点就是纠结 popup.html 里的数据的持久化。</p>
+
+<p>墨迹完了~~</p>
+
+<h2>真正跟标题相关的内容</h2>
+
+<p>fawave用的是manifest V1，我用的V2。于是我用shotenjin.js来解析模版就出现了问题。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Uncaught Error: Code generation from strings disallowed for this context</span></code></pre></td></tr></table></div></figure>
+
+
+<p>经过一番搜索。。。发现是V2不再支持eval()，而shotenjin.js里必须用了eval()啊。。。</p>
+
+<p>具体解决方法参照，</p>
+
+<p><a href="http://www.360marks.com/?p=375">Chrome extension 升级到 manifest version 2 的问题</a></p>
+
+<p><a href="http://developer.chrome.com/trunk/extensions/sandboxingEval.html">Using eval in Chrome Extensions. Safely.</a></p>
+
+<p>因为不想换模版引擎，我用的是官方给的方法，用一个sandbox 的iframe，来代替进行eval()。。</p>
+
+<p>但是。。仍然有问题（好吧这个问题证明是我是小白），简单说就是我想在popup.html load的时候就进行模版渲染，但是那个时候iframe里的script还没执行，message事件还没注册。。</p>
+
+<p>解决方法是，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('sandbox').onload = function() {
+</span><span class='line'>    init();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样保证 init（给iframe发消息让它渲染模版）时， iframe 已经 load，就行了。</p>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -958,47 +1035,6 @@ eg. like(monkey, banana)</p>
 
 </pre>
 
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/02/28/2012wei-ruan-bian-cheng-zhi-mei-quan-guo-tiao-zhan-sai-hui-gu/">2012微软编程之美全国挑战赛回顾</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-28T10:15:00+08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>今天MSTC的人突然说要采访往届参赛选手，囧，都过去快一年了，回忆下。。</p>
-
-<p>2012编程之美是MSRA举办的，分为初赛跟决赛。
-初赛比的是AI对战，北航的MSTC做的海战游戏并提供了3种不同语言的SDK，海选，网上提交代码。
-决赛取64名，地点在北京海淀的微软大厦，比的是工程类题目，解决问题，Topic是“大数据可视化”，形式是结对编程，2天时间。当时是3个题目任选，我选的是“字云”。决赛没比好，时间不够，没入围10强。</p>
-
-<p>要说比赛让我收获了什么：</p>
-
-<ul>
-<li>初赛是写AI，以前完全没接触过的东西。涉及到一些状态机理论，计算几何，数学建模（根据各种伤害公式等），以求得到一个最优化的AI策略。还是非常有意思的。</li>
-<li>决赛是“大数据可视化”，当时我们是用C#/WPF写（其实当时真是各种不会，现在再考虑这个问题脑中蹦出的解决方案就多很多了），本来是想用Siverlight（我当时技术特征纯MS&#8230;）因为什么东西卡住又换到WPF了。除去通过工程技术方面的摸索得到的收获，还有两点是我比较重视的。一个是“结对编程”，引入了Team Work的因素，锻炼了与人交流、项目分工等等的能力。那种背靠背相互依赖的感觉真的让人很享受。另一个就是“马拉松式”的编程，只给我们2天时间（其实除去吃饭睡觉时间远远不到，大概就2x8小时），那种紧张感，抓到一个想法就拼命coding，很迷人。。（其实我喜欢ACM也有这部分原因，可以高频率敲击键盘。。）</li>
-</ul>
-
-
-<p>。。。就这样吧，最后放上一张图，在那个什么Sky Garden拍的，话说微软的楼确实不错。。
-<img src="MyImage/bianchengzhimei.jpeg" alt="编程之美北京" /></p>
 </div>
  </div>
 
