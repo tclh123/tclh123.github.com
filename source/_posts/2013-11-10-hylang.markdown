@@ -1,0 +1,28 @@
+---
+layout: post
+title: "hylang"
+date: 2013-11-10 00:29
+comments: true
+categories: hylang, python, Lex-Yacc
+---
+
+发现一个极好玩的项目，hylang，结合 List 跟 python 的写法...
+
+> Lisp and Python should love each other. Let's make it happen.
+
+<https://github.com/hylang/hy>
+
+- Code: https://github.com/hylang/hy
+- Docs: http://hy.rtfd.org/
+- Quickstart: http://hy.rtfd.org/quickstart
+
+
+### 社区
+
+<https://github.com/hylang>
+
+### 以及由此发现的 python 实现语法词法分析相关的东东
+
+- <https://github.com/hylang/rply/>
+- <https://github.com/alex/rply>
+- <https://github.com/dabeaz/ply>
