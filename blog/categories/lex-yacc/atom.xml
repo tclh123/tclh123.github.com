@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Lex-Yacc | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/lex-yacc/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-11-10T00:42:52+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[hylang]]></title>
+    <link href="http://tclh123.github.com/blog/2013/11/10/hylang/"/>
+    <updated>2013-11-10T00:29:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/11/10/hylang</id>
+    <content type="html"><![CDATA[<p>发现一个极好玩的项目，hylang，结合 List 跟 python 的写法...</p>
+
+<blockquote><p>Lisp and Python should love each other. Let's make it happen.</p></blockquote>
+
+<p><a href="https://github.com/hylang/hy">https://github.com/hylang/hy</a></p>
+
+<ul>
+<li>Code: https://github.com/hylang/hy</li>
+<li>Docs: http://hy.rtfd.org/</li>
+<li>Quickstart: http://hy.rtfd.org/quickstart</li>
+</ul>
+
+
+<h3>社区</h3>
+
+<p><a href="https://github.com/hylang">https://github.com/hylang</a></p>
+
+<h3>以及由此发现的 python 实现语法词法分析相关的东东</h3>
+
+<ul>
+<li><a href="https://github.com/hylang/rply/">https://github.com/hylang/rply/</a></li>
+<li><a href="https://github.com/alex/rply">https://github.com/alex/rply</a></li>
+<li><a href="https://github.com/dabeaz/ply">https://github.com/dabeaz/ply</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

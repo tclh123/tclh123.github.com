@@ -149,8 +149,26 @@
         <lastmod>2013-09-25T02:30:21+08:00</lastmod>
     </url>
     <url>
+        <loc>http://tclh123.github.com/blog/2013/10/04/setup-raspberry-pi-on-os-x/</loc>
+        <lastmod>2013-11-10T00:41:13+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://tclh123.github.com/blog/2013/11/06/pip-uninstall-editable-pkgs/</loc>
+        <lastmod>2013-11-06T17:33:33+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://tclh123.github.com/blog/2013/11/08/%60python-setup-dot-py%60-install-vs-%60pip-install-%60/
+        </loc>
+        <lastmod>2013-11-08T17:25:16+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://tclh123.github.com/blog/2013/11/10/hylang/</loc>
+        <lastmod>2013-11-10T00:38:11+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://tclh123.github.com/blog/archives/</loc>
-        <lastmod>2013-09-25T02:30:21+08:00</lastmod>
+        <lastmod>2013-11-10T00:41:13+08:00</lastmod>
     </url>
     <url>
         <loc>http://tclh123.github.com/feed/index.xml</loc>
@@ -158,6 +176,6 @@
     </url>
     <url>
         <loc>http://tclh123.github.com/</loc>
-        <lastmod>2013-09-25T02:30:21+08:00</lastmod>
+        <lastmod>2013-11-10T00:41:13+08:00</lastmod>
     </url>
 </urlset>

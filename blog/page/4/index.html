@@ -7,7 +7,16 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="微软与谷歌盈利模式对比分析 Dec 31st, 2012 初看题目，觉得其实就盈利来说，Microsoft跟Google真的没有太大可比性。一个是围绕OS卖软件的，一个是靠搜索引擎卖广告的。Google卖广告，不是说他找不到合适的盈利模式才靠广告赚钱，恰恰相反，它是开创了“免费+广告”的盈利模式 &hellip;">
+  <meta name="description" content="Xcode 4.5.1 免iDP开发/部署/在线调试/生成ipa Jan 11th, 2013 本文是结合自己测试的情况，对 这篇教程 的整理，针对 xcode 4.5.1。 1. 修改 SDKSettings.plist 1
+2
+3
+4
+5
+6
+7
+8
+9
+cd /Applications/ &hellip;">
   
   
 
@@ -48,6 +57,345 @@
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/01/11/xcode-4-dot-5-1-mian-idpkai-fa-slash-bu-shu-slash-zai-xian-diao-shi-slash-sheng-cheng-ipa/">Xcode 4.5.1 免iDP开发/部署/在线调试/生成ipa</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-11T14:45:00+08:00" pubdate data-updated="true">Jan 11<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>本文是结合自己测试的情况，对 <a href="http://kqwd.blog.163.com/blog/static/4122344820117191351263/">这篇教程</a> 的整理，针对 xcode 4.5.1。</p>
+
+<h3>1. 修改 SDKSettings.plist</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk
+</span><span class='line'>
+</span><span class='line'>sudo cp SDKSettings.plist SDKSettings.plist.orig
+</span><span class='line'>
+</span><span class='line'>sudo cp SDKSettings.plist /tmp/SDK.plist
+</span><span class='line'>
+</span><span class='line'>sudo chmod 777 /tmp/SDK.plist
+</span><span class='line'>
+</span><span class='line'>sudo /Applications/Xcode.app/Contents/MacOS/Xcode /tmp/SDK.plist
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>展开DefaultProperties分支，将下面的 CODE_SIGNING_REQUIRED、ENTITLEMENTS_REQUIRED 两个属性改为NO</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo cp /tmp/SDK.plist SDKSettings.plist
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>2. 修改 Info.plist</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform
+</span><span class='line'>
+</span><span class='line'>sudo cp Info.plist Info.plist.orig
+</span><span class='line'>
+</span><span class='line'>sudo cp Info.plist /tmp/Info.plist
+</span><span class='line'>
+</span><span class='line'>sudo chmod 777 /tmp/Info.plist
+</span><span class='line'>
+</span><span class='line'>sudo /Applications/Xcode.app/Contents/MacOS/Xcode /tmp/Info.plist
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>将 DefaultProperties、RuntimeRequirements、OverrideProperties分支下 的 XCiPhoneOSCodeSignContext 修改成 XCCodeSignContext。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo cp /tmp/Info.plist Info.plist
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>3. 执行脚本</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'><span class="nb">cd</span> /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/PrivatePlugIns/iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support.xcplugin/Contents/MacOS/
+</span><span class='line'>dd <span class="k">if</span><span class="o">=</span>iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support <span class="nv">of</span><span class="o">=</span>working <span class="nv">bs</span><span class="o">=</span>500 <span class="nv">count</span><span class="o">=</span>255
+</span><span class='line'><span class="nb">printf</span> <span class="s2">&quot;xc3x26x00x00&quot;</span> &gt;&gt; working
+</span><span class='line'>/bin/mv -n iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support.original
+</span><span class='line'>/bin/mv working iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support
+</span><span class='line'>chmod a+x iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>正常的话应该输出(具体的数字可能有差别)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>231+1 records in
+</span><span class='line'>231+1 records out
+</span><span class='line'>115904 bytes transferred in 0.001738 secs <span class="o">(</span>66694555 bytes/sec<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>4. 获取 gen_entitlements.py</h3>
+
+<p>需要连网执行</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir /Applications/Xcode.app/Contents/Developer/iphoneentitlements
+</span><span class='line'><span class="nb">cd</span> /Applications/Xcode.app/Contents/Developer/iphoneentitlements
+</span><span class='line'>curl -O http://www.alexwhittemore.com/iphone/gen_entitlements.txt
+</span><span class='line'>mv gen_entitlements.txt gen_entitlements.py
+</span><span class='line'>chmod 777 gen_entitlements.py
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>5. 禁用Xcode自动的签名操作</h3>
+
+<p><em>这个似乎不做也行</em></p>
+
+<p>将工程配置中所有的Code Signing选项全部设为Don&#8217;t Code Sign，如图。可能需要先点击“All”让这个选项显示出来</p>
+
+<h3>6. 添加自定义的生成后脚本</h3>
+
+<p>在Build Phases中添加一个Phase，右下角的Add Build Phase，然后单击Add Run Script，输入以下脚本</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">CODESIGN_ALLOCATE</span><span class="o">=</span>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;${PLATFORM_NAME}&quot;</span> <span class="o">==</span> <span class="s2">&quot;iphoneos&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="s2">&quot;${PLATFORM_NAME}&quot;</span> <span class="o">==</span> <span class="s2">&quot;ipados&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'>/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py <span class="s2">&quot;my.company.${PROJECT_NAME}&quot;</span> <span class="s2">&quot;${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent&quot;</span>;
+</span><span class='line'>codesign -f -s <span class="s2">&quot;iPhone Developer&quot;</span> --entitlements <span class="s2">&quot;${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent&quot;</span> <span class="s2">&quot;${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/&quot;</span>
+</span><span class='line'><span class="k">fi</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><h3>旁门左道生成IPA文件</h3>
+
+<p>如果我的程序调试好了，怎么才能发给别人用呢？正常情况下IPA文件是从Xcode的Organizer中输出的，但是我们没有证书，这样输出会产生错误。我们只能用个小trick来完成这个操作了。</p>
+
+<p>先将代码生成为Release目标，然后打开工程的输出文件夹，通常情况下这个目录是
+/Users/你的用户名/Library/Developer/Xcode/DerivedData/以工程名打头的文件夹/Build/Products/Release-iphoneos</p>
+
+<p>很纠结吧~这个目录下有个.app的文件，就是生成的程序了。把这个.app拖到iTunes中，它会出现在应用程序那个列表中，然后再把它从iTunes的那个列表中拖出来（比如拖到桌面），发生了什么？哈哈，它就这样变成.ipa了！</p></blockquote>
+
+<p>PS.</p>
+
+<p>我的 ipad 还是 ios5.1 的，好像运行有点错误。不知道是不是应该用5.1的SDK。</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/12523888/how-can-i-add-older-version-of-ios-sdk-in-xcode-4-5">How can I add older version of iOS SDK in Xcode 4.5</a></li>
+</ul>
+
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/01/11/homebrew-symlink-error/">Homebrew Symlink Error</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-11T12:55:00+08:00" pubdate data-updated="true">Jan 11<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>用homebrew的时候经常遇到symlinks出错，</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Linking /usr/local/Cellar/libpng/1.5.13... Warning: Could not link libpng. Unlinking...
+</span><span class='line'>
+</span><span class='line'>Error: Could not symlink file: /usr/local/Cellar/libpng/1.5.13/share/man/man5/png.5
+</span><span class='line'>/usr/local/share/man/man5 is not writable. You should change its permissions.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>需要修改目录拥有者，</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo chown -R <span class="sb">`</span>whoami<span class="sb">`</span> /usr/local/share/man/man5
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/01/08/vimxue-xi-bi-ji-%28er-%29/">Vim学习笔记（二）</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-08T20:10:00+08:00" pubdate data-updated="true">Jan 8<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><h2>查找（Find）</h2>
+
+<hr />
+
+<h4>查找字符</h4>
+
+<p>f[char]查找光标后面的char，F[char]查找光标前面的char。</p>
+
+<h4>查找光标所在的词</h4>
+
+<p>* - 找下一个</p>
+
+<p># - 找上一个</p>
+
+<h2>跳转（GoTo）</h2>
+
+<hr />
+
+<h4>括号匹配</h4>
+
+<p>%</p>
+
+<h4>行首行末</h4>
+
+<p>0 - 行首</p>
+
+<p>$ - 行末</p>
+
+<h4>转到行</h4>
+
+<p>gg - 跳到整个文件首部</p>
+
+<p>G  - 跳到整个文件末尾</p>
+
+<p>[number]G - 跳到第number行首部</p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/01/06/vimxue-xi-bi-ji-%28%5B%3F%5D-%29/">Vim学习笔记（一）</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-06T19:40:00+08:00" pubdate data-updated="true">Jan 6<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>从今天开始再好好学下Vim吧，其实也没这么难上手，多用用就好了。
+先跟<a href="http://www.openvim.com/tutorial.html">这个tutorial</a>学下。</p>
+
+<h2>模式</h2>
+
+<hr />
+
+<p>Vim有Insert mode跟Command mode，按i进入insert mode，按ESC进入command mode。</p>
+
+<h2>光标移动（Movement）</h2>
+
+<hr />
+
+<h4>上下左右（Basic movement）</h4>
+
+<p>hjkl。</p>
+
+<h4>字移动（Word movement）</h4>
+
+<p>w - next word</p>
+
+<p>e - end of the word</p>
+
+<p>b - beginning of the word</p>
+
+<h4>重复移动（Number powered movement）</h4>
+
+<p>3w - same as w 3 times</p>
+
+<h2>重复插入</h2>
+
+<hr />
+
+<p>在command mode下先输入次数n，然后进入insert mode，正常插入一组字符，然后按ESC就会自动重复n-1组字符。</p>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">

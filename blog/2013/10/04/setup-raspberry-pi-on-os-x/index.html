@@ -1,0 +1,214 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Setup Raspberry Pi on OS X Oct 4th, 2013 折腾了下树莓派，买了 PL2303串口TTL下载线，跟一个8G C10的TF带SD卡套。 只能串口访问，没买usb无线，没有多余网线。。不能SSH、开VNC。。不幸福 等能联网了再来折腾吧 →_→ setup &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/2013/10/04/setup-raspberry-pi-on-os-x">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> <div class="post-header">
+  
+    <h1 class="post-title">Setup Raspberry Pi on OS X</h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-04T21:53:00+08:00" pubdate data-updated="true">Oct 4<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>折腾了下树莓派，买了 PL2303串口TTL下载线，跟一个8G C10的TF带SD卡套。</p>
+
+<p>只能串口访问，没买usb无线，没有多余网线。。不能SSH、开VNC。。不幸福</p>
+
+<p>等能联网了再来折腾吧 →_→</p>
+
+<hr />
+
+<h2>setup the SD card</h2>
+
+<ul>
+<li>用DiskUtil把sd卡erase成ExFat格式</li>
+<li>执行 <code>df -h</code> 来获得sd卡的设备路径</li>
+<li>将系统img写入sd卡</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>tclh123@tclh123MBP ~ <span class="nv">$ </span>sudo dd <span class="nv">bs</span><span class="o">=</span>1m <span class="k">if</span><span class="o">=</span><span class="s2">&quot;/path/to/2013-09-25-wheezy-raspbian.img&quot;</span> <span class="nv">of</span><span class="o">=</span>/dev/rdisk2
+</span><span class='line'>Password:
+</span><span class='line'>2825+0 records in
+</span><span class='line'>2825+0 records out
+</span><span class='line'>2962227200 bytes transferred in 168.735466 secs <span class="o">(</span>17555451 bytes/sec<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And you can use <code>killall -INFO dd</code> to check the status of <code>dd</code> in  progress (<a href="http://www.commandlinefu.com/commands/view/5440/check-the-status-of-dd-in-progress-os-x">link</a>)</p>
+
+<h2>串口通信</h2>
+
+<ul>
+<li>下载PL2303串口驱动</li>
+</ul>
+
+
+<p>http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41
+安装完需要重启。。</p>
+
+<ul>
+<li>下个minicom</li>
+</ul>
+
+
+<p><code>brew install minicom</code></p>
+
+<p>ps. 我不知道为什么直接用screen连 <code>screen /dev/tty.usbserial 9600</code> 会乱码加卡死。。</p>
+</div>
+
+
+<div class="post-single">
+  <div class="post-meta">
+    
+
+<span class="categories">
+  Categories:
+  
+    <a class='category' href='/blog/categories/pi/'>pi</a>
+  
+</span>
+
+
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tclh123.github.com/blog/2013/10/04/setup-raspberry-pi-on-os-x/" data-via="tclh123" data-counturl="http://tclh123.github.com/blog/2013/10/04/setup-raspberry-pi-on-os-x/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+  </div>
+  <div class="clear"></div>
+
+  
+    <div id="comments">
+      <h2>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"></div>
+    </div>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tclh123.github.com/blog/2013/10/04/setup-raspberry-pi-on-os-x/';
+        var disqus_url = 'http://tclh123.github.com/blog/2013/10/04/setup-raspberry-pi-on-os-x/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

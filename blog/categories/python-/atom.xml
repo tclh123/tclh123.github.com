@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python, | Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/blog/categories/python-/atom.xml" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2013-09-25T02:30:34+08:00</updated>
+  <updated>2013-11-10T00:42:52+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,96 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[hylang]]></title>
+    <link href="http://tclh123.github.com/blog/2013/11/10/hylang/"/>
+    <updated>2013-11-10T00:29:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/11/10/hylang</id>
+    <content type="html"><![CDATA[<p>发现一个极好玩的项目，hylang，结合 List 跟 python 的写法...</p>
+
+<blockquote><p>Lisp and Python should love each other. Let's make it happen.</p></blockquote>
+
+<p><a href="https://github.com/hylang/hy">https://github.com/hylang/hy</a></p>
+
+<ul>
+<li>Code: https://github.com/hylang/hy</li>
+<li>Docs: http://hy.rtfd.org/</li>
+<li>Quickstart: http://hy.rtfd.org/quickstart</li>
+</ul>
+
+
+<h3>社区</h3>
+
+<p><a href="https://github.com/hylang">https://github.com/hylang</a></p>
+
+<h3>以及由此发现的 python 实现语法词法分析相关的东东</h3>
+
+<ul>
+<li><a href="https://github.com/hylang/rply/">https://github.com/hylang/rply/</a></li>
+<li><a href="https://github.com/alex/rply">https://github.com/alex/rply</a></li>
+<li><a href="https://github.com/dabeaz/ply">https://github.com/dabeaz/ply</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[`python setup.py` install vs. `pip install .`]]></title>
+    <link href="http://tclh123.github.com/blog/2013/11/08/%60python-setup-dot-py%60-install-vs-%60pip-install-%60/"/>
+    <updated>2013-11-08T00:28:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/11/08/`python-setup-dot-py`-install-vs-`pip-install-`</id>
+    <content type="html"><![CDATA[<p>一些坑。</p>
+
+<h3>Distutils</h3>
+
+<p>http://docs.python.org/2/distutils/setupscript.html#installing-package-data</p>
+
+<h3>setuptools &amp; pip</h3>
+
+<p><a href="http://pythonhosted.org/setuptools/setuptools.html#using-find-packages">Building and Distributing Packages with Setuptools</a></p>
+
+<p>https://pypi.python.org/pypi/setuptools/
+http://www.pip-installer.org/en/latest/usage.html#pip-install
+http://www.pip-installer.org/en/latest/logic.html#git
+http://stackoverflow.com/questions/6947988/when-to-use-pip-requirements-file-versus-install-requires-in-setup-py
+https://groups.google.com/d/msg/python-virtualenv/1eI6Z9_XRHE/cj6CCHvmS10J
+http://stackoverflow.com/questions/2087148/can-i-use-pip-instead-of-easy-install-for-python-setup-py-install-dependen</p>
+
+<h4>requirements.txt</h4>
+
+<p><code>from pip.req import parse_requirements</code></p>
+
+<p>http://stackoverflow.com/questions/14399534/how-can-i-reference-requirements-txt-for-the-install-requires-kwarg-in-setuptool?answertab=votes#answer-16624700</p>
+
+<blockquote><p>Require pip>=1.2, as lower versions have a bug
+https://github.com/erikrose/peep/commit/65367f66b777f17b1223569e1cd2f6250a820e99</p></blockquote>
+
+<h4>尽管提供了dependency_lins依然默认安装PyPi版本的坑</h4>
+
+<p>http://stackoverflow.com/questions/17366784/setuptools-unable-to-use-link-from-dependency-links/17442663#17442663
+http://www.pip-installer.org/en/latest/logic.html#requirements-file-format</p>
+
+<p><a href="http://www.packtpub.com/article/writing-a-package-in-python">Writing a Package in Python</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[pip uninstall editable pkgs]]></title>
+    <link href="http://tclh123.github.com/blog/2013/11/06/pip-uninstall-editable-pkgs/"/>
+    <updated>2013-11-06T17:32:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/11/06/pip-uninstall-editable-pkgs</id>
+    <content type="html"><![CDATA[<p>http://stackoverflow.com/questions/17346619/how-to-uninstall-editable-packages-with-pip-installed-with-e</p>
+
+<p>At {virtualenv}/lib/python2.7/site-packages/</p>
+
+<ul>
+<li>remove the egg file (e.g. distribute-0.6.34-py2.7.egg)</li>
+<li>from file easy_install.pth, remove the corresponding line (it should be a path to the source directory or of an egg file).</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Solve A+B Problem in python &amp; one line]]></title>
