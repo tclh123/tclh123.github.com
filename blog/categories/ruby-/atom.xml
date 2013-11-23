@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby, | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/ruby-/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-11-23T20:30:41+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[always trust .rvmrc file]]></title>
+    <link href="http://tclh123.github.com/blog/2013/11/23/always-trust-rvmrc-file/"/>
+    <updated>2013-11-23T19:26:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/11/23/always-trust-rvmrc-file</id>
+    <content type="html"><![CDATA[<p>使用Octopress的时候目录里默认存在一个<code>.rvmrc</code>文件，
+<code>
+rvm use 1.9.3
+</code>
+目测是指定ruby版本用的。每次进入目录都会有<code>Do you wish to trust this .rvmrc file?</code>的提示，需要手动确认。
+还是挺烦的...</p>
+
+<p>其实，<code>rvm list</code> 可以看到我机子上只有这一个版本
+```
+rvm rubies</p>
+
+<p>=> ruby-1.9.3-p327 [ x86_64 ]
+```</p>
+
+<p>所以这个 <code>.rvmrc</code> 是毫无意义的，可以删掉...
+或者在<code>~/.rvmrc</code>里写入<code>export rvm_trust_rvmrcs_flag=1</code></p>
+]]></content>
+  </entry>
+  
+</feed>

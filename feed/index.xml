@@ -4,7 +4,7 @@
   <title><![CDATA[Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/feed" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2013-11-10T00:42:52+08:00</updated>
+  <updated>2013-11-23T20:30:41+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[python string intern]]></title>
+    <link href="http://tclh123.github.com/blog/2013/11/23/python-string-intern/"/>
+    <updated>2013-11-23T19:44:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/11/23/python-string-intern</id>
+    <content type="html"><![CDATA[<p>今天在<code>__builtin__</code>里发现一个<code>intern</code>方法，（原来是internal的意思..
+其实 C 里面有个文字常量区，就是说只要是字符串字面量都会存在那里。
+才知道Python里不太一样，比如说</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; a = 'a b'
+</span><span class='line'>&gt;&gt;&gt; b = 'a b'
+</span><span class='line'>&gt;&gt;&gt; a is b
+</span><span class='line'>False</span></code></pre></td></tr></table></div></figure>
+
+
+<p>真相是，python只对由<code>0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz</code>中的字符组成的字符串自动做intern。
+因为它们可能会更短&#8230;更像标识符..
+另外，在 Python 3 中，似乎被移到<code>sys.intern</code>中去了</p>
+
+<h2>Reference</h2>
+
+<ul>
+<li>http://stackoverflow.com/questions/1136826/what-does-python-sys-intern-do-and-when-should-it-be-used/1137293</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[always trust .rvmrc file]]></title>
+    <link href="http://tclh123.github.com/blog/2013/11/23/always-trust-rvmrc-file/"/>
+    <updated>2013-11-23T19:26:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/11/23/always-trust-rvmrc-file</id>
+    <content type="html"><![CDATA[<p>使用Octopress的时候目录里默认存在一个<code>.rvmrc</code>文件，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rvm use 1.9.3</span></code></pre></td></tr></table></div></figure>
+
+
+<p>目测是指定ruby版本用的。每次进入目录都会有<code>Do you wish to trust this .rvmrc file?</code>的提示，需要手动确认。
+还是挺烦的&#8230;</p>
+
+<p>其实，<code>rvm list</code> 可以看到我机子上只有这一个版本</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rvm rubies
+</span><span class='line'>
+</span><span class='line'>=&gt; ruby-1.9.3-p327 [ x86_64 ]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>所以这个 <code>.rvmrc</code> 是毫无意义的，可以删掉&#8230;
+或者在<code>~/.rvmrc</code>里写入<code>export rvm_trust_rvmrcs_flag=1</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[hylang]]></title>
@@ -1063,42 +1124,6 @@ google到一些<a href="http://www.dbform.com/html/2011/1559.html">用AppleScrip
 <p>For cpp &amp; python, the build-system can open a new terminal window, so I can interact(ep. input) with my program easily.</p>
 
 <p>For java, I don&#8217;t know how to do that, only can show the outputs yet.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[想做的东西]]></title>
-    <link href="http://tclh123.github.com/blog/2013/05/12/xiang-zuo-de-dong-xi/"/>
-    <updated>2013-05-12T19:53:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/05/12/xiang-zuo-de-dong-xi</id>
-    <content type="html"><![CDATA[<ul>
-<li>一个TODO</li>
-<li>个人网站</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[javac terminal utf-8 encoding]]></title>
-    <link href="http://tclh123.github.com/blog/2013/05/12/javac-terminal-utf-8-encoding/"/>
-    <updated>2013-05-12T19:38:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/05/12/javac-terminal-utf-8-encoding</id>
-    <content type="html"><![CDATA[<p>OS X 的terminal输出信息是utf-8编码的，</p>
-
-<p>但是javac默认输出GBK，会导致乱码。</p>
-
-<p>可以用<code>javac -J-Dfile.encoding=UTF-8</code>来使其输出utf-8编码的信息。</p>
-
-<p>解决方案:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>echo "alias javac='javac -J-Dfile.encoding=UTF-8 '"&gt;&gt;~/.bash_profile</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Reference</h3>
-
-<p><a href="https://www.surfchen.org/archives/710">解决javac和java命令在Mac OSX终端里的乱码问题</a></p>
 ]]></content>
   </entry>
   

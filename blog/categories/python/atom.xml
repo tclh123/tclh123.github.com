@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Python | Tclh123's 3rd Blog]]></title>
+  <title><![CDATA[Category: python | Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2013-11-10T00:42:52+08:00</updated>
+  <updated>2013-11-23T20:30:41+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -14,21 +14,28 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Python Plugin/MixIn/Monkey-patching]]></title>
-    <link href="http://tclh123.github.com/blog/2013/08/26/python-plugin-slash-mixin-slash-monkey-patching/"/>
-    <updated>2013-08-26T15:50:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/08/26/python-plugin-slash-mixin-slash-monkey-patching</id>
-    <content type="html"><![CDATA[<p><em>自从到豆瓣实习后，基本就博客就没更了，在github上的活动也都转到了code上...</em></p>
+    <title type="html"><![CDATA[python string intern]]></title>
+    <link href="http://tclh123.github.com/blog/2013/11/23/python-string-intern/"/>
+    <updated>2013-11-23T19:44:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/11/23/python-string-intern</id>
+    <content type="html"><![CDATA[<p>今天在<code>__builtin__</code>里发现一个<code>intern</code>方法，（原来是internal的意思..
+其实 C 里面有个文字常量区，就是说只要是字符串字面量都会存在那里。
+才知道Python里不太一样，比如说
+```</p>
+
+<blockquote><blockquote><blockquote><p>a = 'a b'
+b = 'a b'
+a is b
+False
+<code>``
+真相是，python只对由</code>0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz<code>中的字符组成的字符串自动做intern。
+因为它们可能会更短...更像标识符..
+另外，在 Python 3 中，似乎被移到</code>sys.intern`中去了</p></blockquote></blockquote></blockquote>
 
 <h2>Reference</h2>
 
 <ul>
-<li><a href="http://markmail.org/message/y2znkmysqjlofswb#query:+page:1+mid:b52kpikcanonjva6+state:results">CPyUG</a></li>
-<li><a href="http://abloz.com/2012/03/31/python-plug-ins-mixin-and-monkey-patching.html">python插件方式mixin和monkey-patching</a></li>
-<li><a href="http://scg.unibe.ch/archive/papers/Duca06bTOPLASTraits.pdf">Traits: A Mechanism for Fine-grained Reuse</a></li>
-<li><a href="http://guangboo.org/2013/01/28/python-mixin-programming">Python Mixin编程机制</a></li>
-<li><a href="http://www.linuxjournal.com/node/4540/print">Using Mix-ins with Python</a></li>
-<li><a href="http://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful">stackoverflow - What is a mixin, and why are they useful?</a></li>
+<li>http://stackoverflow.com/questions/1136826/what-does-python-sys-intern-do-and-when-should-it-be-used/1137293</li>
 </ul>
 
 ]]></content>
