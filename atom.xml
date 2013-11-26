@@ -4,7 +4,7 @@
   <title><![CDATA[Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/atom.xml" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2013-11-23T20:30:41+08:00</updated>
+  <updated>2013-11-26T11:22:27+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[tmux lose colorscheme]]></title>
+    <link href="http://tclh123.github.com/blog/2013/11/26/tmux-lose-colorscheme/"/>
+    <updated>2013-11-26T11:19:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/11/26/tmux-lose-colorscheme</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>alias tmux="TERM=screen-256color-bce tmux"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And set up the default-terminal option in <code>~/.tmux.conf</code>,</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>set -g default-terminal "screen-256color"
+</span><span class='line'># set -g default-terminal "xterm"</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Reference</h2>
+
+<ul>
+<li>http://rhnh.net/2011/08/20/vim-and-tmux-on-osx</li>
+<li>http://stackoverflow.com/questions/10158508/lose-vim-colorscheme-in-tmux-mode#comment24005530_10264470</li>
+<li>http://blog.longwin.com.tw/2011/04/tmux-learn-screen-config-2011/</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[python string intern]]></title>
@@ -1034,96 +1062,6 @@ google到一些<a href="http://www.dbform.com/html/2011/1559.html">用AppleScrip
 <h2>Conclusion</h2>
 
 <p>四五六章后面几篇再写。。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[sublime text 2 build system for OSX]]></title>
-    <link href="http://tclh123.github.com/blog/2013/05/12/sublime-text-2-build-system-for-osx/"/>
-    <updated>2013-05-12T23:15:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/05/12/sublime-text-2-build-system-for-osx</id>
-    <content type="html"><![CDATA[<h2>Cpp</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;g++ &#39;${file}&#39; -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; open &#39;${file_path}/${file_base_name}&#39;&quot;</span><span class="p">],</span>
-</span><span class='line'>    <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nt">&quot;working_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;${file_path}&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.c, source.c++&quot;</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nt">&quot;variants&quot;</span><span class="p">:</span>
-</span><span class='line'>    <span class="p">[</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Run&quot;</span><span class="p">,</span>
-</span><span class='line'>            <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;g++ &#39;${file}&#39; -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; &#39;${file_path}/${file_base_name}&#39;&lt;&#39;${file_path}/${file_base_name}.in&#39;&gt;&#39;${file_path}/${file_base_name}.out&#39;&quot;</span><span class="p">]</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">]</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Python</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;python -u &#39;${file}&#39; &amp;&amp; chmod a+x &#39;${file}&#39; &amp;&amp; open -a terminal &#39;${file}&#39;&quot;</span><span class="p">],</span>
-</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.python&quot;</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nt">&quot;variants&quot;</span><span class="p">:</span>
-</span><span class='line'>    <span class="p">[</span>
-</span><span class='line'>        <span class="p">{</span>
-</span><span class='line'>            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Run&quot;</span><span class="p">,</span>
-</span><span class='line'>            <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;python -u &#39;${file}&#39; &amp;&amp; chmod a+x &#39;${file}&#39; &amp;&amp; &#39;${file}&#39;&lt;&#39;${file_path}/${file_base_name}.in&#39;&gt;&#39;${file_path}/${file_base_name}.out&#39;&quot;</span><span class="p">]</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">]</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Java</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;javac &#39;${file}&#39; &amp;&amp; java &#39;${file_base_name}&#39;&quot;</span><span class="p">],</span>
-</span><span class='line'>    <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(...*?):([0-9]*):?([0-9]*)&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.java, source.java&quot;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Conclusion</h2>
-
-<p>For cpp &amp; python, the build-system can open a new terminal window, so I can interact(ep. input) with my program easily.</p>
-
-<p>For java, I don&#8217;t know how to do that, only can show the outputs yet.</p>
 ]]></content>
   </entry>
   

@@ -7,8 +7,21 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="想做的东西 May 12th, 2013 一个TODO
-个人网站 Javac Terminal Utf-8 Encoding May 12th, 2013 OS X 的terminal输出信息是utf-8编码的， 但是javac默认输出GBK，会导致乱码。 可以用javac -J-Dfile. &hellip;">
+  <meta name="description" content="Sublime Text 2 Build System for OSX May 12th, 2013 Cpp 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+{ &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot; &hellip;">
   
   
 
@@ -49,6 +62,113 @@
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/05/12/sublime-text-2-build-system-for-osx/">Sublime Text 2 Build System for OSX</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-12T23:15:00+08:00" pubdate data-updated="true">May 12<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><h2>Cpp</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;g++ &#39;${file}&#39; -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; open &#39;${file_path}/${file_base_name}&#39;&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;working_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;${file_path}&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.c, source.c++&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&quot;variants&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Run&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;g++ &#39;${file}&#39; -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; &#39;${file_path}/${file_base_name}&#39;&lt;&#39;${file_path}/${file_base_name}.in&#39;&gt;&#39;${file_path}/${file_base_name}.out&#39;&quot;</span><span class="p">]</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Python</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;python -u &#39;${file}&#39; &amp;&amp; chmod a+x &#39;${file}&#39; &amp;&amp; open -a terminal &#39;${file}&#39;&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.python&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&quot;variants&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Run&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;python -u &#39;${file}&#39; &amp;&amp; chmod a+x &#39;${file}&#39; &amp;&amp; &#39;${file}&#39;&lt;&#39;${file_path}/${file_base_name}.in&#39;&gt;&#39;${file_path}/${file_base_name}.out&#39;&quot;</span><span class="p">]</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Java</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;javac &#39;${file}&#39; &amp;&amp; java &#39;${file_base_name}&#39;&quot;</span><span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(...*?):([0-9]*):?([0-9]*)&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.java, source.java&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>For cpp &amp; python, the build-system can open a new terminal window, so I can interact(ep. input) with my program easily.</p>
+
+<p>For java, I don&#8217;t know how to do that, only can show the outputs yet.</p>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -958,45 +1078,6 @@ eg. like(monkey, banana)</p>
 <p>:diffpatch {patchfile} - 给当前buffer打上{patchfile}补丁后显示。</p>
 
 <p>:diffthis - 使当前窗口加入diff。</p>
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/01/30/jiu-shi-zhe-yang/">就是这样</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-30T00:26:00+08:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p><em>其实这些话是前段时间写的，但是&#8230;我有拖延症嘛&#8230;</em></p>
-
-<pre>
-就是这样
-觉得什么都能做
-却什么都不做
-其实事实上你不做你怎么知道自己能做
-不做是因为没有激情
-没有激情是因为不知道自己到底想要什么
-觉得自己什么都能做，而做什么都好像没有意义
-哎
-我是如此地了解自己，又如此地不了解自己
-</pre>
-
 </div>
  </div>
 

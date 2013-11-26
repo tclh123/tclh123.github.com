@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: vim | Tclh123's 3rd Blog]]></title>
-  <link href="http://tclh123.github.com/blog/categories/vim/atom.xml" rel="self"/>
+  <title><![CDATA[Category: tmux, | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/tmux-/atom.xml" rel="self"/>
   <link href="http://tclh123.github.com/"/>
   <updated>2013-11-26T11:22:27+08:00</updated>
   <id>http://tclh123.github.com/</id>
