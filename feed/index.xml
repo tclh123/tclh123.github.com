@@ -4,7 +4,7 @@
   <title><![CDATA[Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/feed" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2013-11-26T11:22:27+08:00</updated>
+  <updated>2013-12-15T22:45:29+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[vim saving of files as sudo]]></title>
+    <link href="http://tclh123.github.com/blog/2013/12/15/vim-saving-of-files-as-sudo/"/>
+    <updated>2013-12-15T22:40:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/12/15/vim-saving-of-files-as-sudo</id>
+    <content type="html"><![CDATA[<h2>Understanding <code>:w !sudo tee %</code></h2>
+
+<p><strong>Following is copied from Andrew Marshall&#8217;s answer on <a href="http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work/7078429#7078429">StackOverflow</a>.</strong></p>
+
+<h3>% means &#8220;the current file&#8221;</h3>
+
+<p>As eugene y pointed out, % does indeed mean &#8220;the current file name&#8221;. Another use for this in Vim is in substitution commands. For example, :%s/foo/bar means &#8220;in the current file, replace occurrences of foo with bar.&#8221; If you highlight some text before typing :s, you&#8217;ll see that the highlighted lines take the place of % as your substitution range.</p>
+
+<h3>:w isn&#8217;t updating your file</h3>
+
+<p>One confusing part of this trick is that you might think :w is modifying your file, but it isn&#8217;t. If you opened and modified file1.txt, then ran :w file2.txt, it would be a &#8220;save as&#8221;; file1.txt wouldn&#8217;t be modified, but the current buffer contents would be sent to file2.txt.</p>
+
+<p>Instead of file2.txt, you can substitute a shell command to receive the buffer contents. For instance, :w !cat will just display the contents.</p>
+
+<p>If Vim wasn&#8217;t run with sudo access, its :w can&#8217;t modify a protected file, but if it passes the buffer contents to the shell, a command in the shell can be run with sudo. In this case, we use tee.</p>
+
+<h3>Understanding tee</h3>
+
+<p>As for tee, picture the tee command as a T-shaped pipe in a normal bash piping situation: it directs output to specified file(s) and also sends it to standard output, which can be captured by the next piped command.</p>
+
+<p>For example, in ps -ax | tee processes.txt | grep &#8216;foo&#8217;, the list of processes will be written to a text file and passed along to grep.</p>
+
+<pre><code> +-----------+    tee     +------------+
+ |           |  --------  |            |
+ | ps -ax    |  --------  | grep 'foo' |
+ |           |     ||     |            |
+ +-----------+     ||     +------------+
+                   ||   
+           +---------------+
+           |               |
+           | processes.txt |
+           |               |
+           +---------------+
+</code></pre>
+
+<p>(Diagram created with Asciiflow.)</p>
+
+<p>See the tee man page for more info.</p>
+
+<h3>Tee as a hack</h3>
+
+<p>In the situation your question describes, using tee is a hack because we&#8217;re ignoring half of what it does. sudo tee writes to our file and also sends the buffer contents to standard output, but we ignore standard output. We don&#8217;t need to pass anything to another piped command in this case; we&#8217;re just using tee as an alternate way of writing a file and so that we can call it with sudo.</p>
+
+<h3>Making this trick easy</h3>
+
+<p>You can add this to your .vimrc to make this trick easy-to-use: just type :w!!.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>" Allow saving of files as sudo when I forgot to start vim using sudo.
+</span><span class='line'>cmap w!! w !sudo tee &gt; /dev/null %
+</span><span class='line'>The &gt; /dev/null part explicitly throws away the standard output, since, as I said, we don't need to pass anything to another piped command.</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[tmux lose colorscheme]]></title>
@@ -991,77 +1055,6 @@ google到一些<a href="http://www.dbform.com/html/2011/1559.html">用AppleScrip
 
 
 <p>That will open the configuration screen.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Core Java 2 读书笔记（一）]]></title>
-    <link href="http://tclh123.github.com/blog/2013/05/13/core-java-2-du-shu-bi-ji-%28%5B%3F%5D-%29/"/>
-    <updated>2013-05-13T22:51:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/05/13/core-java-2-du-shu-bi-ji-([?]-)</id>
-    <content type="html"><![CDATA[<p>我不会说我是因为明天考Java才开始看的。</p>
-
-<p>鉴于记性实在太差，觉得以后每系统地学一个新的东西都要做一点笔记。。留给以后回忆用。。（“青春就是用来回忆的&#8230;”</p>
-
-<p>从第三章开始看的，看到第六章。</p>
-
-<h2>数据类型</h2>
-
-<ul>
-<li>基本类型，八种，int/short/long/byte，float/double，char，boolean</li>
-<li>对象，都集成于Object类</li>
-</ul>
-
-
-<p>ps. 没有unsigned类型，于是我就想&#8230;表示pixel的话，只能用-128~127的byte了&#8230;</p>
-
-<h2>赋值与初始化</h2>
-
-<p>Java中只有声明（没有类似C/C++的定义一说，声明的同时可以初始化变量）。</p>
-
-<h2>常量</h2>
-
-<p>用final修饰（const虽然为保留字，但目前还未定义）</p>
-
-<h2>操作符</h2>
-
-<p>有一种<code>&gt;&gt;&gt;</code>操作符，表示逻辑右移，<code>&gt;&gt;</code>是算术右移。</p>
-
-<h2>字符串equals</h2>
-
-<p>要使用<code>equals</code>来进行String的比较（覆盖了Object的equals），<code>==</code>只能判断两个串是否储存在同一位置。</p>
-
-<h2>格式化输出</h2>
-
-<p>可以用<code>System.out.printf()</code>，类似C的printf。</p>
-
-<p><em>ps.不知道为什么书上介绍的是Format.printf()</em></p>
-
-<h2>循环、分支</h2>
-
-<p><code>switch</code>语句的<code>case</code>标签必须是整数。</p>
-
-<p><code>break</code>还有一种带标签的break语句，用于跳出多层循环。</p>
-
-<h2>大数字</h2>
-
-<p>BigInterger、BigDecimal，有add、subtract、multiply、divide、mod等方法。
-用valueOf静态方法来转成大数字。</p>
-
-<p>Java跟C++不同，程序员无法重载操作符。</p>
-
-<h2>数组</h2>
-
-<p><code>int[] a;</code>跟<code>int a[];</code>都可以用来声明数组。</p>
-
-<p><code>System.arraycopy(from, fromIndex, to, toIndex, count)</code>可以用来拷贝数组中的元素。</p>
-
-<p><code>Arrays.sort(a)</code>可以对数组排序。
-<em>ps.开始我奇怪怎么没有类似的cmp函数，原来是在Comparable接口中定义了</em></p>
-
-<h2>Conclusion</h2>
-
-<p>四五六章后面几篇再写。。</p>
 ]]></content>
   </entry>
   

@@ -7,21 +7,7 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="Sublime Text 2 Build System for OSX May 12th, 2013 Cpp 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-{ &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot; &hellip;">
+  <meta name="description" content="Core Java 2 读书笔记（一） May 13th, 2013 我不会说我是因为明天考Java才开始看的。 鉴于记性实在太差，觉得以后每系统地学一个新的东西都要做一点笔记。。留给以后回忆用。。（“青春就是用来回忆的&#8230;” 从第三章开始看的，看到第六章。 数据类型 基本类型，八种， &hellip;">
   
   
 
@@ -62,6 +48,94 @@
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/05/13/core-java-2-du-shu-bi-ji-%28%5B%3F%5D-%29/">Core Java 2 读书笔记（一）</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-13T22:51:00+08:00" pubdate data-updated="true">May 13<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>我不会说我是因为明天考Java才开始看的。</p>
+
+<p>鉴于记性实在太差，觉得以后每系统地学一个新的东西都要做一点笔记。。留给以后回忆用。。（“青春就是用来回忆的&#8230;”</p>
+
+<p>从第三章开始看的，看到第六章。</p>
+
+<h2>数据类型</h2>
+
+<ul>
+<li>基本类型，八种，int/short/long/byte，float/double，char，boolean</li>
+<li>对象，都集成于Object类</li>
+</ul>
+
+
+<p>ps. 没有unsigned类型，于是我就想&#8230;表示pixel的话，只能用-128~127的byte了&#8230;</p>
+
+<h2>赋值与初始化</h2>
+
+<p>Java中只有声明（没有类似C/C++的定义一说，声明的同时可以初始化变量）。</p>
+
+<h2>常量</h2>
+
+<p>用final修饰（const虽然为保留字，但目前还未定义）</p>
+
+<h2>操作符</h2>
+
+<p>有一种<code>&gt;&gt;&gt;</code>操作符，表示逻辑右移，<code>&gt;&gt;</code>是算术右移。</p>
+
+<h2>字符串equals</h2>
+
+<p>要使用<code>equals</code>来进行String的比较（覆盖了Object的equals），<code>==</code>只能判断两个串是否储存在同一位置。</p>
+
+<h2>格式化输出</h2>
+
+<p>可以用<code>System.out.printf()</code>，类似C的printf。</p>
+
+<p><em>ps.不知道为什么书上介绍的是Format.printf()</em></p>
+
+<h2>循环、分支</h2>
+
+<p><code>switch</code>语句的<code>case</code>标签必须是整数。</p>
+
+<p><code>break</code>还有一种带标签的break语句，用于跳出多层循环。</p>
+
+<h2>大数字</h2>
+
+<p>BigInterger、BigDecimal，有add、subtract、multiply、divide、mod等方法。
+用valueOf静态方法来转成大数字。</p>
+
+<p>Java跟C++不同，程序员无法重载操作符。</p>
+
+<h2>数组</h2>
+
+<p><code>int[] a;</code>跟<code>int a[];</code>都可以用来声明数组。</p>
+
+<p><code>System.arraycopy(from, fromIndex, to, toIndex, count)</code>可以用来拷贝数组中的元素。</p>
+
+<p><code>Arrays.sort(a)</code>可以对数组排序。
+<em>ps.开始我奇怪怎么没有类似的cmp函数，原来是在Comparable接口中定义了</em></p>
+
+<h2>Conclusion</h2>
+
+<p>四五六章后面几篇再写。。</p>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -1020,64 +1094,6 @@ eg. like(monkey, banana)</p>
 </span><span class='line'><span class="c">&quot;}</span>
 </span></code></pre></td></tr></table></div></figure>
 
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/01/30/vimxue-xi-bi-ji-%28san-%29/">Vim学习笔记（三）</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-30T00:37:00+08:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>这次主要是一些跟窗口有关的操作。</p>
-
-<h2>Vim窗口操作</h2>
-
-<hr />
-
-<h3>分割窗口</h3>
-
-<h4>1.打开已有文件</h4>
-
-<p>:split - 水平分，可以简写成 sp</p>
-
-<p>:vsplit - 垂直分，可简写成 vs</p>
-
-<h4>2.新建文件</h4>
-
-<p>:new+{name} - 水平新建窗口，name为文件名</p>
-
-<p>:vnew+{name} - 垂直</p>
-
-<h3>选择窗口</h3>
-
-<p>ctil+w {h|j|k|l} 上下左右切换窗口</p>
-
-<h2>比较文件</h2>
-
-<hr />
-
-<p>:diffsplit {filename} - 对{filename}开一个新窗口，并比较。同vimdiff命令。</p>
-
-<p>:diffpatch {patchfile} - 给当前buffer打上{patchfile}补丁后显示。</p>
-
-<p>:diffthis - 使当前窗口加入diff。</p>
 </div>
  </div>
 

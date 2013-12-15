@@ -7,14 +7,7 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="就是这样 Jan 30th, 2013 其实这些话是前段时间写的，但是&#8230;我有拖延症嘛&#8230; 就是这样
-觉得什么都能做
-却什么都不做
-其实事实上你不做你怎么知道自己能做
-不做是因为没有激情
-没有激情是因为不知道自己到底想要什么
-觉得自己什么都能做，而做什么都好像没有意义
-哎 &hellip;">
+  <meta name="description" content="Vim学习笔记（三） Jan 30th, 2013 这次主要是一些跟窗口有关的操作。 Vim窗口操作 分割窗口 1.打开已有文件 :split - 水平分，可以简写成 sp :vsplit - 垂直分，可简写成 vs 2.新建文件 :new+{name} - 水平新建窗口，name为文件名 : &hellip;">
   
   
 
@@ -55,6 +48,64 @@
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/01/30/vimxue-xi-bi-ji-%28san-%29/">Vim学习笔记（三）</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-30T00:37:00+08:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>这次主要是一些跟窗口有关的操作。</p>
+
+<h2>Vim窗口操作</h2>
+
+<hr />
+
+<h3>分割窗口</h3>
+
+<h4>1.打开已有文件</h4>
+
+<p>:split - 水平分，可以简写成 sp</p>
+
+<p>:vsplit - 垂直分，可简写成 vs</p>
+
+<h4>2.新建文件</h4>
+
+<p>:new+{name} - 水平新建窗口，name为文件名</p>
+
+<p>:vnew+{name} - 垂直</p>
+
+<h3>选择窗口</h3>
+
+<p>ctil+w {h|j|k|l} 上下左右切换窗口</p>
+
+<h2>比较文件</h2>
+
+<hr />
+
+<p>:diffsplit {filename} - 对{filename}开一个新窗口，并比较。同vimdiff命令。</p>
+
+<p>:diffpatch {patchfile} - 给当前buffer打上{patchfile}补丁后显示。</p>
+
+<p>:diffthis - 使当前窗口加入diff。</p>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">

@@ -1,0 +1,220 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Vim Saving of Files as Sudo Dec 15th, 2013 Understanding :w !sudo tee % Following is copied from Andrew Marshall&#8217;s answer on StackOverflow. % &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/2013/12/15/vim-saving-of-files-as-sudo">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> <div class="post-header">
+  
+    <h1 class="post-title">Vim Saving of Files as Sudo</h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-15T22:40:00+08:00" pubdate data-updated="true">Dec 15<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><h2>Understanding <code>:w !sudo tee %</code></h2>
+
+<p><strong>Following is copied from Andrew Marshall&#8217;s answer on <a href="http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work/7078429#7078429">StackOverflow</a>.</strong></p>
+
+<h3>% means &#8220;the current file&#8221;</h3>
+
+<p>As eugene y pointed out, % does indeed mean &#8220;the current file name&#8221;. Another use for this in Vim is in substitution commands. For example, :%s/foo/bar means &#8220;in the current file, replace occurrences of foo with bar.&#8221; If you highlight some text before typing :s, you&#8217;ll see that the highlighted lines take the place of % as your substitution range.</p>
+
+<h3>:w isn&#8217;t updating your file</h3>
+
+<p>One confusing part of this trick is that you might think :w is modifying your file, but it isn&#8217;t. If you opened and modified file1.txt, then ran :w file2.txt, it would be a &#8220;save as&#8221;; file1.txt wouldn&#8217;t be modified, but the current buffer contents would be sent to file2.txt.</p>
+
+<p>Instead of file2.txt, you can substitute a shell command to receive the buffer contents. For instance, :w !cat will just display the contents.</p>
+
+<p>If Vim wasn&#8217;t run with sudo access, its :w can&#8217;t modify a protected file, but if it passes the buffer contents to the shell, a command in the shell can be run with sudo. In this case, we use tee.</p>
+
+<h3>Understanding tee</h3>
+
+<p>As for tee, picture the tee command as a T-shaped pipe in a normal bash piping situation: it directs output to specified file(s) and also sends it to standard output, which can be captured by the next piped command.</p>
+
+<p>For example, in ps -ax | tee processes.txt | grep &#8216;foo&#8217;, the list of processes will be written to a text file and passed along to grep.</p>
+
+<pre><code> +-----------+    tee     +------------+
+ |           |  --------  |            |
+ | ps -ax    |  --------  | grep 'foo' |
+ |           |     ||     |            |
+ +-----------+     ||     +------------+
+                   ||   
+           +---------------+
+           |               |
+           | processes.txt |
+           |               |
+           +---------------+
+</code></pre>
+
+<p>(Diagram created with Asciiflow.)</p>
+
+<p>See the tee man page for more info.</p>
+
+<h3>Tee as a hack</h3>
+
+<p>In the situation your question describes, using tee is a hack because we&#8217;re ignoring half of what it does. sudo tee writes to our file and also sends the buffer contents to standard output, but we ignore standard output. We don&#8217;t need to pass anything to another piped command in this case; we&#8217;re just using tee as an alternate way of writing a file and so that we can call it with sudo.</p>
+
+<h3>Making this trick easy</h3>
+
+<p>You can add this to your .vimrc to make this trick easy-to-use: just type :w!!.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>" Allow saving of files as sudo when I forgot to start vim using sudo.
+</span><span class='line'>cmap w!! w !sudo tee &gt; /dev/null %
+</span><span class='line'>The &gt; /dev/null part explicitly throws away the standard output, since, as I said, we don't need to pass anything to another piped command.</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+<div class="post-single">
+  <div class="post-meta">
+    
+
+<span class="categories">
+  Categories:
+  
+    <a class='category' href='/blog/categories/shell/'>shell</a>, <a class='category' href='/blog/categories/vim-/'>vim,</a>
+  
+</span>
+
+
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tclh123.github.com/blog/2013/12/15/vim-saving-of-files-as-sudo/" data-via="tclh123" data-counturl="http://tclh123.github.com/blog/2013/12/15/vim-saving-of-files-as-sudo/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+  </div>
+  <div class="clear"></div>
+
+  
+    <div id="comments">
+      <h2>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"></div>
+    </div>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tclh123.github.com/blog/2013/12/15/vim-saving-of-files-as-sudo/';
+        var disqus_url = 'http://tclh123.github.com/blog/2013/12/15/vim-saving-of-files-as-sudo/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

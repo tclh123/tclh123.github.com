@@ -7,10 +7,7 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="Tmux Lose Colorscheme Nov 26th, 2013 1
-alias tmux="TERM=screen-256color-bce tmux" And set up the default-terminal option in ~/.tmux.conf, 1
-2
-set -g &hellip;">
+  <meta name="description" content="Vim Saving of Files as Sudo Dec 15th, 2013 Understanding :w !sudo tee % Following is copied from Andrew Marshall&#8217;s answer on StackOverflow. % &hellip;">
   
   
 
@@ -51,6 +48,87 @@ set -g &hellip;">
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/12/15/vim-saving-of-files-as-sudo/">Vim Saving of Files as Sudo</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-15T22:40:00+08:00" pubdate data-updated="true">Dec 15<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><h2>Understanding <code>:w !sudo tee %</code></h2>
+
+<p><strong>Following is copied from Andrew Marshall&#8217;s answer on <a href="http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work/7078429#7078429">StackOverflow</a>.</strong></p>
+
+<h3>% means &#8220;the current file&#8221;</h3>
+
+<p>As eugene y pointed out, % does indeed mean &#8220;the current file name&#8221;. Another use for this in Vim is in substitution commands. For example, :%s/foo/bar means &#8220;in the current file, replace occurrences of foo with bar.&#8221; If you highlight some text before typing :s, you&#8217;ll see that the highlighted lines take the place of % as your substitution range.</p>
+
+<h3>:w isn&#8217;t updating your file</h3>
+
+<p>One confusing part of this trick is that you might think :w is modifying your file, but it isn&#8217;t. If you opened and modified file1.txt, then ran :w file2.txt, it would be a &#8220;save as&#8221;; file1.txt wouldn&#8217;t be modified, but the current buffer contents would be sent to file2.txt.</p>
+
+<p>Instead of file2.txt, you can substitute a shell command to receive the buffer contents. For instance, :w !cat will just display the contents.</p>
+
+<p>If Vim wasn&#8217;t run with sudo access, its :w can&#8217;t modify a protected file, but if it passes the buffer contents to the shell, a command in the shell can be run with sudo. In this case, we use tee.</p>
+
+<h3>Understanding tee</h3>
+
+<p>As for tee, picture the tee command as a T-shaped pipe in a normal bash piping situation: it directs output to specified file(s) and also sends it to standard output, which can be captured by the next piped command.</p>
+
+<p>For example, in ps -ax | tee processes.txt | grep &#8216;foo&#8217;, the list of processes will be written to a text file and passed along to grep.</p>
+
+<pre><code> +-----------+    tee     +------------+
+ |           |  --------  |            |
+ | ps -ax    |  --------  | grep 'foo' |
+ |           |     ||     |            |
+ +-----------+     ||     +------------+
+                   ||   
+           +---------------+
+           |               |
+           | processes.txt |
+           |               |
+           +---------------+
+</code></pre>
+
+<p>(Diagram created with Asciiflow.)</p>
+
+<p>See the tee man page for more info.</p>
+
+<h3>Tee as a hack</h3>
+
+<p>In the situation your question describes, using tee is a hack because we&#8217;re ignoring half of what it does. sudo tee writes to our file and also sends the buffer contents to standard output, but we ignore standard output. We don&#8217;t need to pass anything to another piped command in this case; we&#8217;re just using tee as an alternate way of writing a file and so that we can call it with sudo.</p>
+
+<h3>Making this trick easy</h3>
+
+<p>You can add this to your .vimrc to make this trick easy-to-use: just type :w!!.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>" Allow saving of files as sudo when I forgot to start vim using sudo.
+</span><span class='line'>cmap w!! w !sudo tee &gt; /dev/null %
+</span><span class='line'>The &gt; /dev/null part explicitly throws away the standard output, since, as I said, we don't need to pass anything to another piped command.</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -577,44 +655,6 @@ http://www.pip-installer.org/en/latest/logic.html#requirements-file-format</p>
 <li>http://www.tug.org/texlive/</li>
 <li>http://cmwelsh.com/beautiful-resumes-with-markdown-and-latex</li>
 <li>http://sysadvent.blogspot.jp/2011/12/day-14-write-your-resume-in-markdown.html</li>
-</ul>
-
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/08/26/python-plugin-slash-mixin-slash-monkey-patching/">Python Plugin/MixIn/Monkey-patching</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-26T15:50:00+08:00" pubdate data-updated="true">Aug 26<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p><em>自从到豆瓣实习后，基本就博客就没更了，在github上的活动也都转到了code上&#8230;</em></p>
-
-<h2>Reference</h2>
-
-<ul>
-<li><a href="http://markmail.org/message/y2znkmysqjlofswb#query:+page:1+mid:b52kpikcanonjva6+state:results">CPyUG</a></li>
-<li><a href="http://abloz.com/2012/03/31/python-plug-ins-mixin-and-monkey-patching.html">python插件方式mixin和monkey-patching</a></li>
-<li><a href="http://scg.unibe.ch/archive/papers/Duca06bTOPLASTraits.pdf">Traits: A Mechanism for Fine-grained Reuse</a></li>
-<li><a href="http://guangboo.org/2013/01/28/python-mixin-programming">Python Mixin编程机制</a></li>
-<li><a href="http://www.linuxjournal.com/node/4540/print">Using Mix-ins with Python</a></li>
-<li><a href="http://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful">stackoverflow - What is a mixin, and why are they useful?</a></li>
 </ul>
 
 </div>
