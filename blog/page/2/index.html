@@ -7,8 +7,8 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="Python Plugin/MixIn/Monkey-patching Aug 26th, 2013 自从到豆瓣实习后，基本就博客就没更了，在github上的活动也都转到了code上&#8230; Reference CPyUG
-python插件方式mixin和monkey-patching &hellip;">
+  <meta name="description" content="Use Pandoc and LaTeX on OS X Sep 9th, 2013 Installing Pandoc
+MacTeX&#8217;s BasicTeX.pkg For PDF output, you’ll also need LaTeX. We recommend &hellip;">
   
   
 
@@ -49,6 +49,124 @@ python插件方式mixin和monkey-patching &hellip;">
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/09/09/use-pandoc-and-latex-on-os-x/">Use Pandoc and LaTeX on OS X</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-09T02:11:00+08:00" pubdate data-updated="true">Sep 9<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><h2>Installing</h2>
+
+<ul>
+<li><a href="http://code.google.com/p/pandoc/downloads/">Pandoc</a></li>
+<li>MacTeX&#8217;s <a href="http://www.tug.org/mactex/morepackages.html">BasicTeX.pkg</a></li>
+</ul>
+
+
+<blockquote><p>For PDF output, you’ll also need LaTeX. We recommend installing BasicTeX (64M), and using the tlmgr tool to install additional packages as needed.</p></blockquote>
+
+<p>Just download and run the pkg files.</p>
+
+<p>Then add <code>/usr/texbin</code> to your $PATH(<code>export PATH=${PATH}:/usr/texbin;</code>).</p>
+
+<p>Now, you get them installed.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pandoc --version
+</span><span class='line'>
+</span><span class='line'>pdflatex -v
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Install tlmgr</h3>
+
+<p><a href="http://www.tug.org/texlive/tlmgr.html">tlmgr - TeX Live package manager</a></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl http://ftp.ctex.org/mirrors/CTAN/systems/texlive/tlnet/update-tlmgr-latest.sh -O
+</span><span class='line'>chmod a+x update-tlmgr-latest.sh
+</span><span class='line'>./update-tlmgr-latest.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>My Output</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Verifying archive integrity... All good.
+</span><span class='line'>Uncompressing TeX Live Manager Updater...........................................................................................................................................................................................
+</span><span class='line'>./runme.sh: updating in /usr/local/texlive/2013basic...
+</span><span class='line'>./runme.sh: tlmgr version says this is TeX Live 2013
+</span><span class='line'>./runme.sh: proceeding with tlmgr update.
+</span><span class='line'>D:tlmgr:main: ::tldownload_server defined
+</span><span class='line'>D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/wget/wget.x86_64-darwin <span class="k">for </span>wget <span class="o">(</span>tested<span class="o">)</span>.
+</span><span class='line'>D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/xz/xzdec.x86_64-darwin <span class="k">for </span>xzdec <span class="o">(</span>tested<span class="o">)</span>.
+</span><span class='line'>D:Using shipped /usr/local/texlive/2013basic/tlpkg/installer/xz/xz.x86_64-darwin <span class="k">for </span>xz <span class="o">(</span>not tested<span class="o">)</span>.
+</span><span class='line'>./runme.sh: <span class="k">done</span>.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and you can check the version by <code>tlmgr --version</code></p>
+
+<figure class='code'><figcaption><span>setting default package repository</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo tlmgr option location http://mirror.ctan.org/systems/texlive/tlnet/
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Simple Usage</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pandoc test1.md -s -o test1.pdf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>TO be continued</strong></p>
+
+<h2>Reference</h2>
+
+<ul>
+<li>https://github.com/mwhite/resume</li>
+<li>http://tug.ctan.org/</li>
+<li>http://www.ctan.org/tex-archive/fonts/tex-gyre/</li>
+<li>http://www.ctan.org/tex-archive/macros/latex/contrib/titlesec</li>
+<li>http://tex.stackexchange.com/questions/10706/pdftex-error-font-expansion-auto-expansion-is-only-possible-with-scalable</li>
+<li>http://www.tug.org/mactex/morepackages.html</li>
+<li>http://www.tug.org/texlive/</li>
+<li>http://cmwelsh.com/beautiful-resumes-with-markdown-and-latex</li>
+<li>http://sysadvent.blogspot.jp/2011/12/day-14-write-your-resume-in-markdown.html</li>
+</ul>
+
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -776,51 +894,6 @@ atupal</a>用过，印象蛮深。今天挖出来玩玩。</p>
 
 
 <p>这样保证 init（给iframe发消息让它渲染模版）时， iframe 已经 load，就行了。</p>
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/06/14/open-terminal-iterm2-in-current-folder/">Open Terminal(iTerm2) in Current Folder</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-14T15:58:00+08:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>原来Terminal一直用自带的，现在改成iTerm2。
-google到一些<a href="http://www.dbform.com/html/2011/1559.html">用AppleScript解决的方案</a>，经测试不可用，估计是OS X 10.8改了什么东西。
-没空研究AppleScript&#8230;</p>
-
-<p>然后意识到也许可以把Go2Shell的默认Terminal改一下，然后确实google到了方法。。</p>
-
-<h2>Solution</h2>
-
-<ol>
-<li>Download Go2Shell.</li>
-<li>Change your default Go2Shell terminal to iTerm2.</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a Go2Shell --args config
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>That will open the configuration screen.</p>
 </div>
  </div>
 

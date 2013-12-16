@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ack | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/ack/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-12-16T23:43:14+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[upgrade ack on ubuntu]]></title>
+    <link href="http://tclh123.github.com/blog/2013/12/16/upgrade-ack-on-ubuntu/"/>
+    <updated>2013-12-16T23:38:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/12/16/upgrade-ack-on-ubuntu</id>
+    <content type="html"><![CDATA[<p>```
+mkdir ~/dpkgs
+cd ~/dpkgs</p>
+
+<p>wget http://packages.debian.org/sid/all/libfile-next-perl/download
+wget http://packages.debian.org/sid/all/ack-grep/download
+sudo dpkg -i libfile-next-perl_1.12-1_all.deb
+sudo dpkg -i ack-grep_2.12-1_all.deb
+```</p>
+
+<h2>Reference</h2>
+
+<ul>
+<li>http://stackoverflow.com/questions/7765813/ignoring-sub-directories-in-ackrc#answer-8012284</li>
+<li>http://askubuntu.com/questions/355668/how-to-install-ack-grep-2-0-with-apt-get</li>
+<li>http://askubuntu.com/questions/40779/how-to-install-a-deb-file-via-the-command-line</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

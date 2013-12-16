@@ -4,7 +4,7 @@
   <title><![CDATA[Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/feed" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2013-12-15T22:45:29+08:00</updated>
+  <updated>2013-12-16T23:43:14+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[upgrade ack on ubuntu]]></title>
+    <link href="http://tclh123.github.com/blog/2013/12/16/upgrade-ack-on-ubuntu/"/>
+    <updated>2013-12-16T23:38:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/12/16/upgrade-ack-on-ubuntu</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir ~/dpkgs
+</span><span class='line'>cd ~/dpkgs
+</span><span class='line'>
+</span><span class='line'>wget http://packages.debian.org/sid/all/libfile-next-perl/download
+</span><span class='line'>wget http://packages.debian.org/sid/all/ack-grep/download
+</span><span class='line'>sudo dpkg -i libfile-next-perl_1.12-1_all.deb
+</span><span class='line'>sudo dpkg -i ack-grep_2.12-1_all.deb</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Reference</h2>
+
+<ul>
+<li>http://stackoverflow.com/questions/7765813/ignoring-sub-directories-in-ackrc#answer-8012284</li>
+<li>http://askubuntu.com/questions/355668/how-to-install-ack-grep-2-0-with-apt-get</li>
+<li>http://askubuntu.com/questions/40779/how-to-install-a-deb-file-via-the-command-line</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[vim saving of files as sudo]]></title>
@@ -1027,34 +1059,6 @@ atupal</a>用过，印象蛮深。今天挖出来玩玩。</p>
 
 
 <p>这样保证 init（给iframe发消息让它渲染模版）时， iframe 已经 load，就行了。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Open Terminal(iTerm2) in Current Folder]]></title>
-    <link href="http://tclh123.github.com/blog/2013/06/14/open-terminal-iterm2-in-current-folder/"/>
-    <updated>2013-06-14T15:58:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/06/14/open-terminal-iterm2-in-current-folder</id>
-    <content type="html"><![CDATA[<p>原来Terminal一直用自带的，现在改成iTerm2。
-google到一些<a href="http://www.dbform.com/html/2011/1559.html">用AppleScript解决的方案</a>，经测试不可用，估计是OS X 10.8改了什么东西。
-没空研究AppleScript&#8230;</p>
-
-<p>然后意识到也许可以把Go2Shell的默认Terminal改一下，然后确实google到了方法。。</p>
-
-<h2>Solution</h2>
-
-<ol>
-<li>Download Go2Shell.</li>
-<li>Change your default Go2Shell terminal to iTerm2.</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>open -a Go2Shell --args config
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>That will open the configuration screen.</p>
 ]]></content>
   </entry>
   

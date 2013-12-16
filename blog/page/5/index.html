@@ -1,0 +1,198 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Use Octpress Nov 28th, 2012 繁杂的生活中让人更加萌生追求极简的欲望，心血来潮就打算那拿octopress再搭个博客（希望这个博客能够让我心宁静）。 以下皆为回忆，可能由于某种原因记错，仅供参考&#8230; 但是这东西还真是超出我预期的让我折腾了很久， &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/page/5">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/" class="current">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2012/11/28/use-octpress/">Use Octpress</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-28T18:44:00+08:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
+</div>
+
+<div class="post-content"><p>繁杂的生活中让人更加萌生追求极简的欲望，心血来潮就打算那拿octopress再搭个博客（希望这个博客能够让我心宁静）。</p>
+
+<p><em>以下皆为回忆，可能由于某种原因记错，仅供参考&#8230;</em></p>
+
+<!--more-->
+
+
+<p>但是这东西还真是超出我预期的让我折腾了很久，我的OSX默认是ruby是1.8的，octopress需要1.9.3，于是去安装rvm。</p>
+
+<figure class='code'><figcaption><span>安装rvm</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -L https://get.rvm.io | sudo bash -s stable
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>装完还挺快的，接着就去装ruby 1.9.3，</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rvm install 1.9.3
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后直接跳出一个说明(vim)，说我gcc是lvvm-based的&#8230;不支持&#8230;要重装(= =!)，它提供了两个途径，然后我用brew装了gcc-4.2</p>
+
+<figure class='code'><figcaption><span>貌似是这样</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>brew install gcc-4.2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>再去装ruby貌似就正常了，
+等了半小时没反应&#8230;就根据<a href="http://ruby-china.org/wiki/install_ruby_guide">这篇</a>用了<a href="http://ruby.taobao.org">淘宝的镜像</a>，不过要注意OSX的<a href="http://blog.tclh123.com/165001">rvm路径不一样</a>。然后速度就很快了&#8230;但是装到rubygem的时候，停在94%不动了&#8230;于是待机睡觉&#8230;
+第二天看看还是停在94%&#8230;强制结束掉，然后重启reinstall，这次ok了。</p>
+
+<p>然后，设置默认ruby版本为1.9.3</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rvm 1.9.3 --default
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>之后又折腾了几次octopress，主要是参考了以下几篇经验，</p>
+
+<ul>
+<li>http://voodeng.com/blog/2012/09/02/octopress-on-github/</li>
+<li>http://mrzhang.me/blog/blog-equals-github-plus-octopress.html</li>
+</ul>
+
+
+<p>搞了几次，rake generate 有报错，参考<a href="http://blog.visioncan.com/2012/octopress-rake-generate-error/">这篇</a>后，发现是我博文名字的问题，我取得是&#8221;Hello Octopress!&#8221;&#8230;然后把<code>\!</code>删了就好了。
+之后把博客绑定到了<a href="http://oct.tclh123.com">oct.tclh123.com</a>上，</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">echo</span> <span class="s1">&#39;oct.tclh123.com&#39;</span> &gt;&gt; <span class="nb">source</span>/CNAME
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后去DNS那加个oct到tclh123.github.com的CNAME。
+至此，基本搞定。</p>
+</div>
+ </div>
+
+
+<div id="pagination">
+  
+  
+    <a class="next" href="/blog/page/4/">Next&raquo;</a>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>
