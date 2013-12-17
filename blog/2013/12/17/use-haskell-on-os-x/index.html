@@ -1,0 +1,226 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Use Haskell on OS X Dec 17th, 2013 现在不用一个个装 GHC、Cabal 什么的了，直接装 Haskell Platform. 装完1.2G&#8230;略忧伤 下面抄一下介绍.. Haskell Platform for Mac OS X Welcome to &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/2013/12/17/use-haskell-on-os-x">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> <div class="post-header">
+  
+    <h1 class="post-title">Use Haskell on OS X</h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-17T14:54:00+08:00" pubdate data-updated="true">Dec 17<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>现在不用一个个装 GHC、Cabal 什么的了，直接装 <a href="http://www.haskell.org/platform/mac.html">Haskell Platform</a>.</p>
+
+<p>装完1.2G&#8230;略忧伤</p>
+
+<p>下面抄一下介绍..</p>
+
+<h2>Haskell Platform for Mac OS X</h2>
+
+<p>Welcome to Haskell Platform. The platform consists of the Glasgow Haskell Compiler (GHC) and an extensive set of standard libraries and utilities with full documentation.</p>
+
+<h3>Documentation</h3>
+
+<ul>
+<li>Libraries
+  Documentation for the libraries that come with Haskell Platform &amp; GHC.</li>
+<li>GHC
+  The GHC User&#8217;s Guide has all you need to know about using GHC: command line options, language extensions, GHCi, etc.</li>
+<li>GHC API
+  Documentation for the GHC API.</li>
+<li>Cabal
+  An infrastructure for building and distributing Haskell software.</li>
+<li>Haddock
+  A tool for automatically generating documentation from annotated Haskell source code.</li>
+</ul>
+
+
+<h3>What is Installed</h3>
+
+<p>On Mac OS X, the Haskell Platform is installed in two major pieces: GHC and Haskell Platform. They are installed respectively in:</p>
+
+<pre><code>/Library/Frameworks/GHC.framework
+/Library/Haskell
+</code></pre>
+
+<p>Executables are symlinked in /usr/bin and should be available in any shell.</p>
+
+<h3>Uninstallation</h3>
+
+<p>This and prior versions of GHC and Haskell Platform can be found and then easily removed with the uninstallation command line utility:</p>
+
+<pre><code>/Library/Haskell/bin/uninstall-hs
+</code></pre>
+
+<p>Simply run it for more information.</p>
+
+<h3>Configuring Cabal</h3>
+
+<p>The cabal command manages the building and installation of packages, both your own, and those it can fetch from the Hackage repository.
+The first time you run cabal, a Mac specific configuration is written into the ~/.cabal directory.</p>
+
+<ul>
+<li>If this is the first time you have ever run cabal, it will be made your active configuration.</li>
+<li>If you have run cabal in the past, the new settings are in the file config.platform. You might want to review and incorporate some of the settings into your existing config file, or just replace your config file with it entirely.</li>
+</ul>
+
+
+<p>The configuration sets up cabal to install packages with the same layout as those installed with the Platform. Packages installed per user (&#8211;user, the default) are placed in a parallel tree in ~/Library/Haskell.</p>
+
+<p>N.B. Built executables will be symlink&#8217;d into ~/Library/Haskell/bin, you probably want to add that to your $PATH by adding this line to your ~/.bash_profile:</p>
+
+<pre><code>export PATH="$HOME/Library/Haskell/bin:$PATH"
+</code></pre>
+</div>
+
+
+<div class="post-single">
+  <div class="post-meta">
+    
+
+<span class="categories">
+  Categories:
+  
+    <a class='category' href='/blog/categories/haskell/'>Haskell</a>
+  
+</span>
+
+
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tclh123.github.com/blog/2013/12/17/use-haskell-on-os-x/" data-via="tclh123" data-counturl="http://tclh123.github.com/blog/2013/12/17/use-haskell-on-os-x/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+  </div>
+  <div class="clear"></div>
+
+  
+    <div id="comments">
+      <h2>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"></div>
+    </div>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tclh123.github.com/blog/2013/12/17/use-haskell-on-os-x/';
+        var disqus_url = 'http://tclh123.github.com/blog/2013/12/17/use-haskell-on-os-x/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

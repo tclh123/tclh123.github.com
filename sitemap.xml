@@ -187,8 +187,12 @@
         <lastmod>2013-12-16T23:42:45+08:00</lastmod>
     </url>
     <url>
+        <loc>http://tclh123.github.com/blog/2013/12/17/use-haskell-on-os-x/</loc>
+        <lastmod>2013-12-17T15:01:55+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://tclh123.github.com/blog/archives/</loc>
-        <lastmod>2013-12-16T23:42:45+08:00</lastmod>
+        <lastmod>2013-12-17T15:01:55+08:00</lastmod>
     </url>
     <url>
         <loc>http://tclh123.github.com/feed/index.xml</loc>
@@ -196,6 +200,6 @@
     </url>
     <url>
         <loc>http://tclh123.github.com/</loc>
-        <lastmod>2013-12-16T23:42:45+08:00</lastmod>
+        <lastmod>2013-12-17T15:01:55+08:00</lastmod>
     </url>
 </urlset>

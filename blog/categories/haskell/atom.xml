@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Haskell | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/haskell/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-12-17T15:02:06+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[use haskell on OS X]]></title>
+    <link href="http://tclh123.github.com/blog/2013/12/17/use-haskell-on-os-x/"/>
+    <updated>2013-12-17T14:54:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/12/17/use-haskell-on-os-x</id>
+    <content type="html"><![CDATA[<p>现在不用一个个装 GHC、Cabal 什么的了，直接装 <a href="http://www.haskell.org/platform/mac.html">Haskell Platform</a>.</p>
+
+<p>装完1.2G...略忧伤</p>
+
+<p>下面抄一下介绍..</p>
+
+<h2>Haskell Platform for Mac OS X</h2>
+
+<p>Welcome to Haskell Platform. The platform consists of the Glasgow Haskell Compiler (GHC) and an extensive set of standard libraries and utilities with full documentation.</p>
+
+<h3>Documentation</h3>
+
+<ul>
+<li>Libraries
+  Documentation for the libraries that come with Haskell Platform &amp; GHC.</li>
+<li>GHC
+  The GHC User's Guide has all you need to know about using GHC: command line options, language extensions, GHCi, etc.</li>
+<li>GHC API
+  Documentation for the GHC API.</li>
+<li>Cabal
+  An infrastructure for building and distributing Haskell software.</li>
+<li>Haddock
+  A tool for automatically generating documentation from annotated Haskell source code.</li>
+</ul>
+
+
+<h3>What is Installed</h3>
+
+<p>On Mac OS X, the Haskell Platform is installed in two major pieces: GHC and Haskell Platform. They are installed respectively in:</p>
+
+<pre><code>/Library/Frameworks/GHC.framework
+/Library/Haskell
+</code></pre>
+
+<p>Executables are symlinked in /usr/bin and should be available in any shell.</p>
+
+<h3>Uninstallation</h3>
+
+<p>This and prior versions of GHC and Haskell Platform can be found and then easily removed with the uninstallation command line utility:</p>
+
+<pre><code>/Library/Haskell/bin/uninstall-hs
+</code></pre>
+
+<p>Simply run it for more information.</p>
+
+<h3>Configuring Cabal</h3>
+
+<p>The cabal command manages the building and installation of packages, both your own, and those it can fetch from the Hackage repository.
+The first time you run cabal, a Mac specific configuration is written into the ~/.cabal directory.</p>
+
+<ul>
+<li>If this is the first time you have ever run cabal, it will be made your active configuration.</li>
+<li>If you have run cabal in the past, the new settings are in the file config.platform. You might want to review and incorporate some of the settings into your existing config file, or just replace your config file with it entirely.</li>
+</ul>
+
+
+<p>The configuration sets up cabal to install packages with the same layout as those installed with the Platform. Packages installed per user (--user, the default) are placed in a parallel tree in ~/Library/Haskell.</p>
+
+<p>N.B. Built executables will be symlink'd into ~/Library/Haskell/bin, you probably want to add that to your $PATH by adding this line to your ~/.bash_profile:</p>
+
+<pre><code>export PATH="$HOME/Library/Haskell/bin:$PATH"
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

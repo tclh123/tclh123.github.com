@@ -7,16 +7,7 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="Upgrade Ack on Ubuntu Dec 16th, 2013 1
-2
-3
-4
-5
-6
-7
-mkdir ~/dpkgs
-cd ~/dpkgs wget http://packages.debian.org/sid/all/libfile-next-perl/download
-wget &hellip;">
+  <meta name="description" content="Use Haskell on OS X Dec 17th, 2013 现在不用一个个装 GHC、Cabal 什么的了，直接装 Haskell Platform. 装完1.2G&#8230;略忧伤 下面抄一下介绍.. Haskell Platform for Mac OS X Welcome to &hellip;">
   
   
 
@@ -57,6 +48,93 @@ wget &hellip;">
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/12/17/use-haskell-on-os-x/">Use Haskell on OS X</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-17T14:54:00+08:00" pubdate data-updated="true">Dec 17<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>现在不用一个个装 GHC、Cabal 什么的了，直接装 <a href="http://www.haskell.org/platform/mac.html">Haskell Platform</a>.</p>
+
+<p>装完1.2G&#8230;略忧伤</p>
+
+<p>下面抄一下介绍..</p>
+
+<h2>Haskell Platform for Mac OS X</h2>
+
+<p>Welcome to Haskell Platform. The platform consists of the Glasgow Haskell Compiler (GHC) and an extensive set of standard libraries and utilities with full documentation.</p>
+
+<h3>Documentation</h3>
+
+<ul>
+<li>Libraries
+  Documentation for the libraries that come with Haskell Platform &amp; GHC.</li>
+<li>GHC
+  The GHC User&#8217;s Guide has all you need to know about using GHC: command line options, language extensions, GHCi, etc.</li>
+<li>GHC API
+  Documentation for the GHC API.</li>
+<li>Cabal
+  An infrastructure for building and distributing Haskell software.</li>
+<li>Haddock
+  A tool for automatically generating documentation from annotated Haskell source code.</li>
+</ul>
+
+
+<h3>What is Installed</h3>
+
+<p>On Mac OS X, the Haskell Platform is installed in two major pieces: GHC and Haskell Platform. They are installed respectively in:</p>
+
+<pre><code>/Library/Frameworks/GHC.framework
+/Library/Haskell
+</code></pre>
+
+<p>Executables are symlinked in /usr/bin and should be available in any shell.</p>
+
+<h3>Uninstallation</h3>
+
+<p>This and prior versions of GHC and Haskell Platform can be found and then easily removed with the uninstallation command line utility:</p>
+
+<pre><code>/Library/Haskell/bin/uninstall-hs
+</code></pre>
+
+<p>Simply run it for more information.</p>
+
+<h3>Configuring Cabal</h3>
+
+<p>The cabal command manages the building and installation of packages, both your own, and those it can fetch from the Hackage repository.
+The first time you run cabal, a Mac specific configuration is written into the ~/.cabal directory.</p>
+
+<ul>
+<li>If this is the first time you have ever run cabal, it will be made your active configuration.</li>
+<li>If you have run cabal in the past, the new settings are in the file config.platform. You might want to review and incorporate some of the settings into your existing config file, or just replace your config file with it entirely.</li>
+</ul>
+
+
+<p>The configuration sets up cabal to install packages with the same layout as those installed with the Platform. Packages installed per user (&#8211;user, the default) are placed in a parallel tree in ~/Library/Haskell.</p>
+
+<p>N.B. Built executables will be symlink&#8217;d into ~/Library/Haskell/bin, you probably want to add that to your $PATH by adding this line to your ~/.bash_profile:</p>
+
+<pre><code>export PATH="$HOME/Library/Haskell/bin:$PATH"
+</code></pre>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -541,62 +619,6 @@ http://www.pip-installer.org/en/latest/logic.html#requirements-file-format</p>
 <p><code>brew install minicom</code></p>
 
 <p>ps. 我不知道为什么直接用screen连 <code>screen /dev/tty.usbserial 9600</code> 会乱码加卡死。。</p>
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/09/25/solve-a-plus-b-problem-in-python-and-one-line/">Solve A+B Problem in Python &amp; One Line</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-25T02:23:00+08:00" pubdate data-updated="true">Sep 25<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>Classical ACM/ICPC Problem</p>
-
-<p>one test case is easy, how to support multi- test cases?</p>
-
-<p>ex.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># Input</span>
-</span><span class='line'><span class="mi">1</span> <span class="mi">2</span>
-</span><span class='line'><span class="mi">2</span> <span class="mi">4</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Output</span>
-</span><span class='line'><span class="mi">3</span>
-</span><span class='line'><span class="mi">6</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>in python 2.x</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span><span class="p">;</span> <span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="p">[</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">]);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can test it on the Online Judge. :)</p>
 </div>
  </div>
 
