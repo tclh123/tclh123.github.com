@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python, | Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/blog/categories/python-/atom.xml" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2013-12-17T15:02:06+08:00</updated>
+  <updated>2013-12-30T13:05:24+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,129 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Trouble with OS X python pkgs]]></title>
+    <link href="http://tclh123.github.com/blog/2013/12/30/trouble-with-os-x-python-pkgs/"/>
+    <updated>2013-12-30T12:26:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/12/30/trouble-with-os-x-python-pkgs</id>
+    <content type="html"><![CDATA[<h2>起因</h2>
+
+<p>安装 https://github.com/amolenaar/gaphor 的时候总报 <code>ImportError: No module named pygtk</code>,
+而我的 pygtk 是 homebrew 装的，</p>
+
+<p>```
+$ brew info pygtk
+pygtk: stable 2.24.0
+http://www.pygtk.org/
+/usr/local/Cellar/pygtk/2.24.0 (658 files, 18M) *
+  Built from source
+From: https://github.com/Homebrew/homebrew/commits/master/Library/Formula/pygtk.rb
+==> Dependencies
+Build: pkg-config ✔
+Required: glib ✔, gtk+ ✔, atk ✔, pygobject ✔, py2cairo ✔
+==> Options
+--glade</p>
+
+<pre><code>Python bindigs for glade. (to `import gtk.glade`)
+</code></pre>
+
+<p>--universal</p>
+
+<pre><code>Build a universal binary
+</code></pre>
+
+<p>==> Caveats
+For non-homebrew python (2.x), you need to amend your PYTHONPATH like so:
+  export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+```</p>
+
+<p>（出问题后看pygtk有几个依赖是叉，还重装过一次）</p>
+
+<p><code>python -c "import pygtk"</code> 是 ok 的。</p>
+
+<p>```
+$ echo $PYTHONPATH
+/usr/local/lib/python2.7/site-packages:</p>
+
+<p>$ python -c "import sys, pprint; pprint.pprint(sys.path)"
+['',
+ '/Library/Python/2.7/site-packages/MySQL_python-1.2.3-py2.7-macosx-10.8-intel.egg',
+ '/Library/Python/2.7/site-packages/pip-1.1-py2.7.egg',
+ '/Library/Python/2.7/site-packages/distribute-0.6.49-py2.7.egg',
+ '/Users/tclh123/Programming/douban/PyDoubanFM/src/douban-client',
+ '/usr/local/lib/python2.7/site-packages',
+ '/Users/tclh123/Dev/UML_Tools/gaphor-gaphor-0.17.2',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC',
+ '/Library/Python/2.7/site-packages',
+ '/Library/Python/2.7/site-packages/setuptools-0.6c11-py2.7.egg-info',
+ '/usr/local/lib/python2.7/site-packages/gtk-2.0']</p>
+
+<p>```</p>
+
+<p><code>sys.path</code>中是包含 '/usr/local/lib/python2.7/site-packages' 的，homebrew 装的 pygtk 在这里面。</p>
+
+<p>但是在 <code>cd gaphor-gaphor-0.17.2 &amp;&amp; pip install .</code> 的时候，输出 <code>sys.path</code></p>
+
+<p><code>
+['/private/tmp/pip-RS454x-build/setuptools_git-1.0-py2.7.egg',
+ '/private/tmp/pip-RS454x-build/nose-1.3.0-py2.7.egg',
+ '.',
+ '',
+ '/Library/Python/2.7/site-packages/MySQL_python-1.2.3-py2.7-macosx-10.8-intel.egg',
+ '/Library/Python/2.7/site-packages/pip-1.1-py2.7.egg',
+ '/Library/Python/2.7/site-packages/distribute-0.6.49-py2.7.egg',
+ '/Users/tclh123/Programming/douban/PyDoubanFM/src/douban-client',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload',
+ '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC',
+ '/Library/Python/2.7/site-packages',
+ '/Library/Python/2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']
+</code></p>
+
+<p>却不包含 '/usr/local/lib/python2.7/site-packages' 了。。为何</p>
+
+<p>https://github.com/Homebrew/homebrew/issues/10908
+这个 issue 是关于 Meld 的，依然没发现什么有帮助的信息么..</p>
+
+<h2>python 在 OS X 下的 site-packages 目录</h2>
+
+<p>在我机子上分散在下列地方，</p>
+
+<p><code>
+/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/  # 这个应该是系统自带python默认的地方?
+/Library/Python/2.7/site-packages/  # 大部分pip装的似乎都到这里了
+/usr/local/lib/python2.7/site-packages/  # homebrew 装的地方
+</code></p>
+
+<p>问题还没搞清楚
+<strong>To be continued</strong></p>
+
+<h2>easy_install on OS X</h2>
+
+<p>还有，我搞不清楚现在我 easy_install 装的东西是否 work 了，以及装的地方在哪里？</p>
+
+<p>http://lukehagan.com/journal/2010-11-21-easy_install/</p>
+
+<p>似乎依然不 work 迷茫中</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[hylang]]></title>

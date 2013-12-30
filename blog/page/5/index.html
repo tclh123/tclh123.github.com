@@ -7,7 +7,7 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="微软与谷歌盈利模式对比分析 Dec 31st, 2012 初看题目，觉得其实就盈利来说，Microsoft跟Google真的没有太大可比性。一个是围绕OS卖软件的，一个是靠搜索引擎卖广告的。Google卖广告，不是说他找不到合适的盈利模式才靠广告赚钱，恰恰相反，它是开创了“免费+广告”的盈利模式 &hellip;">
+  <meta name="description" content="Vim学习笔记（二） Jan 8th, 2013 查找（Find） 查找字符 f[char]查找光标后面的char，F[char]查找光标前面的char。 查找光标所在的词 * - 找下一个 # - 找上一个 跳转（GoTo） 括号匹配 % 行首行末 0 - 行首 $ - 行末 转到行 gg &hellip;">
   
   
 
@@ -48,6 +48,125 @@
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/01/08/vimxue-xi-bi-ji-%28er-%29/">Vim学习笔记（二）</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-08T20:10:00+08:00" pubdate data-updated="true">Jan 8<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><h2>查找（Find）</h2>
+
+<hr />
+
+<h4>查找字符</h4>
+
+<p>f[char]查找光标后面的char，F[char]查找光标前面的char。</p>
+
+<h4>查找光标所在的词</h4>
+
+<p>* - 找下一个</p>
+
+<p># - 找上一个</p>
+
+<h2>跳转（GoTo）</h2>
+
+<hr />
+
+<h4>括号匹配</h4>
+
+<p>%</p>
+
+<h4>行首行末</h4>
+
+<p>0 - 行首</p>
+
+<p>$ - 行末</p>
+
+<h4>转到行</h4>
+
+<p>gg - 跳到整个文件首部</p>
+
+<p>G  - 跳到整个文件末尾</p>
+
+<p>[number]G - 跳到第number行首部</p>
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/01/06/vimxue-xi-bi-ji-%28%5B%3F%5D-%29/">Vim学习笔记（一）</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-06T19:40:00+08:00" pubdate data-updated="true">Jan 6<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>从今天开始再好好学下Vim吧，其实也没这么难上手，多用用就好了。
+先跟<a href="http://www.openvim.com/tutorial.html">这个tutorial</a>学下。</p>
+
+<h2>模式</h2>
+
+<hr />
+
+<p>Vim有Insert mode跟Command mode，按i进入insert mode，按ESC进入command mode。</p>
+
+<h2>光标移动（Movement）</h2>
+
+<hr />
+
+<h4>上下左右（Basic movement）</h4>
+
+<p>hjkl。</p>
+
+<h4>字移动（Word movement）</h4>
+
+<p>w - next word</p>
+
+<p>e - end of the word</p>
+
+<p>b - beginning of the word</p>
+
+<h4>重复移动（Number powered movement）</h4>
+
+<p>3w - same as w 3 times</p>
+
+<h2>重复插入</h2>
+
+<hr />
+
+<p>在command mode下先输入次数n，然后进入insert mode，正常插入一组字符，然后按ESC就会自动重复n-1组字符。</p>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">

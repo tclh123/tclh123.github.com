@@ -7,7 +7,8 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="Use Haskell on OS X Dec 17th, 2013 现在不用一个个装 GHC、Cabal 什么的了，直接装 Haskell Platform. 装完1.2G&#8230;略忧伤 下面抄一下介绍.. Haskell Platform for Mac OS X Welcome to &hellip;">
+  <meta name="description" content="Open Source &amp; Cross-platform UML Tools Dec 30th, 2013 呵呵，都到大四了还逃不过么。。依然有门神奇的课需要画一堆UML diagram。。
+Well&#8230;至少我是不会去用那些 Windows Only 神奇的所谓企业级的软件的 &hellip;">
   
   
 
@@ -48,6 +49,250 @@
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/12/30/open-source-and-cross-platform-uml-tools/">Open Source &amp; Cross-platform UML Tools</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-30T12:47:00+08:00" pubdate data-updated="true">Dec 30<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>呵呵，都到大四了还逃不过么。。依然有门神奇的课需要画一堆UML diagram。。
+Well&#8230;至少我是不会去用那些 Windows Only 神奇的所谓企业级的软件的。。（真不知道学校都什么心态啊，你种你教学生的时候别用盗版啊</p>
+
+<ul>
+<li><p>http://www.genmymodel.com/</p>
+
+<p>  在线的，略吊，但是目前支持的图有点少，不过大多时候能画类图也就够了</p></li>
+<li><p>http://argouml.tigris.org/</p>
+
+<p>  ArgoUML</p></li>
+<li><p>http://www.umlet.com/changes.htm</p>
+
+<p>  UMLet</p></li>
+<li><p>http://www.astah.net/editions/community</p>
+
+<p>  Astah Community，这个推荐的人还蛮多</p></li>
+<li><p>https://github.com/amolenaar/gaphor</p>
+
+<p>  用我大python写的</p></li>
+<li><p>https://github.com/ObeoNetwork/UML-Modeling</p>
+
+<p>  OpenSource (EPL licensed) UML2 Graphical Modelers (Class, Composite, State, Activity, Sequence &#8230;)
+  这个应该是我找到的功能最全的，界面是继承 Eclipse 的貌似</p></li>
+</ul>
+
+</div>
+ </div>
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/12/30/trouble-with-os-x-python-pkgs/">Trouble With OS X Python Pkgs</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-30T12:26:00+08:00" pubdate data-updated="true">Dec 30<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><h2>起因</h2>
+
+<p>安装 https://github.com/amolenaar/gaphor 的时候总报 <code>ImportError: No module named pygtk</code>,
+而我的 pygtk 是 homebrew 装的，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ brew info pygtk
+</span><span class='line'>pygtk: stable 2.24.0
+</span><span class='line'>http://www.pygtk.org/
+</span><span class='line'>/usr/local/Cellar/pygtk/2.24.0 (658 files, 18M) *
+</span><span class='line'>  Built from source
+</span><span class='line'>From: https://github.com/Homebrew/homebrew/commits/master/Library/Formula/pygtk.rb
+</span><span class='line'>==&gt; Dependencies
+</span><span class='line'>Build: pkg-config ✔
+</span><span class='line'>Required: glib ✔, gtk+ ✔, atk ✔, pygobject ✔, py2cairo ✔
+</span><span class='line'>==&gt; Options
+</span><span class='line'>--glade
+</span><span class='line'>    Python bindigs for glade. (to `import gtk.glade`)
+</span><span class='line'>--universal
+</span><span class='line'>    Build a universal binary
+</span><span class='line'>==&gt; Caveats
+</span><span class='line'>For non-homebrew python (2.x), you need to amend your PYTHONPATH like so:
+</span><span class='line'>  export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH</span></code></pre></td></tr></table></div></figure>
+
+
+<p>（出问题后看pygtk有几个依赖是叉，还重装过一次）</p>
+
+<p><code>python -c "import pygtk"</code> 是 ok 的。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ echo $PYTHONPATH
+</span><span class='line'>/usr/local/lib/python2.7/site-packages:
+</span><span class='line'>
+</span><span class='line'>$ python -c "import sys, pprint; pprint.pprint(sys.path)"
+</span><span class='line'>['',
+</span><span class='line'> '/Library/Python/2.7/site-packages/MySQL_python-1.2.3-py2.7-macosx-10.8-intel.egg',
+</span><span class='line'> '/Library/Python/2.7/site-packages/pip-1.1-py2.7.egg',
+</span><span class='line'> '/Library/Python/2.7/site-packages/distribute-0.6.49-py2.7.egg',
+</span><span class='line'> '/Users/tclh123/Programming/douban/PyDoubanFM/src/douban-client',
+</span><span class='line'> '/usr/local/lib/python2.7/site-packages',
+</span><span class='line'> '/Users/tclh123/Dev/UML_Tools/gaphor-gaphor-0.17.2',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC',
+</span><span class='line'> '/Library/Python/2.7/site-packages',
+</span><span class='line'> '/Library/Python/2.7/site-packages/setuptools-0.6c11-py2.7.egg-info',
+</span><span class='line'> '/usr/local/lib/python2.7/site-packages/gtk-2.0']
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>sys.path</code>中是包含 &#8216;/usr/local/lib/python2.7/site-packages&#8217; 的，homebrew 装的 pygtk 在这里面。</p>
+
+<p>但是在 <code>cd gaphor-gaphor-0.17.2 &amp;&amp; pip install .</code> 的时候，输出 <code>sys.path</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>['/private/tmp/pip-RS454x-build/setuptools_git-1.0-py2.7.egg',
+</span><span class='line'> '/private/tmp/pip-RS454x-build/nose-1.3.0-py2.7.egg',
+</span><span class='line'> '.',
+</span><span class='line'> '',
+</span><span class='line'> '/Library/Python/2.7/site-packages/MySQL_python-1.2.3-py2.7-macosx-10.8-intel.egg',
+</span><span class='line'> '/Library/Python/2.7/site-packages/pip-1.1-py2.7.egg',
+</span><span class='line'> '/Library/Python/2.7/site-packages/distribute-0.6.49-py2.7.egg',
+</span><span class='line'> '/Users/tclh123/Programming/douban/PyDoubanFM/src/douban-client',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload',
+</span><span class='line'> '/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC',
+</span><span class='line'> '/Library/Python/2.7/site-packages',
+</span><span class='line'> '/Library/Python/2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']</span></code></pre></td></tr></table></div></figure>
+
+
+<p>却不包含 &#8216;/usr/local/lib/python2.7/site-packages&#8217; 了。。为何</p>
+
+<p>https://github.com/Homebrew/homebrew/issues/10908
+这个 issue 是关于 Meld 的，依然没发现什么有帮助的信息么..</p>
+
+<h2>python 在 OS X 下的 site-packages 目录</h2>
+
+<p>在我机子上分散在下列地方，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/  # 这个应该是系统自带python默认的地方?
+</span><span class='line'>/Library/Python/2.7/site-packages/  # 大部分pip装的似乎都到这里了
+</span><span class='line'>/usr/local/lib/python2.7/site-packages/  # homebrew 装的地方</span></code></pre></td></tr></table></div></figure>
+
+
+<p>问题还没搞清楚
+<strong>To be continued</strong></p>
+
+<h2>easy_install on OS X</h2>
+
+<p>还有，我搞不清楚现在我 easy_install 装的东西是否 work 了，以及装的地方在哪里？</p>
+
+<p>http://lukehagan.com/journal/2010-11-21-easy_install/</p>
+
+<p>似乎依然不 work 迷茫中</p>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -510,115 +755,6 @@ https://github.com/erikrose/peep/commit/65367f66b777f17b1223569e1cd2f6250a820e99
 http://www.pip-installer.org/en/latest/logic.html#requirements-file-format</p>
 
 <p><a href="http://www.packtpub.com/article/writing-a-package-in-python">Writing a Package in Python</a></p>
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/11/06/pip-uninstall-editable-pkgs/">Pip Uninstall Editable Pkgs</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-06T17:32:00+08:00" pubdate data-updated="true">Nov 6<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>http://stackoverflow.com/questions/17346619/how-to-uninstall-editable-packages-with-pip-installed-with-e</p>
-
-<p>At {virtualenv}/lib/python2.7/site-packages/</p>
-
-<ul>
-<li>remove the egg file (e.g. distribute-0.6.34-py2.7.egg)</li>
-<li>from file easy_install.pth, remove the corresponding line (it should be a path to the source directory or of an egg file).</li>
-</ul>
-
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/10/04/setup-raspberry-pi-on-os-x/">Setup Raspberry Pi on OS X</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-10-04T21:53:00+08:00" pubdate data-updated="true">Oct 4<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>折腾了下树莓派，买了 PL2303串口TTL下载线，跟一个8G C10的TF带SD卡套。</p>
-
-<p>只能串口访问，没买usb无线，没有多余网线。。不能SSH、开VNC。。不幸福</p>
-
-<p>等能联网了再来折腾吧 →_→</p>
-
-<hr />
-
-<h2>setup the SD card</h2>
-
-<ul>
-<li>用DiskUtil把sd卡erase成ExFat格式</li>
-<li>执行 <code>df -h</code> 来获得sd卡的设备路径</li>
-<li>将系统img写入sd卡</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>tclh123@tclh123MBP ~ <span class="nv">$ </span>sudo dd <span class="nv">bs</span><span class="o">=</span>1m <span class="k">if</span><span class="o">=</span><span class="s2">&quot;/path/to/2013-09-25-wheezy-raspbian.img&quot;</span> <span class="nv">of</span><span class="o">=</span>/dev/rdisk2
-</span><span class='line'>Password:
-</span><span class='line'>2825+0 records in
-</span><span class='line'>2825+0 records out
-</span><span class='line'>2962227200 bytes transferred in 168.735466 secs <span class="o">(</span>17555451 bytes/sec<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And you can use <code>killall -INFO dd</code> to check the status of <code>dd</code> in  progress (<a href="http://www.commandlinefu.com/commands/view/5440/check-the-status-of-dd-in-progress-os-x">link</a>)</p>
-
-<h2>串口通信</h2>
-
-<ul>
-<li>下载PL2303串口驱动</li>
-</ul>
-
-
-<p>http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41
-安装完需要重启。。</p>
-
-<ul>
-<li>下个minicom</li>
-</ul>
-
-
-<p><code>brew install minicom</code></p>
-
-<p>ps. 我不知道为什么直接用screen连 <code>screen /dev/tty.usbserial 9600</code> 会乱码加卡死。。</p>
 </div>
  </div>
 

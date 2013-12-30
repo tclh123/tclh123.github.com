@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: UML | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/uml/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2013-12-30T13:05:24+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Open Source &amp; Cross-platform UML Tools]]></title>
+    <link href="http://tclh123.github.com/blog/2013/12/30/open-source-and-cross-platform-uml-tools/"/>
+    <updated>2013-12-30T12:47:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2013/12/30/open-source-and-cross-platform-uml-tools</id>
+    <content type="html"><![CDATA[<p>呵呵，都到大四了还逃不过么。。依然有门神奇的课需要画一堆UML diagram。。
+Well...至少我是不会去用那些 Windows Only 神奇的所谓企业级的软件的。。（真不知道学校都什么心态啊，你种你教学生的时候别用盗版啊</p>
+
+<ul>
+<li><p>http://www.genmymodel.com/</p>
+
+<p>  在线的，略吊，但是目前支持的图有点少，不过大多时候能画类图也就够了</p></li>
+<li><p>http://argouml.tigris.org/</p>
+
+<p>  ArgoUML</p></li>
+<li><p>http://www.umlet.com/changes.htm</p>
+
+<p>  UMLet</p></li>
+<li><p>http://www.astah.net/editions/community</p>
+
+<p>  Astah Community，这个推荐的人还蛮多</p></li>
+<li><p>https://github.com/amolenaar/gaphor</p>
+
+<p>  用我大python写的</p></li>
+<li><p>https://github.com/ObeoNetwork/UML-Modeling</p>
+
+<p>  OpenSource (EPL licensed) UML2 Graphical Modelers (Class, Composite, State, Activity, Sequence ...)
+  这个应该是我找到的功能最全的，界面是继承 Eclipse 的貌似</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
