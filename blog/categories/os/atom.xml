@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OS | Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/blog/categories/os/atom.xml" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2013-12-30T13:05:24+08:00</updated>
+  <updated>2014-01-05T00:54:16+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OS X chflags]]></title>
+    <link href="http://tclh123.github.com/blog/2014/01/05/os-x-chflags/"/>
+    <updated>2014-01-05T00:43:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2014/01/05/os-x-chflags</id>
+    <content type="html"><![CDATA[<p>U盘插过机房的机子后被某Windows上的2b病毒影响了，所有文件都被隐藏然后生成对应的 .lnk 的文件（Windows快捷方式）。
+今天插OS X上一看，在图形界面下还是被隐藏的（说明文件/FAT32在OS X上挂载后，文件的隐藏属性跟Windows上的都可以上层兼容?）</p>
+
+<p>OS X 实际上是 FreeBSD，Linux上隐藏文件/文件夹都只有取名为<code>.</code>开头的方法，BSD上还有 <code>chflags</code> 这个命令</p>
+
+<p>```
+CHFLAGS(1)                BSD General Commands Manual               CHFLAGS(1)</p>
+
+<p>NAME</p>
+
+<pre><code> chflags -- change file flags
+</code></pre>
+
+<p>SYNOPSIS</p>
+
+<pre><code> chflags [-fhv] [-R [-H | -L | -P]] flags file ...
+
+ ...
+
+ The flags are specified as an octal number or a comma separated list of keywords.  The following keywords are currently defined:
+
+       arch, archived
+               set the archived flag (super-user only)
+
+       opaque  set the opaque flag (owner or super-user only).  [Directory is opaque when viewed through a union mount]
+
+       nodump  set the nodump flag (owner or super-user only)
+
+       sappnd, sappend
+               set the system append-only flag (super-user only)
+
+       schg, schange, simmutable
+               set the system immutable flag (super-user only)
+
+       uappnd, uappend
+               set the user append-only flag (owner or super-user only)
+
+       uchg, uchange, uimmutable
+               set the user immutable flag (owner or super-user only)
+
+       hidden  set the hidden flag [Hide item from GUI]
+</code></pre>
+
+<p>```</p>
+
+<p>flag 前面加 <code>no</code> 就是相反的意思,
+所以,</p>
+
+<p><code>
+chflags nohidden *
+</code></p>
+
+<p>就行了.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Trouble with OS X python pkgs]]></title>

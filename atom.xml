@@ -4,7 +4,7 @@
   <title><![CDATA[Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/atom.xml" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2013-12-30T13:05:24+08:00</updated>
+  <updated>2014-01-05T00:54:16+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,93 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OS X chflags]]></title>
+    <link href="http://tclh123.github.com/blog/2014/01/05/os-x-chflags/"/>
+    <updated>2014-01-05T00:43:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2014/01/05/os-x-chflags</id>
+    <content type="html"><![CDATA[<p>U盘插过机房的机子后被某Windows上的2b病毒影响了，所有文件都被隐藏然后生成对应的 .lnk 的文件（Windows快捷方式）。
+今天插OS X上一看，在图形界面下还是被隐藏的（说明文件/FAT32在OS X上挂载后，文件的隐藏属性跟Windows上的都可以上层兼容?）</p>
+
+<p>OS X 实际上是 FreeBSD，Linux上隐藏文件/文件夹都只有取名为<code>.</code>开头的方法，BSD上还有 <code>chflags</code> 这个命令</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CHFLAGS(1)                BSD General Commands Manual               CHFLAGS(1)
+</span><span class='line'>
+</span><span class='line'>NAME
+</span><span class='line'>     chflags -- change file flags
+</span><span class='line'>
+</span><span class='line'>SYNOPSIS
+</span><span class='line'>     chflags [-fhv] [-R [-H | -L | -P]] flags file ...
+</span><span class='line'>
+</span><span class='line'>     ...
+</span><span class='line'>
+</span><span class='line'>     The flags are specified as an octal number or a comma separated list of keywords.  The following keywords are currently defined:
+</span><span class='line'>
+</span><span class='line'>           arch, archived
+</span><span class='line'>                   set the archived flag (super-user only)
+</span><span class='line'>
+</span><span class='line'>           opaque  set the opaque flag (owner or super-user only).  [Directory is opaque when viewed through a union mount]
+</span><span class='line'>
+</span><span class='line'>           nodump  set the nodump flag (owner or super-user only)
+</span><span class='line'>
+</span><span class='line'>           sappnd, sappend
+</span><span class='line'>                   set the system append-only flag (super-user only)
+</span><span class='line'>
+</span><span class='line'>           schg, schange, simmutable
+</span><span class='line'>                   set the system immutable flag (super-user only)
+</span><span class='line'>
+</span><span class='line'>           uappnd, uappend
+</span><span class='line'>                   set the user append-only flag (owner or super-user only)
+</span><span class='line'>
+</span><span class='line'>           uchg, uchange, uimmutable
+</span><span class='line'>                   set the user immutable flag (owner or super-user only)
+</span><span class='line'>
+</span><span class='line'>           hidden  set the hidden flag [Hide item from GUI]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>flag 前面加 <code>no</code> 就是相反的意思,
+所以,</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>chflags nohidden *</span></code></pre></td></tr></table></div></figure>
+
+
+<p>就行了.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Open Source &amp; Cross-platform UML Tools]]></title>
@@ -975,23 +1062,6 @@ atupal</a>用过，印象蛮深。今天挖出来玩玩。</p>
 <li><a href="http://www.bootcss.com/lesscss.html">LESS - 一种 动态 样式 语言.</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[关于无中心网络及本地分享、社交？]]></title>
-    <link href="http://tclh123.github.com/blog/2013/07/05/guan-yu-wu-zhong-xin-wang-luo/"/>
-    <updated>2013-07-05T22:11:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/07/05/guan-yu-wu-zhong-xin-wang-luo</id>
-    <content type="html"><![CDATA[<p>今天在听歌的时候，突然有点想法，如果几个朋友出去（地铁里，噪杂的酒吧，或者旅行），可以一起听一首歌（用各自的移动设备，or Glass??），就像几个人呆在一个自己的私密空间里，是不是还蛮酷？</p>
-
-<p>自然得想到如何实现。如果是有个人充当server的方式，显然不太优美。自然地想到一个挺像的东西，AirDrop，它貌似就是个去中心的点对点网络，这种东西用来做本地的分享、社交很合适。</p>
-
-<p>但是AirDrop现在貌似还只能用于传文件（据说是因为WiFi耗电问题没法取代蓝牙？）。这个暂不论了。</p>
-
-<p>于是我又想到，bit网络（bit coin什么的不是很火吗）。私密社交？+移动。</p>
-
-<p>嗯。。我觉得这方面将来肯定会产生点有意思的东西。</p>
 ]]></content>
   </entry>
   

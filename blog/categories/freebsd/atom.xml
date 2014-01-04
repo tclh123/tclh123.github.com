@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: X, | Tclh123's 3rd Blog]]></title>
-  <link href="http://tclh123.github.com/blog/categories/x-/atom.xml" rel="self"/>
+  <title><![CDATA[Category: FreeBSD | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/freebsd/atom.xml" rel="self"/>
   <link href="http://tclh123.github.com/"/>
   <updated>2014-01-05T00:54:16+08:00</updated>
   <id>http://tclh123.github.com/</id>
@@ -71,55 +71,6 @@ chflags nohidden *
 </code></p>
 
 <p>就行了.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Open Terminal(iTerm2) in Current Folder]]></title>
-    <link href="http://tclh123.github.com/blog/2013/06/14/open-terminal-iterm2-in-current-folder/"/>
-    <updated>2013-06-14T15:58:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/06/14/open-terminal-iterm2-in-current-folder</id>
-    <content type="html"><![CDATA[<p>原来Terminal一直用自带的，现在改成iTerm2。
-google到一些<a href="http://www.dbform.com/html/2011/1559.html">用AppleScript解决的方案</a>，经测试不可用，估计是OS X 10.8改了什么东西。
-没空研究AppleScript...</p>
-
-<p>然后意识到也许可以把Go2Shell的默认Terminal改一下，然后确实google到了方法。。</p>
-
-<h2>Solution</h2>
-
-<ol>
-<li>Download Go2Shell.</li>
-<li>Change your default Go2Shell terminal to iTerm2.</li>
-</ol>
-
-
-<p><code>bash
-open -a Go2Shell --args config
-</code></p>
-
-<p>That will open the configuration screen.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[javac terminal utf-8 encoding]]></title>
-    <link href="http://tclh123.github.com/blog/2013/05/12/javac-terminal-utf-8-encoding/"/>
-    <updated>2013-05-12T19:38:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/05/12/javac-terminal-utf-8-encoding</id>
-    <content type="html"><![CDATA[<p>OS X 的terminal输出信息是utf-8编码的，</p>
-
-<p>但是javac默认输出GBK，会导致乱码。</p>
-
-<p>可以用<code>javac -J-Dfile.encoding=UTF-8</code>来使其输出utf-8编码的信息。</p>
-
-<p>解决方案:
-<code>
-echo "alias javac='javac -J-Dfile.encoding=UTF-8 '"&gt;&gt;~/.bash_profile
-</code></p>
-
-<h3>Reference</h3>
-
-<p><a href="https://www.surfchen.org/archives/710">解决javac和java命令在Mac OSX终端里的乱码问题</a></p>
 ]]></content>
   </entry>
   

@@ -7,8 +7,8 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="Open Source &amp; Cross-platform UML Tools Dec 30th, 2013 呵呵，都到大四了还逃不过么。。依然有门神奇的课需要画一堆UML diagram。。
-Well&#8230;至少我是不会去用那些 Windows Only 神奇的所谓企业级的软件的 &hellip;">
+  <meta name="description" content="OS X Chflags Jan 5th, 2014 U盘插过机房的机子后被某Windows上的2b病毒影响了，所有文件都被隐藏然后生成对应的 .lnk 的文件（Windows快捷方式）。
+今天插OS X上一看，在图形界面下还是被隐藏的（说明文件/FAT32在OS X上挂载后， &hellip;">
   
   
 
@@ -49,6 +49,110 @@ Well&#8230;至少我是不会去用那些 Windows Only 神奇的所谓企业级�
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2014/01/05/os-x-chflags/">OS X Chflags</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-05T00:43:00+08:00" pubdate data-updated="true">Jan 5<span>th</span>, 2014</time>
+</div>
+
+<div class="post-content"><p>U盘插过机房的机子后被某Windows上的2b病毒影响了，所有文件都被隐藏然后生成对应的 .lnk 的文件（Windows快捷方式）。
+今天插OS X上一看，在图形界面下还是被隐藏的（说明文件/FAT32在OS X上挂载后，文件的隐藏属性跟Windows上的都可以上层兼容?）</p>
+
+<p>OS X 实际上是 FreeBSD，Linux上隐藏文件/文件夹都只有取名为<code>.</code>开头的方法，BSD上还有 <code>chflags</code> 这个命令</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CHFLAGS(1)                BSD General Commands Manual               CHFLAGS(1)
+</span><span class='line'>
+</span><span class='line'>NAME
+</span><span class='line'>     chflags -- change file flags
+</span><span class='line'>
+</span><span class='line'>SYNOPSIS
+</span><span class='line'>     chflags [-fhv] [-R [-H | -L | -P]] flags file ...
+</span><span class='line'>
+</span><span class='line'>     ...
+</span><span class='line'>
+</span><span class='line'>     The flags are specified as an octal number or a comma separated list of keywords.  The following keywords are currently defined:
+</span><span class='line'>
+</span><span class='line'>           arch, archived
+</span><span class='line'>                   set the archived flag (super-user only)
+</span><span class='line'>
+</span><span class='line'>           opaque  set the opaque flag (owner or super-user only).  [Directory is opaque when viewed through a union mount]
+</span><span class='line'>
+</span><span class='line'>           nodump  set the nodump flag (owner or super-user only)
+</span><span class='line'>
+</span><span class='line'>           sappnd, sappend
+</span><span class='line'>                   set the system append-only flag (super-user only)
+</span><span class='line'>
+</span><span class='line'>           schg, schange, simmutable
+</span><span class='line'>                   set the system immutable flag (super-user only)
+</span><span class='line'>
+</span><span class='line'>           uappnd, uappend
+</span><span class='line'>                   set the user append-only flag (owner or super-user only)
+</span><span class='line'>
+</span><span class='line'>           uchg, uchange, uimmutable
+</span><span class='line'>                   set the user immutable flag (owner or super-user only)
+</span><span class='line'>
+</span><span class='line'>           hidden  set the hidden flag [Hide item from GUI]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>flag 前面加 <code>no</code> 就是相反的意思,
+所以,</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>chflags nohidden *</span></code></pre></td></tr></table></div></figure>
+
+
+<p>就行了.</p>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -698,63 +802,6 @@ The first time you run cabal, a Mac specific configuration is written into the ~
 <li><a href="https://github.com/dabeaz/ply">https://github.com/dabeaz/ply</a></li>
 </ul>
 
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/11/08/%60python-setup-dot-py%60-install-vs-%60pip-install-%60/">`python setup.py` Install vs. `pip Install .`</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-08T00:28:00+08:00" pubdate data-updated="true">Nov 8<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>一些坑。</p>
-
-<h3>Distutils</h3>
-
-<p>http://docs.python.org/2/distutils/setupscript.html#installing-package-data</p>
-
-<h3>setuptools &amp; pip</h3>
-
-<p><a href="http://pythonhosted.org/setuptools/setuptools.html#using-find-packages">Building and Distributing Packages with Setuptools</a></p>
-
-<p>https://pypi.python.org/pypi/setuptools/
-http://www.pip-installer.org/en/latest/usage.html#pip-install
-http://www.pip-installer.org/en/latest/logic.html#git
-http://stackoverflow.com/questions/6947988/when-to-use-pip-requirements-file-versus-install-requires-in-setup-py
-https://groups.google.com/d/msg/python-virtualenv/1eI6Z9_XRHE/cj6CCHvmS10J
-http://stackoverflow.com/questions/2087148/can-i-use-pip-instead-of-easy-install-for-python-setup-py-install-dependen</p>
-
-<h4>requirements.txt</h4>
-
-<p><code>from pip.req import parse_requirements</code></p>
-
-<p>http://stackoverflow.com/questions/14399534/how-can-i-reference-requirements-txt-for-the-install-requires-kwarg-in-setuptool?answertab=votes#answer-16624700</p>
-
-<blockquote><p>Require pip>=1.2, as lower versions have a bug
-https://github.com/erikrose/peep/commit/65367f66b777f17b1223569e1cd2f6250a820e99</p></blockquote>
-
-<h4>尽管提供了dependency_lins依然默认安装PyPi版本的坑</h4>
-
-<p>http://stackoverflow.com/questions/17366784/setuptools-unable-to-use-link-from-dependency-links/17442663#17442663
-http://www.pip-installer.org/en/latest/logic.html#requirements-file-format</p>
-
-<p><a href="http://www.packtpub.com/article/writing-a-package-in-python">Writing a Package in Python</a></p>
 </div>
  </div>
 

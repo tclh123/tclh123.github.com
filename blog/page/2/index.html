@@ -7,7 +7,7 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="Pip Uninstall Editable Pkgs Nov 6th, 2013 http://stackoverflow.com/questions/17346619/how-to-uninstall-editable-packages-with-pip-installed-with-e &hellip;">
+  <meta name="description" content="`python setup.py` Install vs. `pip Install .` Nov 8th, 2013 一些坑。 Distutils http://docs.python.org/2/distutils/setupscript.html#installing-package- &hellip;">
   
   
 
@@ -48,6 +48,63 @@
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/11/08/%60python-setup-dot-py%60-install-vs-%60pip-install-%60/">`python setup.py` Install vs. `pip Install .`</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-08T00:28:00+08:00" pubdate data-updated="true">Nov 8<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>一些坑。</p>
+
+<h3>Distutils</h3>
+
+<p>http://docs.python.org/2/distutils/setupscript.html#installing-package-data</p>
+
+<h3>setuptools &amp; pip</h3>
+
+<p><a href="http://pythonhosted.org/setuptools/setuptools.html#using-find-packages">Building and Distributing Packages with Setuptools</a></p>
+
+<p>https://pypi.python.org/pypi/setuptools/
+http://www.pip-installer.org/en/latest/usage.html#pip-install
+http://www.pip-installer.org/en/latest/logic.html#git
+http://stackoverflow.com/questions/6947988/when-to-use-pip-requirements-file-versus-install-requires-in-setup-py
+https://groups.google.com/d/msg/python-virtualenv/1eI6Z9_XRHE/cj6CCHvmS10J
+http://stackoverflow.com/questions/2087148/can-i-use-pip-instead-of-easy-install-for-python-setup-py-install-dependen</p>
+
+<h4>requirements.txt</h4>
+
+<p><code>from pip.req import parse_requirements</code></p>
+
+<p>http://stackoverflow.com/questions/14399534/how-can-i-reference-requirements-txt-for-the-install-requires-kwarg-in-setuptool?answertab=votes#answer-16624700</p>
+
+<blockquote><p>Require pip>=1.2, as lower versions have a bug
+https://github.com/erikrose/peep/commit/65367f66b777f17b1223569e1cd2f6250a820e99</p></blockquote>
+
+<h4>尽管提供了dependency_lins依然默认安装PyPi版本的坑</h4>
+
+<p>http://stackoverflow.com/questions/17366784/setuptools-unable-to-use-link-from-dependency-links/17442663#17442663
+http://www.pip-installer.org/en/latest/logic.html#requirements-file-format</p>
+
+<p><a href="http://www.packtpub.com/article/writing-a-package-in-python">Writing a Package in Python</a></p>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -626,40 +683,6 @@ atupal</a>用过，印象蛮深。今天挖出来玩玩。</p>
 <li><a href="http://www.bootcss.com/lesscss.html">LESS - 一种 动态 样式 语言.</a></li>
 </ul>
 
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/07/05/guan-yu-wu-zhong-xin-wang-luo/">关于无中心网络及本地分享、社交？</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-05T22:11:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>今天在听歌的时候，突然有点想法，如果几个朋友出去（地铁里，噪杂的酒吧，或者旅行），可以一起听一首歌（用各自的移动设备，or Glass??），就像几个人呆在一个自己的私密空间里，是不是还蛮酷？</p>
-
-<p>自然得想到如何实现。如果是有个人充当server的方式，显然不太优美。自然地想到一个挺像的东西，AirDrop，它貌似就是个去中心的点对点网络，这种东西用来做本地的分享、社交很合适。</p>
-
-<p>但是AirDrop现在貌似还只能用于传文件（据说是因为WiFi耗电问题没法取代蓝牙？）。这个暂不论了。</p>
-
-<p>于是我又想到，bit网络（bit coin什么的不是很火吗）。私密社交？+移动。</p>
-
-<p>嗯。。我觉得这方面将来肯定会产生点有意思的东西。</p>
 </div>
  </div>
 
