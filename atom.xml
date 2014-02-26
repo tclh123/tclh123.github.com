@@ -4,7 +4,7 @@
   <title><![CDATA[Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/atom.xml" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2014-01-05T00:54:16+08:00</updated>
+  <updated>2014-02-26T23:46:18+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[manage NodeJs versions using NVM]]></title>
+    <link href="http://tclh123.github.com/blog/2014/02/26/manage-nodejs-versions-using-nvm/"/>
+    <updated>2014-02-26T23:08:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2014/02/26/manage-nodejs-versions-using-nvm</id>
+    <content type="html"><![CDATA[<p>顾名思义啦，NVM(Node Version Manager).</p>
+
+<p>根据 https://github.com/creationix/nvm 可以很方便地安装，</p>
+
+<p>然后可以很方便地安装、管理各版本的node。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>nvm install v0.10.26
+</span><span class='line'>nvm use v0.10.26</span></code></pre></td></tr></table></div></figure>
+
+
+<p>值得注意的是，我装完 0.10.26 以后就直接 <code>Now using node v0.10.26</code> 了，貌似 nvm 只能管理使用 nvm 来安装的 nodes，然后按版本被安装到类似<code>$HOME/.nvm/v0.10.26</code>的 path.</p>
+
+<p>安装 node 会附带安装 npm(Node Package Manager)。npm 安装 package 有两种模式，global 跟 local，local的概念就是只在项目目录下安装一份（其实js的安装也只是简单地拷贝文件嘛），这起到了类似 python venv 的功能，可以为每个项目单独隔离出一个包依赖环境。
+那么，为了避免多次安装造成多次download，npm 默认会在 <code>$HOME/.npm</code> 目录下 cache 下载的包。<code>npm cache clean</code> 可以清空这个目录。</p>
+
+<p>使用了 nvm 后， 附带的npm 被安装在了 <code>$HOME/.nvm/v0.10.26/lib/node_modules/npm/</code> （因为 npm 也只是一个 node module
+而 global package 的安装目录变为 <code>$HOME/.nvm/v0.10.26/lib/node_modules</code>，bin 会被 symlink 到 <code>$HOME/.nvm/v0.10.26/bin</code>，它也已经被加入到 PATH 中.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>npm config get prefix</span></code></pre></td></tr></table></div></figure>
+
+
+<p>另外，我原先的 node 都是用 homebrew 装的，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ls /usr/local/Cellar/node/
+</span><span class='line'>0.10.17 0.8.14</span></code></pre></td></tr></table></div></figure>
+
+
+<p>npm 被装在 /usr/local/lib/node_modules/npm -> /usr/local/Cellar/node/0.10.17/lib/node_modules/npm</p>
+
+<p>npm prefix 为 /usr/local/share/npm，因而 npm global 包被装在 /usr/local/share/npm/lib/node_modules/</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[OS X chflags]]></title>
@@ -1044,24 +1087,6 @@ atupal</a>用过，印象蛮深。今天挖出来玩玩。</p>
 
 
 <p>Ps. 加载顺序应该是 Daemons->Agents->StartupItems（在/System/Library/LaunchDaemons/里可以找到com.apple.SystemStarter.plist，由com.apple.SystemStarter进程负责加载StartupItems）。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[About Css Preprocessor]]></title>
-    <link href="http://tclh123.github.com/blog/2013/07/05/about-css-preprocessor/"/>
-    <updated>2013-07-05T23:58:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/07/05/about-css-preprocessor</id>
-    <content type="html"><![CDATA[<p>在Bootstrap那里看过less，在Octopress那里看过sass。还几次搞混了。了解一下。</p>
-
-<h2>Reference</h2>
-
-<ul>
-<li><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html">SASS用法指南</a></li>
-<li><a href="http://www.qianduan.net/an-introduction-to-less-and-comparison-to-sass.html">LESS介绍及其与Sass的差异</a></li>
-<li><a href="http://www.bootcss.com/lesscss.html">LESS - 一种 动态 样式 语言.</a></li>
-</ul>
-
 ]]></content>
   </entry>
   

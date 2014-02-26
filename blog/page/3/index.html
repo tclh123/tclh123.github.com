@@ -7,7 +7,9 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="关于无中心网络及本地分享、社交？ Jul 5th, 2013 今天在听歌的时候，突然有点想法，如果几个朋友出去（地铁里，噪杂的酒吧，或者旅行），可以一起听一首歌（用各自的移动设备，or Glass??），就像几个人呆在一个自己的私密空间里，是不是还蛮酷？ 自然得想到如何实现。 &hellip;">
+  <meta name="description" content="About Css Preprocessor Jul 5th, 2013 在Bootstrap那里看过less，在Octopress那里看过sass。还几次搞混了。了解一下。 Reference SASS用法指南
+LESS介绍及其与Sass的差异
+LESS - 一种 动态 样式 语言. &hellip;">
   
   
 
@@ -48,6 +50,41 @@
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/07/05/about-css-preprocessor/">About Css Preprocessor</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-05T23:58:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>在Bootstrap那里看过less，在Octopress那里看过sass。还几次搞混了。了解一下。</p>
+
+<h2>Reference</h2>
+
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html">SASS用法指南</a></li>
+<li><a href="http://www.qianduan.net/an-introduction-to-less-and-comparison-to-sass.html">LESS介绍及其与Sass的差异</a></li>
+<li><a href="http://www.bootcss.com/lesscss.html">LESS - 一种 动态 样式 语言.</a></li>
+</ul>
+
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -788,48 +825,6 @@ google到一些<a href="http://www.dbform.com/html/2011/1559.html">用AppleScrip
 <h3>Reference</h3>
 
 <p><a href="https://www.surfchen.org/archives/710">解决javac和java命令在Mac OSX终端里的乱码问题</a></p>
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/05/08/sublime-text-2-shi-yong-zhong-wen-lu-jing/">Sublime Text 2 使用中文路径</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-08T17:07:00+08:00" pubdate data-updated="true">May 8<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>文件是中文路径的话，使用build system不能正常工作。</p>
-
-<p>解决方法：</p>
-
-<p>在OS X上，</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>subl /Applications/Sublime\ Text\ 2.app/Contents/MacOS/sublime_plugin.py</span></code></pre></td></tr></table></div></figure>
-
-
-<p>在文件末尾添加两行代码，</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>reload(sys) 
-</span><span class='line'>sys.setdefaultencoding('utf-8')</span></code></pre></td></tr></table></div></figure>
-
 </div>
  </div>
 

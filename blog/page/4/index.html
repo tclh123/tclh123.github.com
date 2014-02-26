@@ -7,7 +7,8 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="各种排序算法 May 4th, 2013 这篇东西其实是当时为了找实习而复习排序弄的，面试官无聊就喜欢问你个排序，如果你连插入排序跟选择排序都分不清楚的话还是别去找虐了。 几种排序 大致按算法难度、类型从上到下排。 算法描述都按升序排序，复杂度都指平均复杂度。 冒泡排序 模拟气泡浮上来的过程，n &hellip;">
+  <meta name="description" content="Sublime Text 2 使用中文路径 May 8th, 2013 文件是中文路径的话，使用build system不能正常工作。 解决方法： 在OS X上， 1
+subl /Applications/Sublime\ Text\ 2.app/Contents/MacOS/ &hellip;">
   
   
 
@@ -48,6 +49,48 @@
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/05/08/sublime-text-2-shi-yong-zhong-wen-lu-jing/">Sublime Text 2 使用中文路径</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-08T17:07:00+08:00" pubdate data-updated="true">May 8<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>文件是中文路径的话，使用build system不能正常工作。</p>
+
+<p>解决方法：</p>
+
+<p>在OS X上，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>subl /Applications/Sublime\ Text\ 2.app/Contents/MacOS/sublime_plugin.py</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在文件末尾添加两行代码，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>reload(sys) 
+</span><span class='line'>sys.setdefaultencoding('utf-8')</span></code></pre></td></tr></table></div></figure>
+
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -972,180 +1015,6 @@ eg. like(monkey, banana)</p>
 
 
 <div>敬礼！</div>
-
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/01/11/xcode-4-dot-5-1-mian-idpkai-fa-slash-bu-shu-slash-zai-xian-diao-shi-slash-sheng-cheng-ipa/">Xcode 4.5.1 免iDP开发/部署/在线调试/生成ipa</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-11T14:45:00+08:00" pubdate data-updated="true">Jan 11<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>本文是结合自己测试的情况，对 <a href="http://kqwd.blog.163.com/blog/static/4122344820117191351263/">这篇教程</a> 的整理，针对 xcode 4.5.1。</p>
-
-<h3>1. 修改 SDKSettings.plist</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk
-</span><span class='line'>
-</span><span class='line'>sudo cp SDKSettings.plist SDKSettings.plist.orig
-</span><span class='line'>
-</span><span class='line'>sudo cp SDKSettings.plist /tmp/SDK.plist
-</span><span class='line'>
-</span><span class='line'>sudo chmod 777 /tmp/SDK.plist
-</span><span class='line'>
-</span><span class='line'>sudo /Applications/Xcode.app/Contents/MacOS/Xcode /tmp/SDK.plist
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>展开DefaultProperties分支，将下面的 CODE_SIGNING_REQUIRED、ENTITLEMENTS_REQUIRED 两个属性改为NO</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo cp /tmp/SDK.plist SDKSettings.plist
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>2. 修改 Info.plist</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform
-</span><span class='line'>
-</span><span class='line'>sudo cp Info.plist Info.plist.orig
-</span><span class='line'>
-</span><span class='line'>sudo cp Info.plist /tmp/Info.plist
-</span><span class='line'>
-</span><span class='line'>sudo chmod 777 /tmp/Info.plist
-</span><span class='line'>
-</span><span class='line'>sudo /Applications/Xcode.app/Contents/MacOS/Xcode /tmp/Info.plist
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>将 DefaultProperties、RuntimeRequirements、OverrideProperties分支下 的 XCiPhoneOSCodeSignContext 修改成 XCCodeSignContext。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo cp /tmp/Info.plist Info.plist
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>3. 执行脚本</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
-</span><span class='line'><span class="nb">cd</span> /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/PrivatePlugIns/iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support.xcplugin/Contents/MacOS/
-</span><span class='line'>dd <span class="k">if</span><span class="o">=</span>iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support <span class="nv">of</span><span class="o">=</span>working <span class="nv">bs</span><span class="o">=</span>500 <span class="nv">count</span><span class="o">=</span>255
-</span><span class='line'><span class="nb">printf</span> <span class="s2">&quot;xc3x26x00x00&quot;</span> &gt;&gt; working
-</span><span class='line'>/bin/mv -n iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support.original
-</span><span class='line'>/bin/mv working iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support
-</span><span class='line'>chmod a+x iPhoneOS<span class="se">\ </span>Build<span class="se">\ </span>System<span class="se">\ </span>Support
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>正常的话应该输出(具体的数字可能有差别)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>231+1 records in
-</span><span class='line'>231+1 records out
-</span><span class='line'>115904 bytes transferred in 0.001738 secs <span class="o">(</span>66694555 bytes/sec<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>4. 获取 gen_entitlements.py</h3>
-
-<p>需要连网执行</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir /Applications/Xcode.app/Contents/Developer/iphoneentitlements
-</span><span class='line'><span class="nb">cd</span> /Applications/Xcode.app/Contents/Developer/iphoneentitlements
-</span><span class='line'>curl -O http://www.alexwhittemore.com/iphone/gen_entitlements.txt
-</span><span class='line'>mv gen_entitlements.txt gen_entitlements.py
-</span><span class='line'>chmod 777 gen_entitlements.py
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>5. 禁用Xcode自动的签名操作</h3>
-
-<p><em>这个似乎不做也行</em></p>
-
-<p>将工程配置中所有的Code Signing选项全部设为Don&#8217;t Code Sign，如图。可能需要先点击“All”让这个选项显示出来</p>
-
-<h3>6. 添加自定义的生成后脚本</h3>
-
-<p>在Build Phases中添加一个Phase，右下角的Add Build Phase，然后单击Add Run Script，输入以下脚本</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">CODESIGN_ALLOCATE</span><span class="o">=</span>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;${PLATFORM_NAME}&quot;</span> <span class="o">==</span> <span class="s2">&quot;iphoneos&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="s2">&quot;${PLATFORM_NAME}&quot;</span> <span class="o">==</span> <span class="s2">&quot;ipados&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'>/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py <span class="s2">&quot;my.company.${PROJECT_NAME}&quot;</span> <span class="s2">&quot;${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent&quot;</span>;
-</span><span class='line'>codesign -f -s <span class="s2">&quot;iPhone Developer&quot;</span> --entitlements <span class="s2">&quot;${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent&quot;</span> <span class="s2">&quot;${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/&quot;</span>
-</span><span class='line'><span class="k">fi</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<blockquote><h3>旁门左道生成IPA文件</h3>
-
-<p>如果我的程序调试好了，怎么才能发给别人用呢？正常情况下IPA文件是从Xcode的Organizer中输出的，但是我们没有证书，这样输出会产生错误。我们只能用个小trick来完成这个操作了。</p>
-
-<p>先将代码生成为Release目标，然后打开工程的输出文件夹，通常情况下这个目录是
-/Users/你的用户名/Library/Developer/Xcode/DerivedData/以工程名打头的文件夹/Build/Products/Release-iphoneos</p>
-
-<p>很纠结吧~这个目录下有个.app的文件，就是生成的程序了。把这个.app拖到iTunes中，它会出现在应用程序那个列表中，然后再把它从iTunes的那个列表中拖出来（比如拖到桌面），发生了什么？哈哈，它就这样变成.ipa了！</p></blockquote>
-
-<p>PS.</p>
-
-<p>我的 ipad 还是 ios5.1 的，好像运行有点错误。不知道是不是应该用5.1的SDK。</p>
-
-<ul>
-<li><a href="http://stackoverflow.com/questions/12523888/how-can-i-add-older-version-of-ios-sdk-in-xcode-4-5">How can I add older version of iOS SDK in Xcode 4.5</a></li>
-</ul>
 
 </div>
  </div>

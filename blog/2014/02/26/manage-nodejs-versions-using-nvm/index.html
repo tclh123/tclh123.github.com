@@ -1,0 +1,199 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="Manage NodeJs Versions Using NVM Feb 26th, 2014 顾名思义啦，NVM(Node Version Manager). 根据 https://github.com/creationix/nvm 可以很方便地安装， 然后可以很方便地安装、 &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/2014/02/26/manage-nodejs-versions-using-nvm">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> <div class="post-header">
+  
+    <h1 class="post-title">Manage NodeJs Versions Using NVM</h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-26T23:08:00+08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2014</time>
+</div>
+
+<div class="post-content"><p>顾名思义啦，NVM(Node Version Manager).</p>
+
+<p>根据 https://github.com/creationix/nvm 可以很方便地安装，</p>
+
+<p>然后可以很方便地安装、管理各版本的node。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>nvm install v0.10.26
+</span><span class='line'>nvm use v0.10.26</span></code></pre></td></tr></table></div></figure>
+
+
+<p>值得注意的是，我装完 0.10.26 以后就直接 <code>Now using node v0.10.26</code> 了，貌似 nvm 只能管理使用 nvm 来安装的 nodes，然后按版本被安装到类似<code>$HOME/.nvm/v0.10.26</code>的 path.</p>
+
+<p>安装 node 会附带安装 npm(Node Package Manager)。npm 安装 package 有两种模式，global 跟 local，local的概念就是只在项目目录下安装一份（其实js的安装也只是简单地拷贝文件嘛），这起到了类似 python venv 的功能，可以为每个项目单独隔离出一个包依赖环境。
+那么，为了避免多次安装造成多次download，npm 默认会在 <code>$HOME/.npm</code> 目录下 cache 下载的包。<code>npm cache clean</code> 可以清空这个目录。</p>
+
+<p>使用了 nvm 后， 附带的npm 被安装在了 <code>$HOME/.nvm/v0.10.26/lib/node_modules/npm/</code> （因为 npm 也只是一个 node module
+而 global package 的安装目录变为 <code>$HOME/.nvm/v0.10.26/lib/node_modules</code>，bin 会被 symlink 到 <code>$HOME/.nvm/v0.10.26/bin</code>，它也已经被加入到 PATH 中.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>npm config get prefix</span></code></pre></td></tr></table></div></figure>
+
+
+<p>另外，我原先的 node 都是用 homebrew 装的，</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ls /usr/local/Cellar/node/
+</span><span class='line'>0.10.17 0.8.14</span></code></pre></td></tr></table></div></figure>
+
+
+<p>npm 被装在 /usr/local/lib/node_modules/npm -> /usr/local/Cellar/node/0.10.17/lib/node_modules/npm</p>
+
+<p>npm prefix 为 /usr/local/share/npm，因而 npm global 包被装在 /usr/local/share/npm/lib/node_modules/</p>
+</div>
+
+
+<div class="post-single">
+  <div class="post-meta">
+    
+
+<span class="categories">
+  Categories:
+  
+    <a class='category' href='/blog/categories/node-/'>node,</a>, <a class='category' href='/blog/categories/nodejs-/'>nodejs,</a>, <a class='category' href='/blog/categories/nvm/'>nvm</a>
+  
+</span>
+
+
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tclh123.github.com/blog/2014/02/26/manage-nodejs-versions-using-nvm/" data-via="tclh123" data-counturl="http://tclh123.github.com/blog/2014/02/26/manage-nodejs-versions-using-nvm/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+  </div>
+  <div class="clear"></div>
+
+  
+    <div id="comments">
+      <h2>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"></div>
+    </div>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tclh123.github.com/blog/2014/02/26/manage-nodejs-versions-using-nvm/';
+        var disqus_url = 'http://tclh123.github.com/blog/2014/02/26/manage-nodejs-versions-using-nvm/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>
