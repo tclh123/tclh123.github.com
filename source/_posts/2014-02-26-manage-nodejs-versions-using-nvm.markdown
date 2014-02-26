@@ -14,10 +14,10 @@ categories: nodejs, node, nvm
 
 ```
 nvm install v0.10.26
-nvm use v0.10.26
 ```
 
-值得注意的是，我装完 0.10.26 以后就直接 `Now using node v0.10.26` 了，貌似 nvm 只能管理使用 nvm 来安装的 nodes，然后按版本被安装到类似`$HOME/.nvm/v0.10.26`的 path.
+装完后会显示 `Now using node v0.10.26`，而在新开的 shell 中需要 `nvm use v0.10.26`。所以设置一个默认版本，`nvm alias default v0.10.26`
+貌似 nvm 只能管理使用 nvm 来安装的 nodes，然后按版本被安装到类似`$HOME/.nvm/v0.10.26`的 path.
 
 安装 node 会附带安装 npm(Node Package Manager)。npm 安装 package 有两种模式，global 跟 local，local的概念就是只在项目目录下安装一份（其实js的安装也只是简单地拷贝文件嘛），这起到了类似 python venv 的功能，可以为每个项目单独隔离出一个包依赖环境。
 那么，为了避免多次安装造成多次download，npm 默认会在 `$HOME/.npm` 目录下 cache 下载的包。`npm cache clean` 可以清空这个目录。
