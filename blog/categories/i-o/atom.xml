@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: I/O | Tclh123's 3rd Blog]]></title>
+  <link href="http://tclh123.github.com/blog/categories/i-o/atom.xml" rel="self"/>
+  <link href="http://tclh123.github.com/"/>
+  <updated>2014-03-11T19:47:12+08:00</updated>
+  <id>http://tclh123.github.com/</id>
+  <author>
+    <name><![CDATA[tclh123]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The I/O Model]]></title>
+    <link href="http://tclh123.github.com/blog/2014/03/11/the-i-slash-o-model/"/>
+    <updated>2014-03-11T19:22:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2014/03/11/the-i-slash-o-model</id>
+    <content type="html"><![CDATA[<p>看了一下午，很想写篇文总结下，但看得太多了，很多都没有深刻理解，暂且挖个坑吧</p>
+
+<h2>Keywords</h2>
+
+<ul>
+<li>同步/异步，阻塞/非阻塞</li>
+<li>Unix 网络编程 5 类 IO 模型：阻塞IO、非阻塞IO、IO多路复用（select/poll等）、信号驱动、异步IO(AIO)</li>
+<li>epoll, kqueue, IOCP</li>
+<li>multi processes/threads, coroutine
+<del>- multi core (parallel), multi machine(distributed, MapReduce)</del></li>
+<li>event-driven, NodeJs, Twisted</li>
+<li>epoll: Tornado web server, Nginx</li>
+<li>erlang, golang, stackless python, python(gevent eventlet greenlet), python(yield, next, send), lua</li>
+</ul>
+
+
+<h2>Reference</h2>
+
+<ul>
+<li>http://www.dabeaz.com/coroutines/</li>
+<li>http://armsword.com/2013/09/14/io-synchronous-and-blocking.html</li>
+<li>http://www.zhihu.com/question/19732473</li>
+<li>http://pengjiaheng.iteye.com/blog/847615</li>
+<li>http://blog.ez2learn.com/2010/07/17/talk-about-coroutine-and-gevent/</li>
+<li>http://twistedmatrix.com/trac/</li>
+<li>http://stackoverflow.com/questions/15526546/confusion-about-node-js-internal-asynchronous-i-o-mechanism</li>
+<li>http://cnodejs.org/topic/4f16442ccae1f4aa2700113b</li>
+<li>http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/</li>
+<li>http://blog.codingnow.com/2006/04/iocp_kqueue_epoll.html</li>
+<li>http://www.ibm.com/developerworks/cn/aix/library/1105_huangrg_kqueue/</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

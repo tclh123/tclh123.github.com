@@ -7,9 +7,7 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="About Css Preprocessor Jul 5th, 2013 在Bootstrap那里看过less，在Octopress那里看过sass。还几次搞混了。了解一下。 Reference SASS用法指南
-LESS介绍及其与Sass的差异
-LESS - 一种 动态 样式 语言. &hellip;">
+  <meta name="description" content="Prevent &#8216;Adobe Reader Updater Helper&#8217; Automatic Run With System on OS X Jul 6th, 2013 今天开机的时候发现Adobe Reader检查更新的进程自启动而且高CPU占用， &hellip;">
   
   
 
@@ -50,6 +48,102 @@ LESS - 一种 动态 样式 语言. &hellip;">
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2013/07/06/os-x-jin-zhi-adobekai-ji-zi-dong-jian-cha-geng-xin/">Prevent &#8216;Adobe Reader Updater Helper&#8217; Automatic Run With System on OS X</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-06T03:19:00+08:00" pubdate data-updated="true">Jul 6<span>th</span>, 2013</time>
+</div>
+
+<div class="post-content"><p>今天开机的时候发现Adobe Reader检查更新的进程自启动而且高CPU占用，不一会儿就弹出个更新提示窗口。</p>
+
+<p>不爽之。</p>
+
+<p>遂在 ~/Library/LaunchAgents 目录下发现 <code>com.adobe.ARM.202f4087f2bbde52e3ac2df389f53a4f123223c9cc56a8fd83a6f7ae.plist</code> 文件一枚，改后缀。。</p>
+
+<p>文件内容是下面这样的。。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</span><span class='line'>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+</span><span class='line'>&lt;plist version="1.0"&gt;
+</span><span class='line'>&lt;dict&gt;
+</span><span class='line'>    &lt;key&gt;Label&lt;/key&gt;
+</span><span class='line'>    &lt;string&gt;com.adobe.ARM.202f4087f2bbde52e3ac2df389f53a4f123223c9cc56a8fd83a6f7ae&lt;/string&gt;
+</span><span class='line'>    &lt;key&gt;ProgramArguments&lt;/key&gt;
+</span><span class='line'>    &lt;array&gt;
+</span><span class='line'>        &lt;string&gt;/Applications/Adobe Reader.app/Contents/MacOS/Updater/Adobe Reader Updater Helper.app/Contents/MacOS/Adobe Reader Updater Helper&lt;/string&gt;
+</span><span class='line'>        &lt;string&gt;semi-auto&lt;/string&gt;
+</span><span class='line'>    &lt;/array&gt;
+</span><span class='line'>    &lt;key&gt;RunAtLoad&lt;/key&gt;
+</span><span class='line'>    &lt;true/&gt;
+</span><span class='line'>    &lt;key&gt;StartInterval&lt;/key&gt;
+</span><span class='line'>    &lt;integer&gt;12600&lt;/integer&gt;
+</span><span class='line'>&lt;/dict&gt;
+</span><span class='line'>&lt;/plist&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在Adobe Reader程序<a href="http://helpx.adobe.com/acrobat/kb/disable-automatic-updates-acrobat-reader.html">首选项里改</a>，也许也可以不弹出更新提示，但是不知道是否依然会有自启动的进程。</p>
+
+<p>反正两边都弄了应该没事了~&#8230;.</p>
+
+<h2>Update</h2>
+
+<p>总结几个OS X潜在的自启动的地方。</p>
+
+<ul>
+<li>/Library/LaunchDaemons/</li>
+<li>/Library/LaunchAgents/</li>
+<li>~/Library/LaunchAgents/</li>
+<li>/System/Library/StartupItems</li>
+<li>/Library/StartupItems</li>
+<li>GUI 的 Login Items（系统偏好，用户群组，登陆项），<em>找不到对应的文件？</em></li>
+</ul>
+
+
+<p>另外这两个是系统级的，</p>
+
+<ul>
+<li>/System/Library/LaunchDaemons/</li>
+<li>/System/Library/LaunchAgents/</li>
+</ul>
+
+
+<p>Ps. 加载顺序应该是 Daemons->Agents->StartupItems（在/System/Library/LaunchDaemons/里可以找到com.apple.SystemStarter.plist，由com.apple.SystemStarter进程负责加载StartupItems）。</p>
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -785,46 +879,6 @@ google到一些<a href="http://www.dbform.com/html/2011/1559.html">用AppleScrip
 <li>个人网站</li>
 </ul>
 
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/05/12/javac-terminal-utf-8-encoding/">Javac Terminal Utf-8 Encoding</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-12T19:38:00+08:00" pubdate data-updated="true">May 12<span>th</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>OS X 的terminal输出信息是utf-8编码的，</p>
-
-<p>但是javac默认输出GBK，会导致乱码。</p>
-
-<p>可以用<code>javac -J-Dfile.encoding=UTF-8</code>来使其输出utf-8编码的信息。</p>
-
-<p>解决方案:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>echo "alias javac='javac -J-Dfile.encoding=UTF-8 '"&gt;&gt;~/.bash_profile</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Reference</h3>
-
-<p><a href="https://www.surfchen.org/archives/710">解决javac和java命令在Mac OSX终端里的乱码问题</a></p>
 </div>
  </div>
 

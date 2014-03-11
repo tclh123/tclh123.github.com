@@ -4,7 +4,7 @@
   <title><![CDATA[Tclh123's 3rd Blog]]></title>
   <link href="http://tclh123.github.com/feed" rel="self"/>
   <link href="http://tclh123.github.com/"/>
-  <updated>2014-02-27T00:06:52+08:00</updated>
+  <updated>2014-03-11T19:47:12+08:00</updated>
   <id>http://tclh123.github.com/</id>
   <author>
     <name><![CDATA[tclh123]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The I/O Model]]></title>
+    <link href="http://tclh123.github.com/blog/2014/03/11/the-i-slash-o-model/"/>
+    <updated>2014-03-11T19:22:00+08:00</updated>
+    <id>http://tclh123.github.com/blog/2014/03/11/the-i-slash-o-model</id>
+    <content type="html"><![CDATA[<p>看了一下午，很想写篇文总结下，但看得太多了，很多都没有深刻理解，暂且挖个坑吧</p>
+
+<h2>Keywords</h2>
+
+<ul>
+<li>同步/异步，阻塞/非阻塞</li>
+<li>Unix 网络编程 5 类 IO 模型：阻塞IO、非阻塞IO、IO多路复用（select/poll等）、信号驱动、异步IO(AIO)</li>
+<li>epoll, kqueue, IOCP</li>
+<li>multi processes/threads, coroutine
+<del>- multi core (parallel), multi machine(distributed, MapReduce)</del></li>
+<li>event-driven, NodeJs, Twisted</li>
+<li>epoll: Tornado web server, Nginx</li>
+<li>erlang, golang, stackless python, python(gevent eventlet greenlet), python(yield, next, send), lua</li>
+</ul>
+
+
+<h2>Reference</h2>
+
+<ul>
+<li>http://www.dabeaz.com/coroutines/</li>
+<li>http://armsword.com/2013/09/14/io-synchronous-and-blocking.html</li>
+<li>http://www.zhihu.com/question/19732473</li>
+<li>http://pengjiaheng.iteye.com/blog/847615</li>
+<li>http://blog.ez2learn.com/2010/07/17/talk-about-coroutine-and-gevent/</li>
+<li>http://twistedmatrix.com/trac/</li>
+<li>http://stackoverflow.com/questions/15526546/confusion-about-node-js-internal-asynchronous-i-o-mechanism</li>
+<li>http://cnodejs.org/topic/4f16442ccae1f4aa2700113b</li>
+<li>http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/</li>
+<li>http://blog.codingnow.com/2006/04/iocp_kqueue_epoll.html</li>
+<li>http://www.ibm.com/developerworks/cn/aix/library/1105_huangrg_kqueue/</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[manage NodeJs versions using NVM]]></title>
@@ -1007,85 +1047,6 @@ atupal</a>用过，印象蛮深。今天挖出来玩玩。</p>
     <content type="html"><![CDATA[<p>巨二。</p>
 
 <p>以后别把包名取做site，import的时候会跟python标准库里的site.py冲突。。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[prevent 'Adobe Reader Updater Helper' automatic run with system on OS X]]></title>
-    <link href="http://tclh123.github.com/blog/2013/07/06/os-x-jin-zhi-adobekai-ji-zi-dong-jian-cha-geng-xin/"/>
-    <updated>2013-07-06T03:19:00+08:00</updated>
-    <id>http://tclh123.github.com/blog/2013/07/06/os-x-jin-zhi-adobekai-ji-zi-dong-jian-cha-geng-xin</id>
-    <content type="html"><![CDATA[<p>今天开机的时候发现Adobe Reader检查更新的进程自启动而且高CPU占用，不一会儿就弹出个更新提示窗口。</p>
-
-<p>不爽之。</p>
-
-<p>遂在 ~/Library/LaunchAgents 目录下发现 <code>com.adobe.ARM.202f4087f2bbde52e3ac2df389f53a4f123223c9cc56a8fd83a6f7ae.plist</code> 文件一枚，改后缀。。</p>
-
-<p>文件内容是下面这样的。。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-</span><span class='line'>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
-</span><span class='line'>&lt;plist version="1.0"&gt;
-</span><span class='line'>&lt;dict&gt;
-</span><span class='line'>    &lt;key&gt;Label&lt;/key&gt;
-</span><span class='line'>    &lt;string&gt;com.adobe.ARM.202f4087f2bbde52e3ac2df389f53a4f123223c9cc56a8fd83a6f7ae&lt;/string&gt;
-</span><span class='line'>    &lt;key&gt;ProgramArguments&lt;/key&gt;
-</span><span class='line'>    &lt;array&gt;
-</span><span class='line'>        &lt;string&gt;/Applications/Adobe Reader.app/Contents/MacOS/Updater/Adobe Reader Updater Helper.app/Contents/MacOS/Adobe Reader Updater Helper&lt;/string&gt;
-</span><span class='line'>        &lt;string&gt;semi-auto&lt;/string&gt;
-</span><span class='line'>    &lt;/array&gt;
-</span><span class='line'>    &lt;key&gt;RunAtLoad&lt;/key&gt;
-</span><span class='line'>    &lt;true/&gt;
-</span><span class='line'>    &lt;key&gt;StartInterval&lt;/key&gt;
-</span><span class='line'>    &lt;integer&gt;12600&lt;/integer&gt;
-</span><span class='line'>&lt;/dict&gt;
-</span><span class='line'>&lt;/plist&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>在Adobe Reader程序<a href="http://helpx.adobe.com/acrobat/kb/disable-automatic-updates-acrobat-reader.html">首选项里改</a>，也许也可以不弹出更新提示，但是不知道是否依然会有自启动的进程。</p>
-
-<p>反正两边都弄了应该没事了~&#8230;.</p>
-
-<h2>Update</h2>
-
-<p>总结几个OS X潜在的自启动的地方。</p>
-
-<ul>
-<li>/Library/LaunchDaemons/</li>
-<li>/Library/LaunchAgents/</li>
-<li>~/Library/LaunchAgents/</li>
-<li>/System/Library/StartupItems</li>
-<li>/Library/StartupItems</li>
-<li>GUI 的 Login Items（系统偏好，用户群组，登陆项），<em>找不到对应的文件？</em></li>
-</ul>
-
-
-<p>另外这两个是系统级的，</p>
-
-<ul>
-<li>/System/Library/LaunchDaemons/</li>
-<li>/System/Library/LaunchAgents/</li>
-</ul>
-
-
-<p>Ps. 加载顺序应该是 Daemons->Agents->StartupItems（在/System/Library/LaunchDaemons/里可以找到com.apple.SystemStarter.plist，由com.apple.SystemStarter进程负责加载StartupItems）。</p>
 ]]></content>
   </entry>
   

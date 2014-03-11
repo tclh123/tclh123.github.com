@@ -1,0 +1,197 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Tclh123's 3rd Blog</title>
+
+  <meta name="author" content="tclh123">
+  
+  <meta name="description" content="The I/O Model Mar 11th, 2014 看了一下午，很想写篇文总结下，但看得太多了，很多都没有深刻理解，暂且挖个坑吧 Keywords 同步/异步，阻塞/非阻塞
+Unix 网络编程 5 类 IO 模型：阻塞IO、非阻塞IO、IO多路复用（select/poll等）、信号驱动、 &hellip;">
+  
+  
+
+  <link rel="canonical" href="http://tclh123.github.com/blog/2014/03/11/the-i-slash-o-model">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tclh123's 3rd Blog" type="application/atom+xml">
+</head>
+  
+<body class="default">
+  <div id="wrapper">
+    <div id="header">
+  <h1><a href="/">Tclh123's 3rd Blog</a></h1>
+  
+    <p>I never quit, I never forgot my dreams.</p>
+  
+</div>
+<ul id="social-links">
+  
+    <li><a class="feed" href="/atom.xml" title="RSS">RSS</a></li>
+  
+  
+    <li><a class="twitter" href="http://twitter.com/tclh123" title="Twitter">Twitter</a></li>
+  
+  
+    <li> <a class="github" href="https://github.com/tclh123" title="GitHub">GitHub</a> </li>
+  
+</ul>
+<div class="clear"></div>
+<ul id="nav">
+  
+    <li> <a href="/">blog</a> </li>
+  
+
+  
+    <li><a href="/blog/archives">archives</a></li>
+  
+</ul>
+
+    <div id="main"> <div class="post-header">
+  
+    <h1 class="post-title">The I/O Model</h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-11T19:22:00+08:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
+</div>
+
+<div class="post-content"><p>看了一下午，很想写篇文总结下，但看得太多了，很多都没有深刻理解，暂且挖个坑吧</p>
+
+<h2>Keywords</h2>
+
+<ul>
+<li>同步/异步，阻塞/非阻塞</li>
+<li>Unix 网络编程 5 类 IO 模型：阻塞IO、非阻塞IO、IO多路复用（select/poll等）、信号驱动、异步IO(AIO)</li>
+<li>epoll, kqueue, IOCP</li>
+<li>multi processes/threads, coroutine
+<del>- multi core (parallel), multi machine(distributed, MapReduce)</del></li>
+<li>event-driven, NodeJs, Twisted</li>
+<li>epoll: Tornado web server, Nginx</li>
+<li>erlang, golang, stackless python, python(gevent eventlet greenlet), python(yield, next, send), lua</li>
+</ul>
+
+
+<h2>Reference</h2>
+
+<ul>
+<li>http://www.dabeaz.com/coroutines/</li>
+<li>http://armsword.com/2013/09/14/io-synchronous-and-blocking.html</li>
+<li>http://www.zhihu.com/question/19732473</li>
+<li>http://pengjiaheng.iteye.com/blog/847615</li>
+<li>http://blog.ez2learn.com/2010/07/17/talk-about-coroutine-and-gevent/</li>
+<li>http://twistedmatrix.com/trac/</li>
+<li>http://stackoverflow.com/questions/15526546/confusion-about-node-js-internal-asynchronous-i-o-mechanism</li>
+<li>http://cnodejs.org/topic/4f16442ccae1f4aa2700113b</li>
+<li>http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/</li>
+<li>http://blog.codingnow.com/2006/04/iocp_kqueue_epoll.html</li>
+<li>http://www.ibm.com/developerworks/cn/aix/library/1105_huangrg_kqueue/</li>
+</ul>
+
+</div>
+
+
+<div class="post-single">
+  <div class="post-meta">
+    
+
+<span class="categories">
+  Categories:
+  
+    <a class='category' href='/blog/categories/i-o/'>I/O</a>, <a class='category' href='/blog/categories/nodejs/'>NodeJs</a>
+  
+</span>
+
+
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tclh123.github.com/blog/2014/03/11/the-i-slash-o-model/" data-via="tclh123" data-counturl="http://tclh123.github.com/blog/2014/03/11/the-i-slash-o-model/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+  </div>
+  <div class="clear"></div>
+
+  
+    <div id="comments">
+      <h2>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"></div>
+    </div>
+  
+</div>
+ </div>
+    <div id="footer">
+  <p>
+    如非特别声明，本 Blog 的文章由 tclh123 创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported 许可协议</a>进行许可。
+  </p>
+  <p>
+    Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/iwinux/compbits">Compbits</a>
+  </p>
+  
+	<script type='text/javascript'>
+	(function() {
+	    var c = document.createElement('script'); 
+	    c.type = 'text/javascript';
+	    c.async = true;
+	    c.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.clicki.cn/boot/48216';
+	    var h = document.getElementsByTagName('script')[0];
+	    h.parentNode.insertBefore(c, h);
+	})();
+	</script>  
+</div>
+  </div> <!-- #wrapper end -->
+
+  
+
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tclh123github';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tclh123.github.com/blog/2014/03/11/the-i-slash-o-model/';
+        var disqus_url = 'http://tclh123.github.com/blog/2014/03/11/the-i-slash-o-model/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

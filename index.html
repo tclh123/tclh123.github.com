@@ -7,7 +7,8 @@
 
   <meta name="author" content="tclh123">
   
-  <meta name="description" content="Manage NodeJs Versions Using NVM Feb 26th, 2014 顾名思义啦，NVM(Node Version Manager). 根据 https://github.com/creationix/nvm 可以很方便地安装， 然后可以很方便地安装、 &hellip;">
+  <meta name="description" content="The I/O Model Mar 11th, 2014 看了一下午，很想写篇文总结下，但看得太多了，很多都没有深刻理解，暂且挖个坑吧 Keywords 同步/异步，阻塞/非阻塞
+Unix 网络编程 5 类 IO 模型：阻塞IO、非阻塞IO、IO多路复用（select/poll等）、信号驱动、 &hellip;">
   
   
 
@@ -48,6 +49,63 @@
 </ul>
 
     <div id="main"> 
+
+  
+  <div class="post"> <div class="post-header">
+  
+    <h1 class="post-title">
+      <a href="/blog/2014/03/11/the-i-slash-o-model/">The I/O Model</a>
+    </h1>
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-11T19:22:00+08:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
+</div>
+
+<div class="post-content"><p>看了一下午，很想写篇文总结下，但看得太多了，很多都没有深刻理解，暂且挖个坑吧</p>
+
+<h2>Keywords</h2>
+
+<ul>
+<li>同步/异步，阻塞/非阻塞</li>
+<li>Unix 网络编程 5 类 IO 模型：阻塞IO、非阻塞IO、IO多路复用（select/poll等）、信号驱动、异步IO(AIO)</li>
+<li>epoll, kqueue, IOCP</li>
+<li>multi processes/threads, coroutine
+<del>- multi core (parallel), multi machine(distributed, MapReduce)</del></li>
+<li>event-driven, NodeJs, Twisted</li>
+<li>epoll: Tornado web server, Nginx</li>
+<li>erlang, golang, stackless python, python(gevent eventlet greenlet), python(yield, next, send), lua</li>
+</ul>
+
+
+<h2>Reference</h2>
+
+<ul>
+<li>http://www.dabeaz.com/coroutines/</li>
+<li>http://armsword.com/2013/09/14/io-synchronous-and-blocking.html</li>
+<li>http://www.zhihu.com/question/19732473</li>
+<li>http://pengjiaheng.iteye.com/blog/847615</li>
+<li>http://blog.ez2learn.com/2010/07/17/talk-about-coroutine-and-gevent/</li>
+<li>http://twistedmatrix.com/trac/</li>
+<li>http://stackoverflow.com/questions/15526546/confusion-about-node-js-internal-asynchronous-i-o-mechanism</li>
+<li>http://cnodejs.org/topic/4f16442ccae1f4aa2700113b</li>
+<li>http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/</li>
+<li>http://blog.codingnow.com/2006/04/iocp_kqueue_epoll.html</li>
+<li>http://www.ibm.com/developerworks/cn/aix/library/1105_huangrg_kqueue/</li>
+</ul>
+
+</div>
+ </div>
 
   
   <div class="post"> <div class="post-header">
@@ -764,52 +822,6 @@ The first time you run cabal, a Mac specific configuration is written into the ~
 <li>http://stackoverflow.com/questions/1136826/what-does-python-sys-intern-do-and-when-should-it-be-used/1137293</li>
 </ul>
 
-</div>
- </div>
-
-  
-  <div class="post"> <div class="post-header">
-  
-    <h1 class="post-title">
-      <a href="/blog/2013/11/23/always-trust-rvmrc-file/">Always Trust .rvmrc File</a>
-    </h1>
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-23T19:26:00+08:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2013</time>
-</div>
-
-<div class="post-content"><p>使用Octopress的时候目录里默认存在一个<code>.rvmrc</code>文件，</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rvm use 1.9.3</span></code></pre></td></tr></table></div></figure>
-
-
-<p>目测是指定ruby版本用的。每次进入目录都会有<code>Do you wish to trust this .rvmrc file?</code>的提示，需要手动确认。
-还是挺烦的&#8230;</p>
-
-<p>其实，<code>rvm list</code> 可以看到我机子上只有这一个版本</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rvm rubies
-</span><span class='line'>
-</span><span class='line'>=&gt; ruby-1.9.3-p327 [ x86_64 ]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>所以这个 <code>.rvmrc</code> 是毫无意义的，可以删掉&#8230;
-或者在<code>~/.rvmrc</code>里写入<code>export rvm_trust_rvmrcs_flag=1</code></p>
 </div>
  </div>
 
